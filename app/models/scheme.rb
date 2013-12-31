@@ -18,8 +18,6 @@ class Scheme
   attribute :company_size_ids, Array[String]
   attribute :age_range_ids, Array[String]
 
-  # mount_uploader :logo, LogoUploader
-
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
   validates :contact_email, presence: true, email: true

@@ -22,9 +22,6 @@ gem "decent_exposure", "~>2.3.0"
 gem "active_hash", ">= 1.2.2"
 gem "virtus"
 
-gem "carrierwave"
-gem "mini_magick"
-
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
