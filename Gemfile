@@ -16,6 +16,14 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem "slim-rails"
+gem "simple_form", "~> 3.0.0"
+
+gem "decent_exposure", "~>2.3.0"
+gem "active_hash", ">= 1.2.2"
+gem "virtus"
+
+gem "carrierwave"
+gem "mini_magick"
 
 group :development do
   gem "spring"
@@ -24,7 +32,14 @@ group :development do
 end
 
 group :test do
-  gem "rspec-rails", "~> 2.14.0"
   gem "capybara"
   gem "factory_girl_rails"
+end
+
+group :development, :test do
+  gem "quiet_assets"
+  gem "forgery"
+  gem "pry-rails"
+  gem "byebug"
+  gem "rspec-rails", "~> 2.14.0"
 end
