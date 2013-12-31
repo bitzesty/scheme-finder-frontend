@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
+gem "foreman"
+gem "dotenv-rails"
 gem "hipchat", "~> 1.0.1"
 gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 
