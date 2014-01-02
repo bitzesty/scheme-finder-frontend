@@ -17,7 +17,7 @@ class SchemesController < ApplicationController
 
   def index
     @search = SchemeSearch.new(params[:search])
-    @schemes = @search.results
+    @schemes = @search.results.for_kaminari
   end
 
   private

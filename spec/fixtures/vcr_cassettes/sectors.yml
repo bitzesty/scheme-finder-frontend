@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/sectors.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Thu, 02 Jan 2014 15:36:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"12b2b7d3ca1d5b5e601c5ddd0fa73999"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3323dcf7-3612-485c-a616-372092cceeea
+      X-Runtime:
+      - '0.007315'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
+        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
+        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
+        Energy"},{"id":"other","name":"Other"}]'
+    http_version: 
+  recorded_at: Thu, 02 Jan 2014 15:36:04 GMT
+recorded_with: VCR 2.8.0

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/locations.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Thu, 02 Jan 2014 15:36:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"ec3967f0a3a48e27978fa4c98135f343"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2a84acdb-146f-4c75-82d4-a7b294a27cf5
+      X-Runtime:
+      - '0.005863'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"any","name":"Any Location"},{"id":"england","name":"All of
+        England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
+        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
+        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
+        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
+        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
+        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]'
+    http_version: 
+  recorded_at: Thu, 02 Jan 2014 15:36:04 GMT
+recorded_with: VCR 2.8.0

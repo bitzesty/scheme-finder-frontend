@@ -11,39 +11,45 @@ h4 Search
               as: :boolean,
               label: "Have you engaged with schools before?"
 
-    = f.input :location,
+    = f.input :locations,
               as: :select,
+              label: 'Locations',
               collection: Location.collection,
               required: false,
               input_html: { class: "span6 js-select2 js-select2" }
 
-    = f.input :sector,
+    = f.input :sectors,
               as: :select,
+              label: 'Sectors',
               collection: Sector.collection,
               required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :commitment_length,
+    = f.input :commitment_lengths,
               as: :select,
+              label: 'Commitment length',
               collection: CommitmentLength.collection,
               label: "Length of commitment",
               required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :activity,
+    = f.input :activities,
               as: :select,
               collection: Activity.collection,
+              label: 'Activities',
               required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :company_size,
+    = f.input :company_sizes,
               as: :select,
               collection: CompanySize.collection,
+              label: 'Company size',
               required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :age_range,
+    = f.input :age_ranges,
               as: :select,
+              label: 'Age range',
               collection: AgeRange.collection,
               required: false,
               input_html: { class: "span6 js-select2" }

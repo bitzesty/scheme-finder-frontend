@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/activities.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Thu, 02 Jan 2014 15:36:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"681611f816f6423e15df02efc20d4598"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 519f16db-886b-41b4-becf-fb9dfc1d18ab
+      X-Runtime:
+      - '0.006062'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"apprenticeships","name":"Apprenticeships"},{"id":"work_experience","name":"Work
+        experience"},{"id":"workplace_visits","name":"Workplace visits"},{"id":"hands_on_talks","name":"Hands-on
+        activities"},{"id":"inspiring_talks","name":"Inspiring talks"},{"id":"ambasadors","name":"Ambassadors"},{"id":"lesson_materials","name":"Lesson
+        materials"}]'
+    http_version: 
+  recorded_at: Thu, 02 Jan 2014 15:36:04 GMT
+recorded_with: VCR 2.8.0

@@ -1,22 +1,24 @@
 class SchemeSearch
+  PER_PAGE = 10
+
   include Virtus.model
 
   attribute :had_direct_interactions, Boolean
-  attribute :location, String
-  attribute :sector, String
-  attribute :commitment_length, String
-  attribute :activity, String
-  attribute :company_size, String
-  attribute :age_range, String
+  attribute :locations, Array[String]
+  attribute :sectors, Array[String]
+  attribute :commitment_lengths, Array[String]
+  attribute :activities, Array[String]
+  attribute :company_sizes, Array[String]
+  attribute :age_ranges, Array[String]
   attribute :page, Integer, default: 1
-  attribute :per_page, Integer
+  attribute :per_page, Integer, default: PER_PAGE
 
   def persisted?
     false
   end
 
   def results
-    Scheme.paginated(query: search_attributes).for_kaminari
+    @results ||= Scheme.paginated(query: search_attributes)
   end
 
   def search_attributes

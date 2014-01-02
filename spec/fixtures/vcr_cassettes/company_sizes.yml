@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/company_sizes.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Thu, 02 Jan 2014 15:36:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"404589fa6fea68e408a7fe4a0909e8c3"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cd582132-c000-4fa6-9814-84296dc539d0
+      X-Runtime:
+      - '0.010338'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
+        +","name":"1000 +"}]'
+    http_version: 
+  recorded_at: Thu, 02 Jan 2014 15:36:03 GMT
+recorded_with: VCR 2.8.0

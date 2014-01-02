@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/age_ranges.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Thu, 02 Jan 2014 15:36:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"b808633e696cabe569e77b101a8d7b0d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f855357d-5a14-40cd-9c73-ecebb4611e21
+      X-Runtime:
+      - '0.010654'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"primary_school_children","name":"Primary school children"},{"id":"secondary_school_children","name":"Secondary
+        school children"},{"id":"over_18","name":"18+"}]'
+    http_version: 
+  recorded_at: Thu, 02 Jan 2014 15:36:04 GMT
+recorded_with: VCR 2.8.0

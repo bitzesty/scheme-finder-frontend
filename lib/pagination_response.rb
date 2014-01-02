@@ -5,7 +5,7 @@ class PaginationResponse
 
   attr_accessor :records, :total_count, :current_page, :limit
 
-  def initialize(records, total_count_count, current_page, limit)
+  def initialize(records, total_count, current_page, limit)
     @records = records
     @total_count = total_count
     @current_page = current_page
