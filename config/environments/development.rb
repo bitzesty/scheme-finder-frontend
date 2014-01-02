@@ -26,6 +26,7 @@ SchemeFinderFrontend::Application.configure do
 
   config.after_initialize do
     SchemeFinderFrontend.configure do |app_config|
+      app_config.debug_output = true
     end
   end
 end
