@@ -1,5 +1,4 @@
 require 'httparty'
-require 'multi_json'
 
 module ApiEntity
   class NotFound < StandardError; end
@@ -8,12 +7,9 @@ module ApiEntity
   extend ActiveSupport::Concern
 
   included do
-    include ActiveModel::Validations
-    include ActiveModel::Conversion
-    extend  ActiveModel::Naming
+    include ActiveModel::Model
 
     include HTTParty
-    include MultiJson
     base_uri SchemeFinderFrontend.api_url
     debug_output if SchemeFinderFrontend.debug_output
 
