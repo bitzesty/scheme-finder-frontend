@@ -5,7 +5,7 @@ describe SchemeSearch do
   let(:search) { search_class.new(search_params) }
   let(:search_params) do
     {
-      sectors: ["life_sciences"],
+      sectors: ["auto"],
     }
   end
 
@@ -13,7 +13,7 @@ describe SchemeSearch do
     let(:result) { search.results }
 
     it "returns response with pagination related information" do
-      VCR.use_cassette("schemes") do
+      VCR.use_cassette("schemes_auto") do
         expect(result.total_count).to eq 1
         expect(result.current_page).to eq 1
         expect(result.limit).to eq search_class::PER_PAGE

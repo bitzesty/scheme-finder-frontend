@@ -17,13 +17,17 @@ class SchemesController < ApplicationController
 
   def index
     @search = SchemeSearch.new(search_params)
-    @schemes = @search.results.for_kaminari
+    @schemes = if params[:search]
+                 @search.results.for_kaminari
+               else
+                 []
+               end
   end
 
   private
 
   def search_params
-    params[:search].merge({
+    (params[:search] || {}).merge({
       page: params[:page],
       per_page: params[:per_page],
     })
