@@ -1,9 +1,9 @@
-class AgeRange < ActiveHash::Base
-  self.data = [
-    { id: "primary_school_children", name: "Primary school children" },
-    { id: "secondary_school_children", name: "Secondary school children" },
-    { id: "over_18", name: "18+" },
-  ]
+require 'api_entity'
+
+class AgeRange
+  include ApiEntity
+
+  attr_accessor :id, :name
 
   def to_s
     name
@@ -11,9 +11,5 @@ class AgeRange < ActiveHash::Base
 
   def self.collection
     all
-  end
-
-  def self.ids
-    all.map(&:id)
   end
 end
