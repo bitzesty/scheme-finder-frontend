@@ -15,6 +15,11 @@ class SchemesController < ApplicationController
     @scheme = Scheme.new
   end
 
+  def index
+    @search = SchemeSearch.new(params[:search])
+    @schemes = @search.results
+  end
+
   private
 
   def scheme_params

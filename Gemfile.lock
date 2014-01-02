@@ -38,6 +38,9 @@ GEM
     addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
+    axiom-types (0.0.5)
+      descendants_tracker (~> 0.0.1)
+      ice_nine (~> 0.9)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -61,6 +64,8 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -72,10 +77,12 @@ GEM
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     debugger-linecache (1.2.0)
+    descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
     dotenv (0.9.0)
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.3.0)
@@ -99,10 +106,14 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
+    ice_nine (0.11.0)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -212,6 +223,11 @@ GEM
       rack
       raindrops (~> 0.7)
     vcr (2.8.0)
+    virtus (1.0.1)
+      axiom-types (~> 0.0.5)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0.1)
+      equalizer (~> 0.0.7)
     webmock (1.16.1)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
@@ -237,6 +253,7 @@ DEPENDENCIES
   httmultiparty
   httparty
   jquery-rails
+  kaminari
   pry-rails
   quiet_assets
   rails (= 4.0.2)
@@ -249,4 +266,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   vcr
+  virtus
   webmock

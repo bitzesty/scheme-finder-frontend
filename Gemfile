@@ -19,9 +19,11 @@ gem 'jquery-rails'
 
 gem "slim-rails"
 gem "simple_form", "~> 3.0.0"
+gem "kaminari"
 
 gem "httparty"
 gem "httmultiparty"
+gem "virtus"
 
 group :development do
   gem "spring"
