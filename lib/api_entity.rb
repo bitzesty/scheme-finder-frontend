@@ -11,7 +11,7 @@ module ApiEntity
     include ActiveModel::Conversion
     extend  ActiveModel::Naming
 
-    include HTTParty
+    include HTTMultiParty
     base_uri SchemeFinderFrontend.api_url
     debug_output if SchemeFinderFrontend.debug_output
 
