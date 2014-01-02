@@ -20,13 +20,7 @@ gem 'jquery-rails'
 gem "slim-rails"
 gem "simple_form", "~> 3.0.0"
 
-gem "decent_exposure", "~>2.3.0"
-gem "active_hash", ">= 1.2.2"
-gem "virtus"
-
-gem "multi_json"
 gem "httparty"
-gem "hashie"
 
 group :development do
   gem "spring"
