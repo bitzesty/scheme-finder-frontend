@@ -4,7 +4,7 @@ class SchemesController < ApplicationController
 
     if @scheme.save
       redirect_to new_scheme_url,
-                  notice: "Scheme submitted for administrator approval"
+                  notice: "Scheme submitted for approval"
     else
       render :new
     end

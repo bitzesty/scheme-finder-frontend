@@ -21,13 +21,22 @@ class Scheme
   end
 
   def save
-    resp = self.class.post(self.class.collection_path, query: { scheme: attributes }, headers: SchemeFinderFrontend.api_authorization_header)
+    resp = self.class.post(
+      self.class.collection_path,
+      query: { scheme: attributes },
+      headers: SchemeFinderFrontend.api_authorization_header
+    )
 
     case resp.code
+    when 200
+      true
     when 422
       json = JSON.parse(resp.body)
       assign_errors(json['errors'])
 
+      false
+    else
+      # TBD, add a custom error
       false
     end
   end
