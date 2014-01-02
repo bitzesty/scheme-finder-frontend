@@ -1,6 +1,8 @@
 module SchemeFinderFrontend
   DEFAULT_PARAMS = {
-    api_access_token: "development"
+    api_access_token: "development",
+    api_url: "http://scheme-finder-api.dev.bitzesty.com/api/v1",
+    debug_output: false,
   }
 
   class << self

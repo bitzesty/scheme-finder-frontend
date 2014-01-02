@@ -1,9 +1,11 @@
 SchemeFinderFrontend::Application.routes.draw do
-  resource :pages, only: [] do
+  resource :page, only: [] do
     member {
       get :about
     }
   end
 
-  root to: 'pages#about'
+  resources :schemes, only: [:new, :create]
+
+  root to: 'schemes#new'
 end
