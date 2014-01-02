@@ -101,6 +101,7 @@ module ApiEntity
     end
 
     def paginated(opts = {})
+      binding.pry
       resp = fetch_response_for(collection_path, opts).with_indifferent_access
       PaginationResponse.new resp[collection_name].map { |entry_data| new(entry_data) },
                              resp[:total],

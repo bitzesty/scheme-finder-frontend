@@ -2,12 +2,12 @@ class SchemeSearch
   include Virtus.model
 
   attribute :had_direct_interactions, Boolean
-  attribute :location_ids, Array[String]
-  attribute :sector_ids, Array[String]
-  attribute :commitment_length_ids, Array[String]
-  attribute :activity_ids, Array[String]
-  attribute :company_size_ids, Array[String]
-  attribute :age_range_ids, Array[String]
+  attribute :location, String
+  attribute :sector, String
+  attribute :commitment_length, String
+  attribute :activity, String
+  attribute :company_size, String
+  attribute :age_range, String
   attribute :page, Integer, default: 1
   attribute :per_page, Integer
 
@@ -16,6 +16,12 @@ class SchemeSearch
   end
 
   def results
-    Scheme.paginated(attributes).for_kaminari
+    Scheme.paginated(query: search_attributes).for_kaminari
+  end
+
+  def search_attributes
+    attributes.select do |key, value|
+      Array.wrap(value).reject(&:blank?).any?
+    end
   end
 end

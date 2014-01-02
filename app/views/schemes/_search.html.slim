@@ -11,51 +11,45 @@ h4 Search
               as: :boolean,
               label: "Have you engaged with schools before?"
 
-    = f.input :location_ids,
+    = f.input :location,
               as: :select,
-              label: 'Locations',
               collection: Location.collection,
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2 js-select2" }
 
-    = f.input :sector_ids,
+    = f.input :sector,
               as: :select,
-              label: 'Sectors',
               collection: Sector.collection,
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :commitment_length_ids,
+    = f.input :commitment_length,
               as: :select,
-              label: 'Commitment length',
               collection: CommitmentLength.collection,
               label: "Length of commitment",
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :activity_ids,
+    = f.input :activity,
               as: :select,
               collection: Activity.collection,
-              label: 'Activities',
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :company_size_ids,
+    = f.input :company_size,
               as: :select,
               collection: CompanySize.collection,
-              label: 'Company size',
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2" }
 
-    = f.input :age_range_ids,
+    = f.input :age_range,
               as: :select,
-              label: 'Age range',
               collection: AgeRange.collection,
-              required: true,
+              required: false,
               input_html: { class: "span6 js-select2" }
 
   .form-actions
-    = f.button :submit,
+    = f.button :submit, "Search",
                class: "btn btn-primary",
                id: "submit_btn",
                data: { action: "submit" }
