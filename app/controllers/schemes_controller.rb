@@ -2,7 +2,6 @@ class SchemesController < ApplicationController
   expose(:scheme, attributes: :scheme_params)
 
   def create
-    binding.pry
     if scheme.valid?
       redirect_to new_scheme_url,
                   notice: "Scheme submitted for administrator approval"
