@@ -16,3 +16,6 @@
 /tmp
 .env
 config/database.yml
+
+# Ignore vcr cassettes
+spec/fixtures/vcr_cassettes/
