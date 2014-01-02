@@ -1,3 +1,5 @@
+require 'api_entity'
+
 module SchemeFinderFrontend
   DEFAULT_PARAMS = {
     api_access_token: "development",
@@ -20,6 +22,16 @@ module SchemeFinderFrontend
 
     def api_url
       "#{api_host}#{api_path}"
+    end
+
+    def api_authorization_header
+      { 'Authorization' => encoded_api_access_token }
+    end
+
+    def encoded_api_access_token
+      ActionController::HttpAuthentication::Token.encode_credentials(
+        api_access_token
+      )
     end
   end
 end
