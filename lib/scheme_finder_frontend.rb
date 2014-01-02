@@ -1,7 +1,8 @@
 module SchemeFinderFrontend
   DEFAULT_PARAMS = {
     api_access_token: "development",
-    api_url: "http://scheme-finder-api.dev.bitzesty.com/api/v1",
+    api_host: "scheme-finder-api.dev.bitzesty.com",
+    api_path: "/api/v1",
     debug_output: false,
   }
 
@@ -15,6 +16,10 @@ module SchemeFinderFrontend
     def configure
       self.configuration ||= OpenStruct.new(DEFAULT_PARAMS)
       yield(configuration)
+    end
+
+    def api_url
+      "#{api_host}#{api_path}"
     end
   end
 end

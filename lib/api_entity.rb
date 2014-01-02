@@ -14,8 +14,8 @@ module ApiEntity
 
     include HTTParty
     include MultiJson
-    base_uri SchemeFinderFrontend.configuration.api_url
-    debug_output if SchemeFinderFrontend.configuration.debug_output
+    base_uri SchemeFinderFrontend.api_url
+    debug_output if SchemeFinderFrontend.debug_output
 
     attr_reader :attributes
 
