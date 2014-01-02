@@ -1,23 +1,24 @@
 class SchemesController < ApplicationController
-  expose(:scheme, attributes: :scheme_params)
-
   def create
-    if scheme.valid?
+    @scheme = Scheme.new(scheme_params)
+
+    if @scheme.save
       redirect_to new_scheme_url,
-                  notice: "Scheme submitted for administrator approval"
+                  notice: "Scheme submitted for approval"
     else
       render :new
     end
   end
 
   def new
+    @scheme = Scheme.new
   end
 
   private
 
   def scheme_params
     params.require(:scheme).permit(
-      :had_direct_interactions,  :logo, :logo_cache,
+      :had_direct_interactions,  :logo,
       :contact_name, :contact_email, :contact_phone,
       :name, :website, :description,
       location_ids: [],

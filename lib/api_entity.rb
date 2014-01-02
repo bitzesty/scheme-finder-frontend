@@ -1,5 +1,4 @@
 require 'httparty'
-require 'multi_json'
 
 module ApiEntity
   class NotFound < StandardError; end
@@ -13,11 +12,10 @@ module ApiEntity
     extend  ActiveModel::Naming
 
     include HTTParty
-    include MultiJson
-    base_uri SchemeFinderFrontend.configuration.api_url
-    debug_output if SchemeFinderFrontend.configuration.debug_output
+    base_uri SchemeFinderFrontend.api_url
+    debug_output if SchemeFinderFrontend.debug_output
 
-    attr_reader :attributes
+    attr_reader :attributes, :errors
 
     attr_accessor :casted_by
 
@@ -33,6 +31,7 @@ module ApiEntity
   end
 
   def initialize(attributes = {})
+    @errors = ActiveModel::Errors.new(self)
     class_name = self.class.name.downcase
 
     attributes = HashWithIndifferentAccess.new(attributes)
@@ -48,7 +47,7 @@ module ApiEntity
     end
   end
 
-  def attributes=(attributes={})
+  def attributes=(attributes = {})
     attributes.each do |name, value|
       if self.respond_to?(:"#{name}=")
         send(:"#{name}=", (value.is_a?(String) && value == "null") ? nil : value)
@@ -59,6 +58,15 @@ module ApiEntity
   def persisted?
     true
   end
+
+  def assign_errors(errors = {})
+    Hash(errors).each do |attribute, error_messages|
+      Array(error_messages).each do |error_message|
+        @errors.add(attribute, error_message)
+      end
+    end
+  end
+  private :assign_errors
 
   module ClassMethods
     def all(opts = {})

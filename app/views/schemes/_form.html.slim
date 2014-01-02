@@ -1,4 +1,4 @@
-= simple_form_for scheme,
+= simple_form_for @scheme,
                   as: :scheme,
                   url: schemes_path,
                   html: { class: "horizontal-form" } do |f|
@@ -7,16 +7,15 @@
               as: :file,
               input_html: { class: "span5" }
 
-    = f.input :logo_cache, as: :hidden
-
     = f.input :contact_name
     = f.input :contact_email
     = f.input :contact_phone
     = f.input :name
     = f.input :website
-    = f.input :description
+    = f.input :description, as: :text
 
     = f.input :had_direct_interactions,
+              as: :boolean,
               label: "Should have engaged with schools before?"
 
     = f.input :location_ids,

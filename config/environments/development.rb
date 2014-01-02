@@ -27,6 +27,7 @@ SchemeFinderFrontend::Application.configure do
   config.after_initialize do
     SchemeFinderFrontend.configure do |app_config|
       app_config.debug_output = true
+      app_config.api_host = "localhost:3000"
     end
   end
 end
