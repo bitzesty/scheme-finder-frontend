@@ -9,5 +9,7 @@
     ul.schemes
       - @schemes.each do |scheme|
         = render "scheme", scheme: scheme
+
+    = paginate @schemes
   - else
     p Please choose search criteria

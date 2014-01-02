@@ -16,11 +16,18 @@ class SchemesController < ApplicationController
   end
 
   def index
-    @search = SchemeSearch.new(params[:search])
+    @search = SchemeSearch.new(search_params)
     @schemes = @search.results.for_kaminari
   end
 
   private
+
+  def search_params
+    params[:search].merge({
+      page: params[:page],
+      per_page: params[:per_page],
+    })
+  end
 
   def scheme_params
     params.require(:scheme).permit(
