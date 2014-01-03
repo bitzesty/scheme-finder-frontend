@@ -82,6 +82,7 @@ SchemeFinderFrontend::Application.configure do
     SchemeFinderFrontend.configure do |app_config|
       # No auth required in test environment
       app_config.api_access_token = ENV['API_ACCESS_TOKEN']
+      app_config.api_host = 'scheme-finder-api.app'
     end
   end
 end
