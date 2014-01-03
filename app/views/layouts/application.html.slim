@@ -1,5 +1,27 @@
+= content_for :head do
+  == stylesheet_link_tag "application", media: "all"
+
 = content_for :after_header do
   = render 'messages'
+
+= content_for :body_classes, "mainstream"
+
+= content_for :inside_header do
+  | Make it in Great Britain for businesses
+
+= content_for :content do
+  #wrapper.scheme-finder-frontend
+    main#content.group role="main"
+      header.page-header.group
+        div
+          h1
+            = yield :inside_header
+
+      .article-container.group
+        article.group[role="article"]
+          = yield
+
 = content_for :body_end do
   = javascript_include_tag "application"
+
 = render template: 'layouts/govuk_template'

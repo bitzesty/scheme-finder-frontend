@@ -1,0 +1,18 @@
+.inner
+  section.intro
+    .get-started-intro
+      p
+        | Find opportunities for businesses including:
+      ul
+        li
+          | TEXT
+
+    p#get-started.get-started.group
+      = link_to schemes_path, class: "big button" do
+        | Get started
+        span.indicator
+
+    p#submit-scheme.submit-scheme.group
+      = link_to new_scheme_path, class: "big button" do
+        | Submit scheme application
+        span.indicator

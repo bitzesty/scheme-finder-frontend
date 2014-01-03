@@ -17,11 +17,12 @@ class SchemesController < ApplicationController
 
   def index
     @search = SchemeSearch.new(search_params)
-    @schemes = if params[:search]
-                 @search.results.for_kaminari
-               else
-                 []
-               end
+    if params[:search]
+      @search_conducted = true
+      @search_results = @search.results
+      @total_schemes = @search_results.total_count
+      @schemes = @search_results.for_kaminari
+    end
   end
 
   private

@@ -11,6 +11,7 @@ gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 gem 'unicorn'
 
 gem "govuk_template"
+gem "govuk_frontend_toolkit"
 gem "bootstrap-sass", ">= 3.0.0.0"
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
