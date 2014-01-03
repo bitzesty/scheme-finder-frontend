@@ -45,12 +45,16 @@ module ApplicationHelper
     end
   end
 
-  def data_controller_name
+  def js_controller_class
     if controller.class.name
       controller.class.name.gsub("::", "_")
     else
       controller.to_s
     end
+  end
+
+  def js_controller_action
+    action_name
   end
 
   def object_link(object, path_proc, opts = {})

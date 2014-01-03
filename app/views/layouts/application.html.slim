@@ -1,5 +1,7 @@
 = content_for :head do
   == stylesheet_link_tag "application", media: "all"
+  meta name="controller-class" content=js_controller_class
+  meta name="controller-action" content=js_controller_action
 
 = content_for :after_header do
   = render 'messages'
