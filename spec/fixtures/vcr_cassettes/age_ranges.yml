@@ -6,7 +6,13 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -23,25 +29,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"000290e1863c9d9159fed5cf13111f48"'
+      - "\"000290e1863c9d9159fed5cf13111f48\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1f07d1d1-aef3-4818-bdfc-ee4362a2dc0d
+      - fb3c5650-13bb-4923-9ceb-45d9c027cbb7
       X-Runtime:
-      - '0.021409'
+      - '0.010590'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:27:42 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '182'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
-        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
+      string: "{\"age_ranges\":[{\"id\":\"primary_school_children\",\"name\":\"Primary
+        school children\"},{\"id\":\"secondary_school_children\",\"name\":\"Secondary
+        school children\"},{\"id\":\"over_18\",\"name\":\"18+\"}]}"
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 recorded_with: VCR 2.8.0

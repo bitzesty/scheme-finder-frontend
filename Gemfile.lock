@@ -90,6 +90,10 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -102,9 +106,6 @@ GEM
     hike (1.2.3)
     hipchat (1.0.1)
       httparty
-    httmultiparty (0.3.10)
-      httparty (>= 0.7.3)
-      multipart-post
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -127,7 +128,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
-    multipart-post (2.0.0)
+    multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
@@ -249,13 +250,13 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   factory_girl_rails
+  faraday
+  faraday_middleware
   foreman
   forgery
   govuk_frontend_toolkit (= 0.39.0)
   govuk_template
   hipchat (~> 1.0.1)
-  httmultiparty
-  httparty
   jquery-rails
   kaminari
   pry-rails

@@ -6,7 +6,13 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -23,25 +29,25 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"f54162addf2fde091f3d5c5dc934eefa"'
+      - "\"f54162addf2fde091f3d5c5dc934eefa\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a7a18cc8-2627-4e5f-b13c-54a0df53daac
+      - 9c28889d-3e20-4993-bdb8-58325f5a9c05
       X-Runtime:
-      - '0.019186'
+      - '0.012346'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:27:42 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '119'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
-        longer term commitment"}]}'
+      string: "{\"commitment_lengths\":[{\"id\":\"few_hours\",\"name\":\"A few hours\"},{\"id\":\"longer_term\",\"name\":\"A
+        longer term commitment\"}]}"
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 recorded_with: VCR 2.8.0

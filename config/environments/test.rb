@@ -36,10 +36,12 @@ SchemeFinderFrontend::Application.configure do
 
   config.after_initialize do
     SchemeFinderFrontend.configure do |app_config|
+      # Same auth as development enviroment
+      # as we are hitting local server in order to record
+      # api responses
+      app_config.api_access_token = 'development'
       # No auth required in test environment
-      app_config.api_access_token = nil
-      # No auth required in test environment
-      app_config.api_host = 'localhost:3000'
+      app_config.api_host = 'http://localhost:3000'
     end
   end
 end

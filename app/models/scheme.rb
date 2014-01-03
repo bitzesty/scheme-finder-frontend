@@ -20,19 +20,27 @@ class Scheme
     false
   end
 
+  def logo_for_upload
+    if logo.present? && logo.kind_of?(Rack::Multipart::UploadedFile)
+      @logo = attributes['logo'] = UploadIO.new(
+        logo,
+        logo.content_type,
+        logo.original_filename
+      )
+    end
+  end
+
   def save
-    resp = self.class.post(
+    resp = SchemeFinderFrontend.api_client.post(
       self.class.collection_path,
-      query: { scheme: attributes },
-      headers: SchemeFinderFrontend.api_authorization_header
+      { scheme: attributes.merge('logo' => logo_for_upload) }
     )
 
-    case resp.code
-    when 200
+    case resp.status
+    when 201
       true
     when 422
-      json = JSON.parse(resp.body)
-      assign_errors(json['errors'])
+      assign_errors(resp.body['errors'])
 
       false
     else

@@ -22,8 +22,8 @@ gem "slim-rails"
 gem "simple_form", "~> 3.0.0"
 gem "kaminari"
 
-gem "httparty"
-gem "httmultiparty"
+gem "faraday"
+gem "faraday_middleware"
 gem "virtus"
 
 group :development do

@@ -1,3 +1,5 @@
+require 'net/http/post/multipart'
+
 module SchemeFinderFrontend
   autoload :ApiEntity, 'scheme_finder_frontend/api_entity'
 
@@ -5,7 +7,6 @@ module SchemeFinderFrontend
     api_access_token: "development",
     api_host: "scheme-finder-api.dev.bitzesty.com",
     api_path: "/api/v1",
-    debug_output: false,
   }
 
   class << self
@@ -24,14 +25,18 @@ module SchemeFinderFrontend
       "#{api_host}#{api_path}"
     end
 
-    def api_authorization_header
-      { 'Authorization' => encoded_api_access_token }
-    end
+    def api_client
+      @api_client ||= Faraday.new do |faraday|
+        faraday.url_prefix = api_url
+        faraday.path_prefix = api_path
+        faraday.token_auth(api_access_token)
 
-    def encoded_api_access_token
-      ActionController::HttpAuthentication::Token.encode_credentials(
-        api_access_token
-      )
+        faraday.request  :multipart
+        faraday.request  :url_encoded
+
+        faraday.response :json, content_type: /\bjson$/
+        faraday.adapter  Faraday.default_adapter
+      end
     end
   end
 end
