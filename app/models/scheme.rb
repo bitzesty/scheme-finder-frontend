@@ -20,22 +20,24 @@ class Scheme
     false
   end
 
+  def logo=(logo)
+    if logo.present?
+      @logo = attributes['logo'] = UploadIO.new(
+        attributes['logo'],
+        attributes['logo'].content_type,
+        attributes['logo'].original_filename
+      )
+    end
+  end
+
   def save
     resp = SchemeFinderFrontend.api_client.post(
       self.class.collection_path,
-      {
-        scheme: attributes.merge(
-          'logo' => UploadIO.new(
-            attributes['logo'],
-            attributes['logo'].content_type,
-            attributes['logo'].original_filename
-          )
-        )
-      }
+      { scheme: attributes }
     )
 
     case resp.status
-    when 200
+    when 201
       true
     when 422
       assign_errors(resp.body['errors'])
