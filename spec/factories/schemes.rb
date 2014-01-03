@@ -1,3 +1,5 @@
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
   sequence :name do |n|
     "Scheme #{n}"
@@ -22,7 +24,7 @@ FactoryGirl.define do
     company_size_ids { ['0-9', '10-249'].shuffle }
     age_range_ids { ['primary_school_children', 'secondary_school_children'].shuffle }
     logo {
-      Rack::Test::UploadedFile.new(
+      ActionDispatch::TestProcess.fixture_file_upload(
         File.join(Rails.root, 'spec', 'fixtures', 'logo.png'),
         'image/png'
       )

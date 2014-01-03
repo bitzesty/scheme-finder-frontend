@@ -7,6 +7,8 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
+      Authorization:
+      - Token token="development"
       User-Agent:
       - Faraday v0.8.8
       Accept-Encoding:
@@ -33,13 +35,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 779169b4-7f6c-4c7c-8e34-dee97f183ece
+      - 28669a2d-0cb7-425a-b801-0e0a9b077510
       X-Runtime:
-      - '0.009364'
+      - '0.325532'
       Server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 14:05:38 GMT
+      - Fri, 03 Jan 2014 15:12:36 GMT
       Content-Length:
       - '464'
       Connection:
@@ -48,5 +50,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"schemes\":[{\"id\":2,\"logo\":{\"logo\":{\"url\":\"/uploads/scanning.png\",\"logo\":{\"url\":\"/uploads/logo_scanning.png\"}}},\"contact_name\":\"name\",\"contact_email\":\"email@email.com\",\"contact_phone\":\"phone@phone.com\",\"name\":\"name\",\"website\":\"site\",\"description\":\"desc\",\"location_ids\":[\"north_west\"],\"sector_ids\":[\"chemicals\"],\"commitment_length_ids\":[\"few_hours\"],\"activity_ids\":[\"workplace_visits\"],\"company_size_ids\":[\"250-500\"],\"age_range_ids\":[\"secondary_school_children\"]}]}"
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
+  recorded_at: Fri, 03 Jan 2014 15:12:36 GMT
 recorded_with: VCR 2.8.0

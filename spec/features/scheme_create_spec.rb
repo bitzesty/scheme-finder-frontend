@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Creating a scheme' do
   let(:scheme) { build(:scheme) }
 
-  pending 'scheme can be created' do
+  specify 'scheme can be created' do
     VCR.use_cassette("new_scheme_submit") do
       submit_scheme(scheme)
 
