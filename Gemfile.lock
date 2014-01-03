@@ -251,7 +251,7 @@ DEPENDENCIES
   factory_girl_rails
   foreman
   forgery
-  govuk_frontend_toolkit
+  govuk_frontend_toolkit (= 0.39.0)
   govuk_template
   hipchat (~> 1.0.1)
   httmultiparty
