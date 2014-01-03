@@ -1,29 +1,28 @@
-h4 Search
-
 = simple_form_for search,
                   as: :search,
                   url: schemes_path,
                   method: :get,
+                  defaults: { wrapper_html: { class: "filter" } },
                   html: { class: "horizontal-form" } do |f|
 
-  .form-inputs
+  fieldset
     = f.input :had_direct_interactions,
               as: :boolean,
               label: "Have you engaged with schools before?"
 
     = f.input :locations,
               as: :select,
-              label: 'Locations',
+              label: 'Location',
               collection: Location.collection,
               required: false,
-              input_html: { class: "span6 js-select2 js-select2" }
+              input_html: { class: "single-row-select" }
 
     = f.input :sectors,
               as: :select,
-              label: 'Sectors',
+              label: 'Sector',
               collection: Sector.collection,
               required: false,
-              input_html: { class: "span6 js-select2" }
+              input_html: { class: "single-row-select" }
 
     = f.input :commitment_lengths,
               as: :select,
@@ -31,31 +30,31 @@ h4 Search
               collection: CommitmentLength.collection,
               label: "Length of commitment",
               required: false,
-              input_html: { class: "span6 js-select2" }
+              input_html: { class: "single-row-select" }
 
     = f.input :activities,
               as: :select,
               collection: Activity.collection,
-              label: 'Activities',
+              label: 'Activity',
               required: false,
-              input_html: { class: "span6 js-select2" }
+              input_html: { class: "single-row-select" }
 
     = f.input :company_sizes,
               as: :select,
               collection: CompanySize.collection,
               label: 'Company size',
               required: false,
-              input_html: { class: "span6 js-select2" }
+              input_html: { class: "single-row-select" }
 
     = f.input :age_ranges,
               as: :select,
               label: 'Age range',
               collection: AgeRange.collection,
               required: false,
-              input_html: { class: "span6 js-select2" }
+              input_html: { class: "single-row-select" }
 
   .form-actions
-    = f.button :submit, "Search",
+    = f.button :submit, "Refresh",
                class: "btn btn-primary",
                id: "submit_btn",
                data: { action: "submit" }

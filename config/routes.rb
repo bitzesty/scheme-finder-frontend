@@ -7,5 +7,5 @@ SchemeFinderFrontend::Application.routes.draw do
 
   resources :schemes, only: [:new, :create, :index]
 
-  root to: 'schemes#index'
+  root to: 'pages#start'
 end

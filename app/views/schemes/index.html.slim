@@ -1,15 +1,30 @@
-.row
-  .span4.search
-    = render "search", search: @search
+= content_for :body_classes do
+  = yield(:body_classes).concat(" search-page ")
 
-  .span8.content
-    h4 Schemes
+.article-container.group.scheme-finder-search
+  .block-2
+    .inner-block
+      .filter-block
+        h2
+          | You can use the filters to only show schemes that you are eligible for
+        = render "search", search: @search
 
-  - if @schemes.any?
-    ul.schemes
-      - @schemes.each do |scheme|
-        = render "scheme", scheme: scheme
+  #filtered-results.block-4.filtered-results
+    .inner-block
+      - if @search_conducted
+        = render "search_summary", total_schemes: @total_schemes
 
-    = paginate @schemes
-  - else
-    p Please choose search criteria
+        - if @total_schemes == 0 # no search results
+          .no-matching-schemes
+            h2
+              | There are no matching schemes.
+            p
+              | Try making your search broader and try again.
+        - else
+          ul.results-list
+            - @schemes.each do |scheme|
+              = render "scheme", scheme: scheme
+
+          = paginate @schemes
+      - else
+        h2 Please choose search criteria
