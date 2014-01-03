@@ -5,7 +5,6 @@ module SchemeFinderFrontend
     api_access_token: "development",
     api_host: "scheme-finder-api.dev.bitzesty.com",
     api_path: "/api/v1",
-    debug_output: false,
   }
 
   class << self
@@ -32,6 +31,19 @@ module SchemeFinderFrontend
       ActionController::HttpAuthentication::Token.encode_credentials(
         api_access_token
       )
+    end
+
+    def api_client
+      @api_client ||= Faraday.new do |faraday|
+        faraday.url_prefix = api_url
+        faraday.path_prefix = api_path
+
+        faraday.request  :multipart
+        faraday.request  :url_encoded
+
+        faraday.response :json, content_type: /\bjson$/
+        faraday.adapter  Faraday.default_adapter
+      end
     end
   end
 end

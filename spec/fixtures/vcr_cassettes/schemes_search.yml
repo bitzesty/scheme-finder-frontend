@@ -6,7 +6,13 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -23,39 +29,45 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"a4a008cec5e392805addd4c290eab3cd"'
+      - "\"a4a008cec5e392805addd4c290eab3cd\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f5738075-51bb-4443-812d-d4ae18f80258
+      - 0a1d4392-c6bb-4531-a1b1-bcff9efb6abb
       X-Runtime:
-      - '0.055984'
+      - '0.010313'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:37 GMT
       Content-Length:
       - '603'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"locations":[{"id":"any","name":"Any Location"},{"id":"england","name":"All
-        of England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
-        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
-        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
-        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
-        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
-        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"locations\":[{\"id\":\"any\",\"name\":\"Any Location\"},{\"id\":\"england\",\"name\":\"All
+        of England\"},{\"id\":\"north_east\",\"name\":\"North East\"},{\"id\":\"north_west\",\"name\":\"North
+        West\"},{\"id\":\"yorkshire_humber\",\"name\":\"Yorkshire and the Humber\"},{\"id\":\"east_midlands\",\"name\":\"East
+        Midlands\"},{\"id\":\"west_midlands\",\"name\":\"West Midlands\"},{\"id\":\"east_england\",\"name\":\"East
+        of England\"},{\"id\":\"london\",\"name\":\"London\"},{\"id\":\"south_england\",\"name\":\"South
+        East\"},{\"id\":\"south_west\",\"name\":\"South West\"},{\"id\":\"northern_ireland\",\"name\":\"Northern
+        Ireland\"},{\"id\":\"scotland\",\"name\":\"Scotland\"},{\"id\":\"wales\",\"name\":\"Wales\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:37 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/sectors.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -72,36 +84,43 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"8672adcd0e2f12294f1098ffa68156ef"'
+      - "\"8672adcd0e2f12294f1098ffa68156ef\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f89c0f43-9932-4bb1-9a2c-bbf8c22058de
+      - 70c349b5-ec00-451c-95ca-ef4fb6c92935
       X-Runtime:
-      - '0.010896'
+      - '0.010035'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:37 GMT
       Content-Length:
       - '596'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
-        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
-        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
-        Energy"},{"id":"other","name":"Other"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"sectors\":[{\"id\":\"auto\",\"name\":\"Auto\"},{\"id\":\"aero\",\"name\":\"Aero\"},{\"id\":\"chemicals\",\"name\":\"Chemicals\"},{\"id\":\"construction\",\"name\":\"Construction\"},{\"id\":\"electronics\",\"name\":\"Electronics\"},{\"id\":\"life_sciences\",\"name\":\"Life
+        Sciences\"},{\"id\":\"machinery\",\"name\":\"Machinery\"},{\"id\":\"marine\",\"name\":\"Marine\"},{\"id\":\"materials\",\"name\":\"Materials\"},{\"id\":\"nuclear\",\"name\":\"Nuclear\"},{\"id\":\"oil_gas\",\"name\":\"Oil
+        and gas\"},{\"id\":\"business_services\",\"name\":\"Professional Business
+        Services\"},{\"id\":\"rail\",\"name\":\"Rail\"},{\"id\":\"renewable_energy\",\"name\":\"Renewable
+        Energy\"},{\"id\":\"other\",\"name\":\"Other\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:37 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/commitment_lengths.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -118,34 +137,40 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"f54162addf2fde091f3d5c5dc934eefa"'
+      - "\"f54162addf2fde091f3d5c5dc934eefa\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 15aed9ee-36a8-4971-81dc-8447d62e97fd
+      - 9547651e-17ea-4280-8a3f-f9ffb9bf8c4b
       X-Runtime:
-      - '0.011414'
+      - '0.009752'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:37 GMT
       Content-Length:
       - '119'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
-        longer term commitment"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"commitment_lengths\":[{\"id\":\"few_hours\",\"name\":\"A few hours\"},{\"id\":\"longer_term\",\"name\":\"A
+        longer term commitment\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:37 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/activities.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -162,36 +187,42 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"d3fa25f69619e144acf8f2d144f4c3a4"'
+      - "\"d3fa25f69619e144acf8f2d144f4c3a4\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fe9c0164-69d1-4cab-b42c-24e718fbd3ca
+      - 9bb2c9b7-3d74-4244-b1de-e0ee3a10f952
       X-Runtime:
-      - '0.010873'
+      - '0.010227'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '364'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"activities":[{"id":"apprenticeships","name":"Apprenticeships"},{"id":"work_experience","name":"Work
-        experience"},{"id":"workplace_visits","name":"Workplace visits"},{"id":"hands_on_talks","name":"Hands-on
-        activities"},{"id":"inspiring_talks","name":"Inspiring talks"},{"id":"ambasadors","name":"Ambassadors"},{"id":"lesson_materials","name":"Lesson
-        materials"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"activities\":[{\"id\":\"apprenticeships\",\"name\":\"Apprenticeships\"},{\"id\":\"work_experience\",\"name\":\"Work
+        experience\"},{\"id\":\"workplace_visits\",\"name\":\"Workplace visits\"},{\"id\":\"hands_on_talks\",\"name\":\"Hands-on
+        activities\"},{\"id\":\"inspiring_talks\",\"name\":\"Inspiring talks\"},{\"id\":\"ambasadors\",\"name\":\"Ambassadors\"},{\"id\":\"lesson_materials\",\"name\":\"Lesson
+        materials\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/company_sizes.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -208,34 +239,40 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"0b6e9ae3da0c877e38ea30fda16f8fca"'
+      - "\"0b6e9ae3da0c877e38ea30fda16f8fca\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cb9a69da-4beb-46dd-81d2-ce2b03a7a325
+      - c9663fb9-bd71-44a1-8f15-ed7e488ba7e1
       X-Runtime:
-      - '0.015572'
+      - '0.009427'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '179'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"company_sizes":[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
-        +","name":"1000 +"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"company_sizes\":[{\"id\":\"0-9\",\"name\":\"0-9\"},{\"id\":\"10-249\",\"name\":\"10-249\"},{\"id\":\"250-500\",\"name\":\"250-500\"},{\"id\":\"501-1000\",\"name\":\"501-1000\"},{\"id\":\"1000
+        +\",\"name\":\"1000 +\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/age_ranges.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -252,34 +289,41 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"000290e1863c9d9159fed5cf13111f48"'
+      - "\"000290e1863c9d9159fed5cf13111f48\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d8dc5a74-3947-4f9f-aac0-864f57c3af61
+      - 686ee4b1-a45c-4160-8ff8-2811a94aaefd
       X-Runtime:
-      - '0.013610'
+      - '0.009386'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '182'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
-        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"age_ranges\":[{\"id\":\"primary_school_children\",\"name\":\"Primary
+        school children\"},{\"id\":\"secondary_school_children\",\"name\":\"Secondary
+        school children\"},{\"id\":\"over_18\",\"name\":\"18+\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/schemes.json?page=1&per_page=10&sectors%5B0%5D=auto
+    uri: http://localhost:3000/api/v1/schemes.json?query%5Bpage%5D=1&query%5Bper_page%5D=10&query%5Bsectors%5D%5B0%5D=auto
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -296,33 +340,39 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"44d21b2a0cac455d7cc9de48cb29e228"'
+      - "\"2d8e916b01b5570a6d8b9b0adb2fc014\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0aed2b3a-bfa1-415b-a279-b04a4865e12f
+      - a9ca3168-49a6-406f-b689-965f69fce038
       X-Runtime:
-      - '0.070727'
+      - '0.009532'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
-      - '440'
+      - '464'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"schemes":[{"id":4,"logo":{"logo":{"url":"/uploads/smile.jpg","logo":{"url":"/uploads/logo_smile.jpg"}}},"contact_name":"c","contact_email":"c@gam.com","contact_phone":"c","name":"Automotives","website":"c","description":"c","location_ids":["any"],"sector_ids":["auto"],"commitment_length_ids":["few_hours"],"activity_ids":["apprenticeships"],"company_size_ids":["0-9"],"age_range_ids":["primary_school_children"]}],"total":1,"page":1,"per_page":10}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"schemes\":[{\"id\":2,\"logo\":{\"logo\":{\"url\":\"/uploads/scanning.png\",\"logo\":{\"url\":\"/uploads/logo_scanning.png\"}}},\"contact_name\":\"name\",\"contact_email\":\"email@email.com\",\"contact_phone\":\"phone@phone.com\",\"name\":\"name\",\"website\":\"site\",\"description\":\"desc\",\"location_ids\":[\"north_west\"],\"sector_ids\":[\"chemicals\"],\"commitment_length_ids\":[\"few_hours\"],\"activity_ids\":[\"workplace_visits\"],\"company_size_ids\":[\"250-500\"],\"age_range_ids\":[\"secondary_school_children\"]}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/locations.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -339,39 +389,45 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"a4a008cec5e392805addd4c290eab3cd"'
+      - "\"a4a008cec5e392805addd4c290eab3cd\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d8b30c84-48a9-447b-8c78-c7d0ec351d30
+      - 562fe937-430f-4d1d-88ec-c48b57709882
       X-Runtime:
-      - '0.012247'
+      - '0.017810'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '603'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"locations":[{"id":"any","name":"Any Location"},{"id":"england","name":"All
-        of England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
-        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
-        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
-        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
-        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
-        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"locations\":[{\"id\":\"any\",\"name\":\"Any Location\"},{\"id\":\"england\",\"name\":\"All
+        of England\"},{\"id\":\"north_east\",\"name\":\"North East\"},{\"id\":\"north_west\",\"name\":\"North
+        West\"},{\"id\":\"yorkshire_humber\",\"name\":\"Yorkshire and the Humber\"},{\"id\":\"east_midlands\",\"name\":\"East
+        Midlands\"},{\"id\":\"west_midlands\",\"name\":\"West Midlands\"},{\"id\":\"east_england\",\"name\":\"East
+        of England\"},{\"id\":\"london\",\"name\":\"London\"},{\"id\":\"south_england\",\"name\":\"South
+        East\"},{\"id\":\"south_west\",\"name\":\"South West\"},{\"id\":\"northern_ireland\",\"name\":\"Northern
+        Ireland\"},{\"id\":\"scotland\",\"name\":\"Scotland\"},{\"id\":\"wales\",\"name\":\"Wales\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/sectors.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -388,36 +444,43 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"8672adcd0e2f12294f1098ffa68156ef"'
+      - "\"8672adcd0e2f12294f1098ffa68156ef\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1528872a-bece-4e13-b42c-a749c70fc553
+      - 6cc00347-02fa-4ca1-8594-9e67c5c8e7e6
       X-Runtime:
-      - '0.011898'
+      - '0.010861'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '596'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
-        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
-        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
-        Energy"},{"id":"other","name":"Other"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"sectors\":[{\"id\":\"auto\",\"name\":\"Auto\"},{\"id\":\"aero\",\"name\":\"Aero\"},{\"id\":\"chemicals\",\"name\":\"Chemicals\"},{\"id\":\"construction\",\"name\":\"Construction\"},{\"id\":\"electronics\",\"name\":\"Electronics\"},{\"id\":\"life_sciences\",\"name\":\"Life
+        Sciences\"},{\"id\":\"machinery\",\"name\":\"Machinery\"},{\"id\":\"marine\",\"name\":\"Marine\"},{\"id\":\"materials\",\"name\":\"Materials\"},{\"id\":\"nuclear\",\"name\":\"Nuclear\"},{\"id\":\"oil_gas\",\"name\":\"Oil
+        and gas\"},{\"id\":\"business_services\",\"name\":\"Professional Business
+        Services\"},{\"id\":\"rail\",\"name\":\"Rail\"},{\"id\":\"renewable_energy\",\"name\":\"Renewable
+        Energy\"},{\"id\":\"other\",\"name\":\"Other\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/commitment_lengths.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -434,34 +497,40 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"f54162addf2fde091f3d5c5dc934eefa"'
+      - "\"f54162addf2fde091f3d5c5dc934eefa\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f70bc543-420c-473a-87c3-4ed0b510fa33
+      - 61e20a01-751f-47b8-9d2c-2a98f5ca1203
       X-Runtime:
-      - '0.014569'
+      - '0.010634'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '119'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
-        longer term commitment"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"commitment_lengths\":[{\"id\":\"few_hours\",\"name\":\"A few hours\"},{\"id\":\"longer_term\",\"name\":\"A
+        longer term commitment\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/activities.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -478,36 +547,42 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"d3fa25f69619e144acf8f2d144f4c3a4"'
+      - "\"d3fa25f69619e144acf8f2d144f4c3a4\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5461fb8c-7a2b-40eb-b072-414f1210b356
+      - f5c8399d-53fc-48bc-8928-d469852712c9
       X-Runtime:
-      - '0.015098'
+      - '0.011374'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '364'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"activities":[{"id":"apprenticeships","name":"Apprenticeships"},{"id":"work_experience","name":"Work
-        experience"},{"id":"workplace_visits","name":"Workplace visits"},{"id":"hands_on_talks","name":"Hands-on
-        activities"},{"id":"inspiring_talks","name":"Inspiring talks"},{"id":"ambasadors","name":"Ambassadors"},{"id":"lesson_materials","name":"Lesson
-        materials"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"activities\":[{\"id\":\"apprenticeships\",\"name\":\"Apprenticeships\"},{\"id\":\"work_experience\",\"name\":\"Work
+        experience\"},{\"id\":\"workplace_visits\",\"name\":\"Workplace visits\"},{\"id\":\"hands_on_talks\",\"name\":\"Hands-on
+        activities\"},{\"id\":\"inspiring_talks\",\"name\":\"Inspiring talks\"},{\"id\":\"ambasadors\",\"name\":\"Ambassadors\"},{\"id\":\"lesson_materials\",\"name\":\"Lesson
+        materials\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/company_sizes.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -524,34 +599,40 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"0b6e9ae3da0c877e38ea30fda16f8fca"'
+      - "\"0b6e9ae3da0c877e38ea30fda16f8fca\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2a44068f-6631-4bca-ad4b-3e36d68f9f2d
+      - 36656a66-f478-4878-a1c1-75033f9f28fb
       X-Runtime:
-      - '0.014092'
+      - '0.009638'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '179'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"company_sizes":[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
-        +","name":"1000 +"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"company_sizes\":[{\"id\":\"0-9\",\"name\":\"0-9\"},{\"id\":\"10-249\",\"name\":\"10-249\"},{\"id\":\"250-500\",\"name\":\"250-500\"},{\"id\":\"501-1000\",\"name\":\"501-1000\"},{\"id\":\"1000
+        +\",\"name\":\"1000 +\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/age_ranges.json
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -568,25 +649,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"000290e1863c9d9159fed5cf13111f48"'
+      - "\"000290e1863c9d9159fed5cf13111f48\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fef57def-7582-483c-8e6f-f43ab147fc7d
+      - c6d1d9ee-c4f5-4b49-bd9c-17a3506c67eb
       X-Runtime:
-      - '0.008150'
+      - '0.009590'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:32:45 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '182'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
-        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
-    http_version:
-  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+      string: "{\"age_ranges\":[{\"id\":\"primary_school_children\",\"name\":\"Primary
+        school children\"},{\"id\":\"secondary_school_children\",\"name\":\"Secondary
+        school children\"},{\"id\":\"over_18\",\"name\":\"18+\"}]}"
+    http_version: 
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 recorded_with: VCR 2.8.0

@@ -6,7 +6,13 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
@@ -23,27 +29,28 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"8672adcd0e2f12294f1098ffa68156ef"'
+      - "\"8672adcd0e2f12294f1098ffa68156ef\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f70c6500-dabb-493a-a1b6-084bf2ccf7eb
+      - 2f18f07d-c561-4ac9-94c9-f620a1b9bb23
       X-Runtime:
-      - '0.022796'
+      - '0.010492'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Fri, 03 Jan 2014 09:27:42 GMT
+      - Fri, 03 Jan 2014 14:05:38 GMT
       Content-Length:
       - '596'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
-        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
-        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
-        Energy"},{"id":"other","name":"Other"}]}'
+      string: "{\"sectors\":[{\"id\":\"auto\",\"name\":\"Auto\"},{\"id\":\"aero\",\"name\":\"Aero\"},{\"id\":\"chemicals\",\"name\":\"Chemicals\"},{\"id\":\"construction\",\"name\":\"Construction\"},{\"id\":\"electronics\",\"name\":\"Electronics\"},{\"id\":\"life_sciences\",\"name\":\"Life
+        Sciences\"},{\"id\":\"machinery\",\"name\":\"Machinery\"},{\"id\":\"marine\",\"name\":\"Marine\"},{\"id\":\"materials\",\"name\":\"Materials\"},{\"id\":\"nuclear\",\"name\":\"Nuclear\"},{\"id\":\"oil_gas\",\"name\":\"Oil
+        and gas\"},{\"id\":\"business_services\",\"name\":\"Professional Business
+        Services\"},{\"id\":\"rail\",\"name\":\"Rail\"},{\"id\":\"renewable_energy\",\"name\":\"Renewable
+        Energy\"},{\"id\":\"other\",\"name\":\"Other\"}]}"
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
+  recorded_at: Fri, 03 Jan 2014 14:05:38 GMT
 recorded_with: VCR 2.8.0

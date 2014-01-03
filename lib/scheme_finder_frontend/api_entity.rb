@@ -13,9 +13,9 @@ module SchemeFinderFrontend
       include ActiveModel::Conversion
       extend  ActiveModel::Naming
 
-      include HTTMultiParty
-      base_uri SchemeFinderFrontend.api_url
-      debug_output if SchemeFinderFrontend.debug_output
+      # include HTTMultiParty
+      # # base_uri SchemeFinderFrontend.api_url
+      # debug_output if Rails.env.development?
 
       attr_reader :attributes, :errors
 
@@ -72,7 +72,7 @@ module SchemeFinderFrontend
 
     module ClassMethods
       def raise_error_when_invalid_response(resp)
-        case resp.code
+        case resp.status
         when 404
           raise ApiEntity::NotFound.new resp['error']
         when 500
@@ -83,7 +83,7 @@ module SchemeFinderFrontend
       end
 
       def fetch_response_for(path, opts = {})
-        resp = get(path, opts)
+        resp = SchemeFinderFrontend.api_client.get(path, opts)
         raise_error_when_invalid_response(resp)
 
         resp
@@ -92,17 +92,18 @@ module SchemeFinderFrontend
       def all(opts = {})
         resp = fetch_response_for(collection_path, opts)
 
-        records = if resp.is_a? Array
-          resp
+        records = if resp.body.is_a? Array
+          resp.body
         else
-          resp.with_indifferent_access[collection_name]
+          resp.body.with_indifferent_access[collection_name]
         end
 
         records.map { |entry_data| new(entry_data) }
       end
 
       def paginated(opts = {})
-        resp = fetch_response_for(collection_path, opts).with_indifferent_access
+        resp = fetch_response_for(collection_path, opts).body.with_indifferent_access
+
         PaginationResponse.new resp[collection_name].map { |entry_data| new(entry_data) },
                                resp[:total],
                                resp[:page],
@@ -156,7 +157,7 @@ module SchemeFinderFrontend
         if path
           @collection_path = path
         else
-          @collection_path || "/#{collection_name}.json"
+          @collection_path || "#{collection_name}.json"
         end
       end
 

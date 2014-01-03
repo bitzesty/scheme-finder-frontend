@@ -39,7 +39,7 @@ SchemeFinderFrontend::Application.configure do
       # No auth required in test environment
       app_config.api_access_token = nil
       # No auth required in test environment
-      app_config.api_host = 'localhost:3000'
+      app_config.api_host = 'http://localhost:3000'
     end
   end
 end
