@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/schemes.json?page=1&per_page=10&sectors%5B0%5D=auto
+    uri: http://localhost:3000/api/v1/locations.json
     body:
       encoding: US-ASCII
       string: ''
@@ -23,24 +23,570 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"7a54f57b10c6680d593fd597fd948299"'
+      - '"a4a008cec5e392805addd4c290eab3cd"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e3af6ebe-9632-4cf6-a0bd-aef966418ef6
+      - f5738075-51bb-4443-812d-d4ae18f80258
       X-Runtime:
-      - '0.019171'
+      - '0.055984'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       Date:
-      - Thu, 02 Jan 2014 15:23:29 GMT
+      - Fri, 03 Jan 2014 09:32:45 GMT
       Content-Length:
-      - '482'
+      - '603'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"schemes":[{"id":2,"logo":{"logo":{"url":"/assets/fallback/logo_default.png","logo":{"url":"/assets/fallback/logo_default.png"}}},"contact_name":"a","contact_email":"a@kaka.com","contact_phone":"a","name":"Automotives","website":"a","description":"f","location_ids":["england"],"sector_ids":["auto"],"commitment_length_ids":["few_hours"],"activity_ids":["work_experience"],"company_size_ids":["10-249"],"age_range_ids":["primary_school_children"]}],"total":1,"page":1,"per_page":10}'
+      string: '{"locations":[{"id":"any","name":"Any Location"},{"id":"england","name":"All
+        of England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
+        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
+        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
+        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
+        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
+        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]}'
     http_version:
-  recorded_at: Thu, 02 Jan 2014 15:23:29 GMT
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/sectors.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"8672adcd0e2f12294f1098ffa68156ef"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f89c0f43-9932-4bb1-9a2c-bbf8c22058de
+      X-Runtime:
+      - '0.010896'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '596'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
+        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
+        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
+        Energy"},{"id":"other","name":"Other"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/commitment_lengths.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"f54162addf2fde091f3d5c5dc934eefa"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 15aed9ee-36a8-4971-81dc-8447d62e97fd
+      X-Runtime:
+      - '0.011414'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '119'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
+        longer term commitment"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/activities.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d3fa25f69619e144acf8f2d144f4c3a4"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fe9c0164-69d1-4cab-b42c-24e718fbd3ca
+      X-Runtime:
+      - '0.010873'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '364'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"activities":[{"id":"apprenticeships","name":"Apprenticeships"},{"id":"work_experience","name":"Work
+        experience"},{"id":"workplace_visits","name":"Workplace visits"},{"id":"hands_on_talks","name":"Hands-on
+        activities"},{"id":"inspiring_talks","name":"Inspiring talks"},{"id":"ambasadors","name":"Ambassadors"},{"id":"lesson_materials","name":"Lesson
+        materials"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/company_sizes.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"0b6e9ae3da0c877e38ea30fda16f8fca"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cb9a69da-4beb-46dd-81d2-ce2b03a7a325
+      X-Runtime:
+      - '0.015572'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '179'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"company_sizes":[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
+        +","name":"1000 +"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/age_ranges.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"000290e1863c9d9159fed5cf13111f48"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d8dc5a74-3947-4f9f-aac0-864f57c3af61
+      X-Runtime:
+      - '0.013610'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '182'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
+        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/schemes.json?page=1&per_page=10&sectors%5B0%5D=auto
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"44d21b2a0cac455d7cc9de48cb29e228"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0aed2b3a-bfa1-415b-a279-b04a4865e12f
+      X-Runtime:
+      - '0.070727'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '440'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"schemes":[{"id":4,"logo":{"logo":{"url":"/uploads/smile.jpg","logo":{"url":"/uploads/logo_smile.jpg"}}},"contact_name":"c","contact_email":"c@gam.com","contact_phone":"c","name":"Automotives","website":"c","description":"c","location_ids":["any"],"sector_ids":["auto"],"commitment_length_ids":["few_hours"],"activity_ids":["apprenticeships"],"company_size_ids":["0-9"],"age_range_ids":["primary_school_children"]}],"total":1,"page":1,"per_page":10}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"a4a008cec5e392805addd4c290eab3cd"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d8b30c84-48a9-447b-8c78-c7d0ec351d30
+      X-Runtime:
+      - '0.012247'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '603'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"locations":[{"id":"any","name":"Any Location"},{"id":"england","name":"All
+        of England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
+        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
+        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
+        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
+        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
+        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/sectors.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"8672adcd0e2f12294f1098ffa68156ef"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1528872a-bece-4e13-b42c-a749c70fc553
+      X-Runtime:
+      - '0.011898'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '596'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
+        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
+        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
+        Energy"},{"id":"other","name":"Other"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/commitment_lengths.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"f54162addf2fde091f3d5c5dc934eefa"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f70bc543-420c-473a-87c3-4ed0b510fa33
+      X-Runtime:
+      - '0.014569'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '119'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
+        longer term commitment"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/activities.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d3fa25f69619e144acf8f2d144f4c3a4"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5461fb8c-7a2b-40eb-b072-414f1210b356
+      X-Runtime:
+      - '0.015098'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '364'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"activities":[{"id":"apprenticeships","name":"Apprenticeships"},{"id":"work_experience","name":"Work
+        experience"},{"id":"workplace_visits","name":"Workplace visits"},{"id":"hands_on_talks","name":"Hands-on
+        activities"},{"id":"inspiring_talks","name":"Inspiring talks"},{"id":"ambasadors","name":"Ambassadors"},{"id":"lesson_materials","name":"Lesson
+        materials"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/company_sizes.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"0b6e9ae3da0c877e38ea30fda16f8fca"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2a44068f-6631-4bca-ad4b-3e36d68f9f2d
+      X-Runtime:
+      - '0.014092'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '179'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"company_sizes":[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
+        +","name":"1000 +"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/age_ranges.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"000290e1863c9d9159fed5cf13111f48"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fef57def-7582-483c-8e6f-f43ab147fc7d
+      X-Runtime:
+      - '0.008150'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      Date:
+      - Fri, 03 Jan 2014 09:32:45 GMT
+      Content-Length:
+      - '182'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
+        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
+    http_version:
+  recorded_at: Fri, 03 Jan 2014 09:32:45 GMT
 recorded_with: VCR 2.8.0
