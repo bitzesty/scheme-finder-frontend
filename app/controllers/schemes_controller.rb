@@ -25,6 +25,17 @@ class SchemesController < ApplicationController
     end
   end
 
+  def search
+    search_results = SchemeSearch.new(search_params).results
+
+    render partial: "results",
+           locals: {
+             search_conducted: true,
+             total_schemes: search_results.total_count,
+             schemes: search_results.for_kaminari,
+           }
+  end
+
   private
 
   def search_params

@@ -1,0 +1,18 @@
+.inner-block
+  - if search_conducted
+    = render "search_summary", total_schemes: total_schemes
+
+    - if total_schemes == 0 # no search results
+      .no-matching-schemes
+        h2
+          | There are no matching schemes.
+        p
+          | Try making your search broader and try again.
+    - else
+      ul.results-list
+        - schemes.each do |scheme|
+          = render "scheme", scheme: scheme
+
+      = paginate schemes
+  - else
+    h2 Please choose search criteria

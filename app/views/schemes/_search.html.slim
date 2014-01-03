@@ -1,9 +1,10 @@
 = simple_form_for search,
                   as: :search,
-                  url: schemes_path,
+                  url: search_schemes_path,
                   method: :get,
+                  remote: true,
                   defaults: { wrapper_html: { class: "filter" } },
-                  html: { class: "horizontal-form" } do |f|
+                  html: { class: "horizontal-form scheme-search-form" } do |f|
 
   fieldset
     = f.input :had_direct_interactions,
@@ -53,7 +54,7 @@
               required: false,
               input_html: { class: "single-row-select" }
 
-  .form-actions
+  .form-actions.hide
     = f.button :submit, "Refresh",
                class: "btn btn-primary",
                id: "submit_btn",

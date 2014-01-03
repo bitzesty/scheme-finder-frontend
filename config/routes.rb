@@ -5,7 +5,11 @@ SchemeFinderFrontend::Application.routes.draw do
     }
   end
 
-  resources :schemes, only: [:new, :create, :index]
+  resources :schemes, only: [:new, :create, :index] do
+    collection {
+      get :search
+    }
+  end
 
   root to: 'pages#start'
 end
