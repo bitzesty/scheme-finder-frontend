@@ -27,10 +27,7 @@ class SchemesController < ApplicationController
   private
 
   def search_params
-    (params[:search] || {}).merge({
-      page: params[:page],
-      per_page: params[:per_page],
-    })
+    (params[:search] || {}).merge(params.slice(:page, :per_page))
   end
 
   def scheme_params

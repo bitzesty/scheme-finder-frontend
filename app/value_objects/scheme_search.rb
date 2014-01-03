@@ -10,16 +10,14 @@ class SchemeSearch
   attribute :activities, Array[String]
   attribute :company_sizes, Array[String]
   attribute :age_ranges, Array[String]
-  attribute :page, Integer
-  attribute :per_page, Integer
+  attribute :page, Integer, default: 1
+  attribute :per_page, Integer, default: PER_PAGE
 
   def persisted?
     false
   end
 
   def results
-    @page ||= 1
-    @per_page ||= PER_PAGE
     @results ||= Scheme.paginated(query: search_attributes)
   end
 
