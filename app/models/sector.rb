@@ -1,5 +1,5 @@
 class Sector
-  include ApiEntity
+  include SchemeFinderFrontend::ApiEntity
 
   attr_accessor :id, :name
 

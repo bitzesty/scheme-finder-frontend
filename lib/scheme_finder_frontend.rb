@@ -1,6 +1,6 @@
-require 'api_entity'
-
 module SchemeFinderFrontend
+  autoload :ApiEntity, 'scheme_finder_frontend/api_entity'
+
   DEFAULT_PARAMS = {
     api_access_token: "development",
     api_host: "scheme-finder-api.dev.bitzesty.com",

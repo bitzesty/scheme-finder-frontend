@@ -1,5 +1,5 @@
 class Scheme
-  include ApiEntity
+  include SchemeFinderFrontend::ApiEntity
 
   attr_accessor :had_direct_interactions,
                 :logo,
