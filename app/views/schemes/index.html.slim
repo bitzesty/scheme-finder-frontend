@@ -1,0 +1,15 @@
+.row
+  .span4.search
+    = render "search", search: @search
+
+  .span8.content
+    h4 Schemes
+
+  - if @schemes.any?
+    ul.schemes
+      - @schemes.each do |scheme|
+        = render "scheme", scheme: scheme
+
+    = paginate @schemes
+  - else
+    p Please choose search criteria

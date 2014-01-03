@@ -23,28 +23,27 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - "\"12b2b7d3ca1d5b5e601c5ddd0fa73999\""
+      - '"8672adcd0e2f12294f1098ffa68156ef"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c4ff7d7b-7256-447d-a398-5fbbf48b287a
+      - f70c6500-dabb-493a-a1b6-084bf2ccf7eb
       X-Runtime:
-      - '0.010101'
+      - '0.022796'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       Date:
-      - Fri, 03 Jan 2014 08:29:19 GMT
+      - Fri, 03 Jan 2014 09:27:42 GMT
       Content-Length:
-      - '584'
+      - '596'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: "[{\"id\":\"auto\",\"name\":\"Auto\"},{\"id\":\"aero\",\"name\":\"Aero\"},{\"id\":\"chemicals\",\"name\":\"Chemicals\"},{\"id\":\"construction\",\"name\":\"Construction\"},{\"id\":\"electronics\",\"name\":\"Electronics\"},{\"id\":\"life_sciences\",\"name\":\"Life
-        Sciences\"},{\"id\":\"machinery\",\"name\":\"Machinery\"},{\"id\":\"marine\",\"name\":\"Marine\"},{\"id\":\"materials\",\"name\":\"Materials\"},{\"id\":\"nuclear\",\"name\":\"Nuclear\"},{\"id\":\"oil_gas\",\"name\":\"Oil
-        and gas\"},{\"id\":\"business_services\",\"name\":\"Professional Business
-        Services\"},{\"id\":\"rail\",\"name\":\"Rail\"},{\"id\":\"renewable_energy\",\"name\":\"Renewable
-        Energy\"},{\"id\":\"other\",\"name\":\"Other\"}]"
+      string: '{"sectors":[{"id":"auto","name":"Auto"},{"id":"aero","name":"Aero"},{"id":"chemicals","name":"Chemicals"},{"id":"construction","name":"Construction"},{"id":"electronics","name":"Electronics"},{"id":"life_sciences","name":"Life
+        Sciences"},{"id":"machinery","name":"Machinery"},{"id":"marine","name":"Marine"},{"id":"materials","name":"Materials"},{"id":"nuclear","name":"Nuclear"},{"id":"oil_gas","name":"Oil
+        and gas"},{"id":"business_services","name":"Professional Business Services"},{"id":"rail","name":"Rail"},{"id":"renewable_energy","name":"Renewable
+        Energy"},{"id":"other","name":"Other"}]}'
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 08:29:19 GMT
+  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
 recorded_with: VCR 2.8.0

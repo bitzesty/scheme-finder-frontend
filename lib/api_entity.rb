@@ -1,4 +1,5 @@
 require 'httparty'
+require 'pagination_response'
 
 module ApiEntity
   class NotFound < StandardError; end
@@ -69,9 +70,7 @@ module ApiEntity
   private :assign_errors
 
   module ClassMethods
-    def all(opts = {})
-      resp = get(collection_path, opts)
-
+    def raise_error_when_invalid_response(resp)
       case resp.code
       when 404
         raise ApiEntity::NotFound.new resp['error']
@@ -80,19 +79,37 @@ module ApiEntity
       when 502
         raise ApiEntity::Error.new "502 Bad Gateway"
       end
-      resp.map { |entry_data| new(entry_data) }
+    end
+
+    def fetch_response_for(path, opts = {})
+      resp = get(path, opts)
+      raise_error_when_invalid_response(resp)
+
+      resp
+    end
+
+    def all(opts = {})
+      resp = fetch_response_for(collection_path, opts)
+
+      records = if resp.is_a? Array
+        resp
+      else
+        resp.with_indifferent_access[collection_name]
+      end
+
+      records.map { |entry_data| new(entry_data) }
+    end
+
+    def paginated(opts = {})
+      resp = fetch_response_for(collection_path, opts).with_indifferent_access
+      PaginationResponse.new resp[collection_name].map { |entry_data| new(entry_data) },
+                             resp[:total],
+                             resp[:page],
+                             resp[:per_page]
     end
 
     def find(id, opts = {})
-      resp = get("/#{self.name.pluralize.parameterize}/#{id}", opts)
-      case resp.code
-      when 404
-        raise ApiEntity::NotFound
-      when 500
-        raise ApiEntity::Error.new resp['error']
-      when 502
-        raise ApiEntity::Error.new resp['error']
-      end
+      resp = fetch_response_for("/#{self.name.pluralize.parameterize}/#{id}", opts)
       new(resp)
     end
 
@@ -138,8 +155,12 @@ module ApiEntity
       if path
         @collection_path = path
       else
-        @collection_path || "/#{name.tableize}.json"
+        @collection_path || "/#{collection_name}.json"
       end
+    end
+
+    def collection_name
+      name.tableize
     end
   end
 end

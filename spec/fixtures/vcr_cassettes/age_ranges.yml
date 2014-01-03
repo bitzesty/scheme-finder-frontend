@@ -23,25 +23,25 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - "\"b808633e696cabe569e77b101a8d7b0d\""
+      - '"000290e1863c9d9159fed5cf13111f48"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 08269fa9-f06f-42c4-914c-d13d7c984eb2
+      - 1f07d1d1-aef3-4818-bdfc-ee4362a2dc0d
       X-Runtime:
-      - '0.009871'
+      - '0.021409'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       Date:
-      - Fri, 03 Jan 2014 08:29:19 GMT
+      - Fri, 03 Jan 2014 09:27:42 GMT
       Content-Length:
-      - '167'
+      - '182'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: "[{\"id\":\"primary_school_children\",\"name\":\"Primary school children\"},{\"id\":\"secondary_school_children\",\"name\":\"Secondary
-        school children\"},{\"id\":\"over_18\",\"name\":\"18+\"}]"
+      string: '{"age_ranges":[{"id":"primary_school_children","name":"Primary school
+        children"},{"id":"secondary_school_children","name":"Secondary school children"},{"id":"over_18","name":"18+"}]}'
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 08:29:19 GMT
+  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
 recorded_with: VCR 2.8.0

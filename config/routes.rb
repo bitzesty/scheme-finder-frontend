@@ -5,7 +5,7 @@ SchemeFinderFrontend::Application.routes.draw do
     }
   end
 
-  resources :schemes, only: [:new, :create]
+  resources :schemes, only: [:new, :create, :index]
 
-  root to: 'schemes#new'
+  root to: 'schemes#index'
 end

@@ -23,25 +23,25 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - "\"404589fa6fea68e408a7fe4a0909e8c3\""
+      - '"0b6e9ae3da0c877e38ea30fda16f8fca"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 69be27d7-5521-49ef-88b1-59b64f2ea12a
+      - 615f9389-03ca-413f-8824-81d691f3d76f
       X-Runtime:
-      - '0.010157'
+      - '0.122396'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       Date:
-      - Fri, 03 Jan 2014 08:29:19 GMT
+      - Fri, 03 Jan 2014 09:27:42 GMT
       Content-Length:
-      - '161'
+      - '179'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: "[{\"id\":\"0-9\",\"name\":\"0-9\"},{\"id\":\"10-249\",\"name\":\"10-249\"},{\"id\":\"250-500\",\"name\":\"250-500\"},{\"id\":\"501-1000\",\"name\":\"501-1000\"},{\"id\":\"1000
-        +\",\"name\":\"1000 +\"}]"
+      string: '{"company_sizes":[{"id":"0-9","name":"0-9"},{"id":"10-249","name":"10-249"},{"id":"250-500","name":"250-500"},{"id":"501-1000","name":"501-1000"},{"id":"1000
+        +","name":"1000 +"}]}'
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 08:29:19 GMT
+  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
 recorded_with: VCR 2.8.0

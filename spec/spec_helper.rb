@@ -16,5 +16,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
+  config.include ExpectationHelpers
+  config.include FeaturesHelpers, type: :feature
   config.include SelectHelper, type: :feature
 end

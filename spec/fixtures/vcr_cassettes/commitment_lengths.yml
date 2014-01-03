@@ -23,25 +23,25 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - "\"e3001122adb666b8f87bfc5fd23e23a1\""
+      - '"f54162addf2fde091f3d5c5dc934eefa"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4c3ffb15-8cff-4011-9286-77d7582ac678
+      - a7a18cc8-2627-4e5f-b13c-54a0df53daac
       X-Runtime:
-      - '0.010172'
+      - '0.019186'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       Date:
-      - Fri, 03 Jan 2014 08:29:19 GMT
+      - Fri, 03 Jan 2014 09:27:42 GMT
       Content-Length:
-      - '96'
+      - '119'
       Connection:
       - Keep-Alive
     body:
       encoding: UTF-8
-      string: "[{\"id\":\"few_hours\",\"name\":\"A few hours\"},{\"id\":\"longer_term\",\"name\":\"A
-        longer term commitment\"}]"
+      string: '{"commitment_lengths":[{"id":"few_hours","name":"A few hours"},{"id":"longer_term","name":"A
+        longer term commitment"}]}'
     http_version: 
-  recorded_at: Fri, 03 Jan 2014 08:29:19 GMT
+  recorded_at: Fri, 03 Jan 2014 09:27:42 GMT
 recorded_with: VCR 2.8.0

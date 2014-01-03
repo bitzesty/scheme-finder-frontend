@@ -1,0 +1,61 @@
+h4 Search
+
+= simple_form_for search,
+                  as: :search,
+                  url: schemes_path,
+                  method: :get,
+                  html: { class: "horizontal-form" } do |f|
+
+  .form-inputs
+    = f.input :had_direct_interactions,
+              as: :boolean,
+              label: "Have you engaged with schools before?"
+
+    = f.input :locations,
+              as: :select,
+              label: 'Locations',
+              collection: Location.collection,
+              required: false,
+              input_html: { class: "span6 js-select2 js-select2" }
+
+    = f.input :sectors,
+              as: :select,
+              label: 'Sectors',
+              collection: Sector.collection,
+              required: false,
+              input_html: { class: "span6 js-select2" }
+
+    = f.input :commitment_lengths,
+              as: :select,
+              label: 'Commitment length',
+              collection: CommitmentLength.collection,
+              label: "Length of commitment",
+              required: false,
+              input_html: { class: "span6 js-select2" }
+
+    = f.input :activities,
+              as: :select,
+              collection: Activity.collection,
+              label: 'Activities',
+              required: false,
+              input_html: { class: "span6 js-select2" }
+
+    = f.input :company_sizes,
+              as: :select,
+              collection: CompanySize.collection,
+              label: 'Company size',
+              required: false,
+              input_html: { class: "span6 js-select2" }
+
+    = f.input :age_ranges,
+              as: :select,
+              label: 'Age range',
+              collection: AgeRange.collection,
+              required: false,
+              input_html: { class: "span6 js-select2" }
+
+  .form-actions
+    = f.button :submit, "Search",
+               class: "btn btn-primary",
+               id: "submit_btn",
+               data: { action: "submit" }
