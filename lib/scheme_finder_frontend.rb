@@ -1,3 +1,5 @@
+require 'net/http/post/multipart'
+
 module SchemeFinderFrontend
   autoload :ApiEntity, 'scheme_finder_frontend/api_entity'
 
@@ -23,20 +25,11 @@ module SchemeFinderFrontend
       "#{api_host}#{api_path}"
     end
 
-    def api_authorization_header
-      { 'Authorization' => encoded_api_access_token }
-    end
-
-    def encoded_api_access_token
-      ActionController::HttpAuthentication::Token.encode_credentials(
-        api_access_token
-      )
-    end
-
     def api_client
       @api_client ||= Faraday.new do |faraday|
         faraday.url_prefix = api_url
         faraday.path_prefix = api_path
+        faraday.token_auth(api_access_token)
 
         faraday.request  :multipart
         faraday.request  :url_encoded

@@ -21,18 +21,24 @@ class Scheme
   end
 
   def save
-    resp = self.class.post(
+    resp = SchemeFinderFrontend.api_client.post(
       self.class.collection_path,
-      query: { scheme: attributes },
-      headers: SchemeFinderFrontend.api_authorization_header
+      {
+        scheme: attributes.merge(
+          'logo' => UploadIO.new(
+            attributes['logo'],
+            attributes['logo'].content_type,
+            attributes['logo'].original_filename
+          )
+        )
+      }
     )
 
-    case resp.code
+    case resp.status
     when 200
       true
     when 422
-      json = JSON.parse(resp.body)
-      assign_errors(json['errors'])
+      assign_errors(resp.body['errors'])
 
       false
     else
