@@ -92,6 +92,9 @@ GEM
     hike (1.2.3)
     hipchat (1.0.1)
       httparty
+    httmultiparty (0.3.10)
+      httparty (>= 0.7.3)
+      multipart-post
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -110,6 +113,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
@@ -230,6 +234,7 @@ DEPENDENCIES
   forgery
   govuk_template
   hipchat (~> 1.0.1)
+  httmultiparty
   httparty
   jquery-rails
   pry-rails

@@ -3,11 +3,12 @@ class SchemesController < ApplicationController
     @scheme = Scheme.new(scheme_params)
 
     if @scheme.save
-      redirect_to new_scheme_url,
-                  notice: "Scheme submitted for approval"
+      flash.notice = 'Scheme submitted for approval'
     else
-      render :new
+      flash.alert = 'An issue occured on scheme submission, please check form errors'
     end
+
+    respond_with(@scheme, location: new_scheme_url)
   end
 
   def new

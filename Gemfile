@@ -21,6 +21,7 @@ gem "slim-rails"
 gem "simple_form", "~> 3.0.0"
 
 gem "httparty"
+gem "httmultiparty"
 
 group :development do
   gem "spring"

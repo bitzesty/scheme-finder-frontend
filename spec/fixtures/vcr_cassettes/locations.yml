@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/locations.json
+    uri: http://localhost:3000/api/v1/locations.json
     body:
       encoding: US-ASCII
       string: ''
@@ -10,20 +10,8 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      Server:
-      - nginx/1.1.19
-      Date:
-      - Thu, 02 Jan 2014 08:14:39 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -32,125 +20,33 @@ http_interactions:
       - nosniff
       X-Ua-Compatible:
       - chrome=1
-      Etag:
-      - '"ec3967f0a3a48e27978fa4c98135f343"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 3f930788-5c4c-4d2f-b763-96df16d0f595
-      X-Runtime:
-      - '0.005472'
-    body:
-      encoding: UTF-8
-      string: '[{"id":"any","name":"Any Location"},{"id":"england","name":"All of
-        England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
-        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
-        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
-        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
-        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
-        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]'
-    http_version: 
-  recorded_at: Thu, 02 Jan 2014 08:14:39 GMT
-- request:
-    method: get
-    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/locations.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.1.19
-      Date:
-      - Thu, 02 Jan 2014 08:14:40 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-Ua-Compatible:
-      - chrome=1
       Etag:
-      - '"ec3967f0a3a48e27978fa4c98135f343"'
+      - "\"ec3967f0a3a48e27978fa4c98135f343\""
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ca3202c2-dfa5-4ba1-8466-4d06073a2f81
+      - 70fbeee2-a5c6-4714-ba01-cdd526497f88
       X-Runtime:
-      - '0.007267'
-    body:
-      encoding: UTF-8
-      string: '[{"id":"any","name":"Any Location"},{"id":"england","name":"All of
-        England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
-        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
-        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
-        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
-        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
-        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]'
-    http_version: 
-  recorded_at: Thu, 02 Jan 2014 08:14:40 GMT
-- request:
-    method: get
-    uri: http://scheme-finder-api.dev.bitzesty.com/api/v1/locations.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
+      - '0.010128'
       Server:
-      - nginx/1.1.19
+      - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       Date:
-      - Thu, 02 Jan 2014 08:14:40 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      - Fri, 03 Jan 2014 08:29:19 GMT
+      Content-Length:
+      - '589'
       Connection:
-      - keep-alive
-      Status:
-      - 200 OK
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-Ua-Compatible:
-      - chrome=1
-      Etag:
-      - '"ec3967f0a3a48e27978fa4c98135f343"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 305fa865-7c3c-4817-aff9-b4fdcdb9cac8
-      X-Runtime:
-      - '0.003589'
+      - Keep-Alive
     body:
       encoding: UTF-8
-      string: '[{"id":"any","name":"Any Location"},{"id":"england","name":"All of
-        England"},{"id":"north_east","name":"North East"},{"id":"north_west","name":"North
-        West"},{"id":"yorkshire_humber","name":"Yorkshire and the Humber"},{"id":"east_midlands","name":"East
-        Midlands"},{"id":"west_midlands","name":"West Midlands"},{"id":"east_england","name":"East
-        of England"},{"id":"london","name":"London"},{"id":"south_england","name":"South
-        East"},{"id":"south_west","name":"South West"},{"id":"northern_ireland","name":"Northern
-        Ireland"},{"id":"scotland","name":"Scotland"},{"id":"wales","name":"Wales"}]'
+      string: "[{\"id\":\"any\",\"name\":\"Any Location\"},{\"id\":\"england\",\"name\":\"All
+        of England\"},{\"id\":\"north_east\",\"name\":\"North East\"},{\"id\":\"north_west\",\"name\":\"North
+        West\"},{\"id\":\"yorkshire_humber\",\"name\":\"Yorkshire and the Humber\"},{\"id\":\"east_midlands\",\"name\":\"East
+        Midlands\"},{\"id\":\"west_midlands\",\"name\":\"West Midlands\"},{\"id\":\"east_england\",\"name\":\"East
+        of England\"},{\"id\":\"london\",\"name\":\"London\"},{\"id\":\"south_england\",\"name\":\"South
+        East\"},{\"id\":\"south_west\",\"name\":\"South West\"},{\"id\":\"northern_ireland\",\"name\":\"Northern
+        Ireland\"},{\"id\":\"scotland\",\"name\":\"Scotland\"},{\"id\":\"wales\",\"name\":\"Wales\"}]"
     http_version: 
-  recorded_at: Thu, 02 Jan 2014 08:14:40 GMT
+  recorded_at: Fri, 03 Jan 2014 08:29:19 GMT
 recorded_with: VCR 2.8.0
