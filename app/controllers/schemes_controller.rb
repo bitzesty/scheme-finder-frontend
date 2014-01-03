@@ -2,7 +2,11 @@ class SchemesController < ApplicationController
   def create
     @scheme = Scheme.new(scheme_params)
 
-    flash.notice = "Scheme submitted for approval" if @scheme.save
+    if @scheme.save
+      flash.notice = 'Scheme submitted for approval'
+    else
+      flash.alert = 'An issue occured on scheme submission, please check form errors'
+    end
 
     respond_with(@scheme, location: new_scheme_url)
   end

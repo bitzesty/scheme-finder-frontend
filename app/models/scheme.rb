@@ -36,7 +36,6 @@ class Scheme
 
       false
     else
-      # TBD, add a custom error
       false
     end
   end
