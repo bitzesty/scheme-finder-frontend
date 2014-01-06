@@ -3,34 +3,38 @@ require 'spec_helper'
 describe 'Creating a scheme' do
   let(:scheme) { build(:scheme) }
 
-  specify 'scheme can be created' do
-      with_backend_api do |stubs|
-        stubs.get("/api/v1/locations.json") do
-          api_response(file: "locations.json")
-        end
-        stubs.get("/api/v1/sectors.json") do
-          api_response(file: "sectors.json")
-        end
-        stubs.get("/api/v1/commitment_lengths.json") do
-          api_response(file: "commitment_lengths.json")
-        end
-        stubs.get("/api/v1/activities.json") do
-          api_response(file: "activities.json")
-        end
-        stubs.get("/api/v1/company_sizes.json") do
-          api_response(file: "company_sizes.json")
-        end
-        stubs.get("/api/v1/age_ranges.json") do
-          api_response(file: "age_ranges.json")
-        end
-        stubs.post("/api/v1/schemes.json") do
-          api_response(status: 201, file: "scheme_created.json")
-        end
+  around do |example|
+    with_backend_api do |stubs|
+      stubs.get("/api/v1/locations.json") do
+        api_response(file: "locations.json")
+      end
+      stubs.get("/api/v1/sectors.json") do
+        api_response(file: "sectors.json")
+      end
+      stubs.get("/api/v1/commitment_lengths.json") do
+        api_response(file: "commitment_lengths.json")
+      end
+      stubs.get("/api/v1/activities.json") do
+        api_response(file: "activities.json")
+      end
+      stubs.get("/api/v1/company_sizes.json") do
+        api_response(file: "company_sizes.json")
+      end
+      stubs.get("/api/v1/age_ranges.json") do
+        api_response(file: "age_ranges.json")
+      end
+      stubs.post("/api/v1/schemes.json") do
+        api_response(status: 201, file: "scheme_created.json")
       end
 
-      submit_scheme(scheme)
+      example.yield
+    end
+  end
 
-      expect(page).to have_content 'submitted for approval'
+  specify 'scheme can be created' do
+    submit_scheme(scheme)
+
+    expect(page).to have_content 'submitted for approval'
   end
 
   private
