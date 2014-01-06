@@ -35,8 +35,9 @@ module SchemeFinderFrontend
         faraday.request  :url_encoded
 
         faraday.response :json, content_type: /\bjson$/
-        faraday.adapter  Faraday.default_adapter
+        faraday.adapter Faraday.default_adapter
       end
     end
+    attr_writer :api_client
   end
 end

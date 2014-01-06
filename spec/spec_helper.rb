@@ -1,8 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
-require "webmock/rspec"
-require "vcr"
+# require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[
@@ -15,6 +14,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 
+  config.include ApiClientHelper
   config.include FactoryGirl::Syntax::Methods
   config.include ExpectationHelpers
   config.include FeaturesHelpers, type: :feature
