@@ -147,6 +147,17 @@ $right-to-left: false !default;
       @include border-radius($gutter-one-sixth);
       @include appearance(none);
     }
+
+    .multi-row-select {
+      border: 1px solid #555;
+      padding: $gutter-one-sixth $gutter-one-sixth $gutter-one-sixth $gutter-one-third;
+      width: 80%;
+      border-color: $border-colour;
+      display: block;
+      @include box-shadow(1px 1px 1px #fff);
+      @include border-radius($gutter-one-sixth);
+      @include appearance(none);
+    }
   }
 
   .date-range {
