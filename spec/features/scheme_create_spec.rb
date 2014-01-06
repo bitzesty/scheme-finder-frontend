@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe 'Creating a scheme' do
-  include ApiClientHelper
-
   let(:scheme) { build(:scheme) }
 
   specify 'scheme can be created' do

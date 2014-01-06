@@ -35,8 +35,7 @@ module SchemeFinderFrontend
         faraday.request  :url_encoded
 
         faraday.response :json, content_type: /\bjson$/
-        yield(faraday) if block_given?
-        # faraday.adapter  Faraday.default_adapter
+        faraday.adapter  Faraday.default_adapter
       end
     end
   end

@@ -1,0 +1,16 @@
+{
+  "age_ranges": [
+    {
+      "id": "primary_school_children",
+      "name": "Primary school children"
+    },
+    {
+      "id": "secondary_school_children",
+      "name": "Secondary school children"
+    },
+    {
+      "id": "over_18",
+      "name": "18+"
+    }
+  ]
+}

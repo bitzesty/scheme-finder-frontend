@@ -1,0 +1,12 @@
+{
+  "commitment_lengths": [
+    {
+      "id": "few_hours",
+      "name": "A few hours"
+    },
+    {
+      "id": "longer_term",
+      "name": "A longer term commitment"
+    }
+  ]
+}

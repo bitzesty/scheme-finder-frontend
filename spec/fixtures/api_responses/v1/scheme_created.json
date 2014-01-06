@@ -1,0 +1,37 @@
+{
+  "id": 24,
+  "had_direct_interactions": false,
+  "created_at": "2014-01-03T15:06:24.787+00:00",
+  "updated_at": "2014-01-03T15:06:24.787+00:00",
+  "logo": {
+    "url": "/uploads/logo.png",
+    "logo": {
+      "url": "/uploads/logo_logo.png"
+    }
+  },
+  "location_ids": [
+    "north_east"
+  ],
+  "sector_ids": [
+    "aero"
+  ],
+  "activity_ids": [
+    "inspiring_talks"
+  ],
+  "age_range_ids": [
+    "secondary_school_children"
+  ],
+  "commitment_length_ids": [
+    "few_hours"
+  ],
+  "company_size_ids": [
+    "0-9"
+  ],
+  "contact_name": "Jim Bim",
+  "contact_email": "person1@example.com",
+  "contact_phone": "0771233445",
+  "name": "Scheme 1",
+  "website": "example.com",
+  "description": "Host a short visit",
+  "confirmed": false
+}

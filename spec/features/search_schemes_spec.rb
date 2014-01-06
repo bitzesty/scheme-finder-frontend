@@ -2,10 +2,8 @@ require "spec_helper"
 
 describe "Scheme search" do
   it "uses api for searching schemes" do
-    VCR.use_cassette("schemes_search") do
-      filter_by_sector("Auto")
-      expect_to_see "Automotives"
-    end
+    filter_by_sector("Auto")
+    expect_to_see "Automotives"
   end
 
   private
