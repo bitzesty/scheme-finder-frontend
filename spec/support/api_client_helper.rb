@@ -1,11 +1,18 @@
 module ApiClientHelper
-  def with_backend_api(
-    conn = SchemeFinderFrontend.api_client.dup,
-    adapter_class = Faraday::Adapter::Test,
-    &stubs_block
-  )
-    adapter_handler = conn.builder.handlers.find {|h| h.klass < Faraday::Adapter }
-    conn.builder.swap(adapter_handler, adapter_class, &stubs_block)
+  def with_backend_api
+    SchemeFinderFrontend.api_client = Faraday.new do |faraday|
+      faraday.url_prefix = SchemeFinderFrontend.api_url
+      faraday.path_prefix = SchemeFinderFrontend.api_path
+      faraday.token_auth(SchemeFinderFrontend.api_access_token)
+
+      faraday.request  :multipart
+      faraday.request  :url_encoded
+
+      faraday.response :json, content_type: /\bjson$/
+      faraday.adapter :test do |s|
+        yield(s)
+      end
+    end
   end
 
   def api_response(status: 200, file: nil, headers: {}, version: "v1")

@@ -2,13 +2,11 @@ require 'spec_helper'
 
 shared_examples_for 'api entity for' do |filter_type|
   describe ".all" do
-    around do |example|
+    before do
       with_backend_api do |stubs|
         stubs.get("/api/v1/#{filter_type}.json") do
           api_response(file: "#{filter_type}.json")
         end
-
-        example.yield
       end
     end
 

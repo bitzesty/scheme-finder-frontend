@@ -13,10 +13,6 @@ module SchemeFinderFrontend
       include ActiveModel::Conversion
       extend  ActiveModel::Naming
 
-      # include HTTMultiParty
-      # # base_uri SchemeFinderFrontend.api_url
-      # debug_output if Rails.env.development?
-
       attr_reader :attributes, :errors
 
       attr_accessor :casted_by
