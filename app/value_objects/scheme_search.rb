@@ -18,7 +18,7 @@ class SchemeSearch
   end
 
   def results
-    @results ||= Scheme.paginated(query: search_attributes)
+    @results ||= Scheme.paginated(search_attributes)
   end
 
   def search_attributes
