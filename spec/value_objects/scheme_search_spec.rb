@@ -12,7 +12,7 @@ describe SchemeSearch do
   describe ".results" do
     let(:result) { search.results }
 
-    around do |example|
+    before do
       with_backend_api do |stubs|
         stubs.get("/api/v1/locations.json") do
           api_response(file: "locations.json")
@@ -36,8 +36,6 @@ describe SchemeSearch do
           api_response(file: "schemes_auto.json")
         end
       end
-
-      example.run
     end
 
     it "returns response with pagination related information" do
