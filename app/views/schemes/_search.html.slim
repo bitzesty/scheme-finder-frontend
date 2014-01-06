@@ -12,7 +12,8 @@
               label: "Have you engaged with schools before?"
 
     = f.input :locations,
-              as: :select,
+              as: :grouped_select,
+              group_method: :last,
               label: 'Location',
               collection: Location.collection,
               required: false,
