@@ -179,7 +179,7 @@ module SchemeFinderFrontend
       # path returned is "schemes/3/feedbacks.json"
       def route_to_path(route, params)
         params.each do |key, value|
-          route.gsub! /\/:#{key}([\/\.])/, "/#{value}#{$1}"
+          route.gsub! /\/:#{key}([\/\.])/, "/#{value}\\1"
         end
 
         route

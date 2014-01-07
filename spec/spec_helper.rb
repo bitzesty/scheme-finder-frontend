@@ -19,4 +19,5 @@ RSpec.configure do |config|
   config.include ExpectationHelpers
   config.include FeaturesHelpers, type: :feature
   config.include SelectHelper, type: :feature
+  config.include ClickOnHelper, type: :feature
 end
