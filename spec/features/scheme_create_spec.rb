@@ -1,33 +1,17 @@
 require 'spec_helper'
 
 describe 'Creating a scheme' do
+  include SearchSchemeSteps
+
   let(:scheme) { build(:scheme) }
 
-  around do |example|
+  before do
     with_backend_api do |stubs|
-      stubs.get("/api/v1/locations.json") do
-        api_response(file: "locations.json")
-      end
-      stubs.get("/api/v1/sectors.json") do
-        api_response(file: "sectors.json")
-      end
-      stubs.get("/api/v1/commitment_lengths.json") do
-        api_response(file: "commitment_lengths.json")
-      end
-      stubs.get("/api/v1/activities.json") do
-        api_response(file: "activities.json")
-      end
-      stubs.get("/api/v1/company_sizes.json") do
-        api_response(file: "company_sizes.json")
-      end
-      stubs.get("/api/v1/age_ranges.json") do
-        api_response(file: "age_ranges.json")
-      end
+      stub_scheme_form_fields_api stubs
+
       stubs.post("/api/v1/schemes.json") do
         api_response(status: 201, file: "scheme_created.json")
       end
-
-      example.yield
     end
   end
 
