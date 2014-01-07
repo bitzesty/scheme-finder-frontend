@@ -1,7 +1,8 @@
 class Scheme
   include SchemeFinderFrontend::ApiEntity
 
-  attr_accessor :had_direct_interactions,
+  attr_accessor :id,
+                :had_direct_interactions,
                 :logo,
                 :contact_name,
                 :contact_email,

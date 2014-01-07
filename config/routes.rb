@@ -9,6 +9,10 @@ SchemeFinderFrontend::Application.routes.draw do
     collection {
       get :search
     }
+
+    scope module: :schemes do
+      resources :feedbacks, only: [:new, :create, :index]
+    end
   end
 
   root to: 'pages#start'

@@ -21,7 +21,7 @@ describe "Scheme search" do
       stubs.get("/api/v1/age_ranges.json") do
         api_response(file: "age_ranges.json")
       end
-      stubs.get("/api/v1/schemes.json?page=1&per_page=10&sectors%5B%5D=auto") do
+      stubs.get("/api/v1/schemes.json?page=1&per_page=10&sectors%5B%5D=&sectors%5B%5D=auto") do
         api_response(file: "schemes_search.json")
       end
     end

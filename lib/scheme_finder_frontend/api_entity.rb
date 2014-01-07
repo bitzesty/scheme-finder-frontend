@@ -86,7 +86,9 @@ module SchemeFinderFrontend
       end
 
       def all(opts = {})
-        resp = fetch_response_for(collection_path, opts)
+        # collection path parameters can be passed via opts
+        resp = fetch_response_for collection_path(opts),
+                                  opts
 
         records = if resp.body.is_a? Array
           resp.body
@@ -98,7 +100,8 @@ module SchemeFinderFrontend
       end
 
       def paginated(opts = {})
-        resp = fetch_response_for(collection_path, opts).body.with_indifferent_access
+        resp = fetch_response_for(collection_path(opts),
+                                  opts).body.with_indifferent_access
 
         PaginationResponse.new resp[collection_name].map { |entry_data| new(entry_data) },
                                resp[:total],
@@ -107,7 +110,8 @@ module SchemeFinderFrontend
       end
 
       def find(id, opts = {})
-        resp = fetch_response_for("/#{self.name.pluralize.parameterize}/#{id}", opts)
+        resp = fetch_response_for member_path(opts.merge(id: id)),
+                                  opts
         new(resp)
       end
 
@@ -149,16 +153,36 @@ module SchemeFinderFrontend
         METHODS
       end
 
-      def collection_path(path = nil)
-        if path
-          @collection_path = path
-        else
-          @collection_path || "#{collection_name}.json"
-        end
+      def collection_path(opts = {})
+        route_to_path collection_route, opts
+      end
+
+      def member_path(opts = {})
+        route_to_path member_route, opts
+      end
+
+      def collection_route
+        "#{collection_name}.json"
+      end
+
+      def member_route
+        "#{collection_name}/:id.json"
       end
 
       def collection_name
         name.tableize
+      end
+
+      # replace route attributes with params provided
+      # Given collection_route = "schemes/:scheme_id/feedbacks.json"
+      # And params = { scheme_id: 3 }
+      # path returned is "schemes/3/feedbacks.json"
+      def route_to_path(route, params)
+        params.each do |key, value|
+          route.gsub! /\/:#{key}([\/\.])/, "/#{value}#{$1}"
+        end
+
+        route
       end
     end
   end

@@ -1,3 +1,6 @@
 li.scheme
   h3
     = scheme.name
+  = link_to "Leave feedback",
+            new_scheme_feedback_path(scheme_id: scheme.id),
+            class: "btn"
