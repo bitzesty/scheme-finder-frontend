@@ -17,7 +17,7 @@ set :branch, ENV["BRANCH"] || "master"
 set :use_sudo, false
 
 set :format, :pretty
-set :log_level, :info
+set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w{.env}
