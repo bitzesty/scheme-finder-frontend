@@ -84,6 +84,7 @@ SchemeFinderFrontend::Application.configure do
       app_config.api_access_token = ENV['API_ACCESS_TOKEN']
       app_config.api_host = ENV['API_HOST']
       app_config.api_path = "/backend/api/v1"
+      app_config.ssl = true
     end
   end
 end

@@ -5,6 +5,7 @@ module SchemeFinderFrontend
     api_access_token: "development",
     api_host: "scheme-finder-api.dev.bitzesty.com",
     api_path: "/api/v1",
+    ssl: false
   }
 
   class << self
@@ -24,7 +25,7 @@ module SchemeFinderFrontend
     end
 
     def api_client
-      @api_client ||= Faraday.new do |faraday|
+      @api_client ||= Faraday.new(api_clients_options) do |faraday|
         faraday.url_prefix = api_url
         faraday.path_prefix = api_path
         faraday.token_auth(api_access_token)
@@ -37,5 +38,13 @@ module SchemeFinderFrontend
       end
     end
     attr_writer :api_client
+
+    def api_client_options
+      if ssl
+        { ssl: { verify: false } }
+      else
+        { }
+      end
+    end
   end
 end
