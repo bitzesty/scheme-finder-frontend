@@ -83,6 +83,7 @@ SchemeFinderFrontend::Application.configure do
       # No auth required in test environment
       app_config.api_access_token = ENV['API_ACCESS_TOKEN']
       app_config.api_host = ENV['API_HOST']
+      app_config.api_path = "/backend/api/v1"
     end
   end
 end
