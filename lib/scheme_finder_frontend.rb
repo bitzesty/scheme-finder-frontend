@@ -25,7 +25,7 @@ module SchemeFinderFrontend
     end
 
     def api_client
-      @api_client ||= Faraday.new(api_clients_options) do |faraday|
+      @api_client ||= Faraday.new(api_client_options) do |faraday|
         faraday.url_prefix = api_url
         faraday.path_prefix = api_path
         faraday.token_auth(api_access_token)
