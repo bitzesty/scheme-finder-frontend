@@ -17,12 +17,9 @@ class SchemesController < ApplicationController
 
   def index
     @search = SchemeSearch.new(search_params)
-    if params[:search]
-      @search_conducted = true
-      @search_results = @search.results
-      @total_schemes = @search_results.total_count
-      @schemes = @search_results.for_kaminari
-    end
+    @search_results = @search.results
+    @total_schemes = @search_results.total_count
+    @schemes = @search_results.for_kaminari
   end
 
   def search
@@ -30,7 +27,6 @@ class SchemesController < ApplicationController
 
     render partial: "results",
            locals: {
-             search_conducted: true,
              total_schemes: search_results.total_count,
              schemes: search_results.for_kaminari,
            }
