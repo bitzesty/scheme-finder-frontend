@@ -5,14 +5,15 @@
   .form-inputs
     = f.input :logo,
               as: :file,
+              required: true,
               input_html: { class: "span5" }
 
-    = f.input :contact_name
-    = f.input :contact_email
-    = f.input :contact_phone
-    = f.input :name
-    = f.input :website
-    = f.input :description, as: :text
+    = f.input :contact_name, required: true
+    = f.input :contact_email, required: true
+    = f.input :contact_phone, required: true
+    = f.input :name, required: true
+    = f.input :website, required: true
+    = f.input :description, as: :text, required: true
 
     = f.input :had_direct_interactions,
               as: :boolean,

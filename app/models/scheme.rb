@@ -22,7 +22,7 @@ class Scheme
   end
 
   def logo_for_upload
-    if logo.present? && logo.kind_of?(Rack::Multipart::UploadedFile)
+    if logo.present? && logo.kind_of?(ActionDispatch::Http::UploadedFile)
       @logo = attributes['logo'] = UploadIO.new(
         logo,
         logo.content_type,

@@ -1,3 +1,5 @@
+require 'net/http/post/multipart'
+
 module SchemeFinderFrontend
   autoload :ApiEntity, 'scheme_finder_frontend/api_entity'
 
