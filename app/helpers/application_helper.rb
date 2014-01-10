@@ -119,4 +119,20 @@ module ApplicationHelper
       content_tag(:span, '✘', class: 'badge badge-important')
     end
   end
+
+  def teachers_audience?
+    current_audience == "teachers"
+  end
+
+  def businesses_audience?
+    current_audience == "businesses"
+  end
+
+  def for_teachers
+    yield if teachers_audience? && block_given?
+  end
+
+  def for_businesses
+    yield if businesses_audience? && block_given?
+  end
 end

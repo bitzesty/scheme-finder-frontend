@@ -5,13 +5,15 @@ SchemeFinderFrontend::Application.routes.draw do
     }
   end
 
-  resources :schemes, only: [:new, :create, :index] do
-    collection {
-      get :search
-    }
+  scope "/:current_audience", constraints: { current_audience: /businesses|teachers/  } do
+    resources :schemes, only: [:new, :create, :index] do
+      collection {
+        get :search
+      }
 
-    scope module: :schemes do
-      resources :feedbacks, only: [:new, :create, :index]
+      scope module: :schemes do
+        resources :feedbacks, only: [:new, :create, :index]
+      end
     end
   end
 

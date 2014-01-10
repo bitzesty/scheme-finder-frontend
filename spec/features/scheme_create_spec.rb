@@ -39,7 +39,8 @@ describe 'Creating a scheme' do
       select_by_value('scheme_activity_ids', scheme.activity_ids.first)
       select_by_value('scheme_company_size_ids', scheme.company_size_ids.first)
       select_by_value('scheme_age_range_ids', scheme.age_range_ids.first)
-      attach_file 'scheme_logo', File.join(Rails.root, 'spec', 'fixtures', 'logo.png')
+      # logo is disabled, bring back if client requests that
+      # attach_file 'scheme_logo', File.join(Rails.root, 'spec', 'fixtures', 'logo.png')
 
       click_button 'Create Scheme'
     end

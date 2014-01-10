@@ -5,12 +5,6 @@ describe "Scheme search" do
 
   before do
     with_backend_api do |stubs|
-      # search is conducted on page load
-      stubs.get("/api/v1/schemes.json?page=1&per_page=10") do
-        api_response(file: "schemes_auto.json")
-      end
-
-      # load scheme for, filter by sector
       stub_search_for_scheme_api stubs,
                                  "/api/v1/schemes.json?page=1&per_page=10&sectors%5B%5D=&sectors%5B%5D=auto",
                                  "schemes_search.json"

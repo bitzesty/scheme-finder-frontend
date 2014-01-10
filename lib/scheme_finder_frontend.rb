@@ -7,7 +7,8 @@ module SchemeFinderFrontend
     api_access_token: "development",
     api_host: "scheme-finder-api.dev.bitzesty.com",
     api_path: "/api/v1",
-    ssl: false
+    ssl: false,
+    default_audience: "businesses",
   }
 
   class << self
