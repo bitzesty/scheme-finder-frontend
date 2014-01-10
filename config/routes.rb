@@ -15,7 +15,9 @@ SchemeFinderFrontend::Application.routes.draw do
         resources :feedbacks, only: [:new, :create, :index]
       end
     end
+
+    root to: "schemes#index", as: :root_with_audience
   end
 
-  root to: 'pages#start'
+  root to: "pages#start"
 end
