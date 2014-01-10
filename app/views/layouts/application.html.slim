@@ -9,7 +9,10 @@
 = content_for :body_classes, "mainstream"
 
 = content_for :inside_header do
-  | Make it in Great Britain for businesses
+  - for_teachers do
+    | Make it in Great Britain for teachers
+  - for_businesses do
+    | Make it in Great Britain for businesses
 
 = content_for :content do
   #wrapper.scheme-finder-frontend

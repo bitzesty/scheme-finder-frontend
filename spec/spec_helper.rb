@@ -20,4 +20,9 @@ RSpec.configure do |config|
   config.include FeaturesHelpers, type: :feature
   config.include SelectHelper, type: :feature
   config.include ClickOnHelper, type: :feature
+
+  config.before(:each, type: :feature) do
+    # patch default url options: https://github.com/rspec/rspec-rails/issues/255
+    default_url_options[:current_audience] = ApplicationController::SUPPORTED_AUDIENCES.first
+  end
 end

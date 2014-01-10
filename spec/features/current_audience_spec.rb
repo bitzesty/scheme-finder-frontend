@@ -4,6 +4,14 @@ describe %W(
 As a user
 I want to use guide for teachers or for businesses
 ) do
+  include SearchSchemeSteps
+
+  before do
+    with_backend_api do |stubs|
+      stub_search_for_scheme_api stubs
+    end
+  end
+
   specify "I am able to choose the guide on start page" do
     choose_teachers_guide
     expect_to_be_on_teachers_guide

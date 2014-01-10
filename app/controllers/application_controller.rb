@@ -5,19 +5,15 @@ class ApplicationController < ActionController::Base
 
   respond_to :html
 
-  def url_options
-    if current_audience
-      { current_audience: current_audience }.merge(super || {})
-    else
-      super
-    end
+  def default_url_options(options={})
+    { current_audience: current_audience }
   end
 
   private
   def current_audience
     audience = params[:current_audience]
     if audience && SUPPORTED_AUDIENCES.include?(audience.to_s)
-      audience
+      audience.to_s
     else
       SUPPORTED_AUDIENCES.first
     end
