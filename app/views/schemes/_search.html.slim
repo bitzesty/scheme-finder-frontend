@@ -9,48 +9,50 @@
   fieldset
     = f.input :had_direct_interactions,
               as: :boolean,
-              label: "Have you engaged with schools before?"
+              label: had_direct_interactions_label
 
     = f.input :locations,
               as: :grouped_select,
               group_method: :last,
-              label: 'Location',
+              label: 'Locations',
               collection: Location.collection,
               required: false,
               input_html: { class: "multi-row-select js-select2", multiple: true }
 
     = f.input :sectors,
               as: :multi_select,
-              label: 'Sector',
+              label: 'Sectors',
               collection: Sector.collection,
               required: false,
               input_html: { class: "multi-row-select" }
 
-    = f.input :commitment_lengths,
-              as: :multi_select,
-              label: 'Commitment length',
-              collection: CommitmentLength.collection,
-              label: "Length of commitment",
-              required: false,
-              input_html: { class: "multi-row-select" }
+    - for_businesses do
+      = f.input :commitment_lengths,
+                as: :multi_select,
+                label: 'Commitment length',
+                collection: CommitmentLength.collection,
+                label: "Length of commitment",
+                required: false,
+                input_html: { class: "multi-row-select" }
 
     = f.input :activities,
               as: :multi_select,
               collection: Activity.collection,
-              label: 'Activity',
+              label: 'Activities',
               required: false,
               input_html: { class: "multi-row-select" }
 
-    = f.input :company_sizes,
-              as: :multi_select,
-              collection: CompanySize.collection,
-              label: 'Company size',
-              required: false,
-              input_html: { class: "multi-row-select" }
+    - for_businesses do
+      = f.input :company_sizes,
+                as: :multi_select,
+                collection: CompanySize.collection,
+                label: 'Company size',
+                required: false,
+                input_html: { class: "multi-row-select" }
 
     = f.input :age_ranges,
               as: :multi_select,
-              label: 'Age range',
+              label: age_range_label,
               collection: AgeRange.collection,
               required: false,
               input_html: { class: "multi-row-select" }

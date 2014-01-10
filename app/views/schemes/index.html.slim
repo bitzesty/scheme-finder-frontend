@@ -6,17 +6,18 @@
     .inner-block
       .filter-block
         h2
-          | You can use the filters to only show schemes that you are eligible for
+          | You can use the filters to only show schemes that you are eligible for.
         = render "search", search: @search
-
-        h2
-          | Want to submit your own scheme?
-        = link_to "Submit scheme application",
-                  new_scheme_path,
-                  class: "big button"
-
 
   #filtered-results.block-4.filtered-results
     = render "results",
              total_schemes: @total_schemes,
              schemes: @schemes
+
+
+h3
+  | Want to submit your own scheme?
+= link_to "Submit scheme application",
+          new_scheme_path,
+          class: "button"
+
