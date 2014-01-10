@@ -23,6 +23,6 @@ RSpec.configure do |config|
 
   config.before(:each, type: :feature) do
     # patch default url options: https://github.com/rspec/rspec-rails/issues/255
-    default_url_options[:current_audience] = ApplicationController::SUPPORTED_AUDIENCES.first
+    default_url_options[:current_audience] = SchemeFinderFrontend.default_audience
   end
 end

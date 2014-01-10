@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  SUPPORTED_AUDIENCES = %w(businesses teachers)
-
   protect_from_forgery with: :exception
 
   respond_to :html
@@ -12,10 +10,10 @@ class ApplicationController < ActionController::Base
   private
   def current_audience
     audience = params[:current_audience]
-    if audience && SUPPORTED_AUDIENCES.include?(audience.to_s)
+    if audience
       audience.to_s
     else
-      SUPPORTED_AUDIENCES.first
+      SchemeFinderFrontend.default_audience
     end
   end
   helper_method :current_audience

@@ -5,8 +5,7 @@ SchemeFinderFrontend::Application.routes.draw do
     }
   end
 
-  # current_audience should be [businesses, teachers]
-  scope "/:current_audience" do
+  scope "/:current_audience", constraints: { current_audience: /businesses|teachers/  } do
     resources :schemes, only: [:new, :create, :index] do
       collection {
         get :search
