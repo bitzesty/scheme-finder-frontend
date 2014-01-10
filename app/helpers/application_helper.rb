@@ -135,4 +135,17 @@ module ApplicationHelper
   def for_businesses
     yield if businesses_audience? && block_given?
   end
+
+  def inside_header_content
+    contents = ["Make it in Great Britain"]
+    unless %w(pages).include? controller_name
+      contents << if businesses_audience?
+                    "for businesses"
+                  else
+                    "for teachers"
+                  end
+    end
+
+    contents.join(" ")
+  end
 end
