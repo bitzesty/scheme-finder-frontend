@@ -6,12 +6,12 @@
 
     p#get-started.get-started.group
       = link_to "Get started for teachers",
-                schemes_path(current_audience: "teachers"),
+                root_with_audience_path(current_audience: "teachers"),
                 class: "big button",
                 id: "btn-teachers-guide"
       br
       br
       = link_to "Get started for businesses",
-                schemes_path(current_audience: "businesses"),
+                root_with_audience_path(current_audience: "businesses"),
                 class: "big button",
                 id: "btn-businesses-guide"
