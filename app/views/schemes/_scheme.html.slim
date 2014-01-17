@@ -1,7 +1,17 @@
 li.scheme
   h3
     = scheme.name
-  = link_to "Leave feedback",
-            new_scheme_feedback_path(scheme_id: scheme.id),
+
+  = scheme.description
+
+  br
+
+  =' link_to "Leave feedback",
+             [:new, scheme, :feedback],
+             class: "btn",
+             data: { action: "leave_feedback" }
+  ' |
+  = link_to "View feeback",
+            [scheme, :feedbacks],
             class: "btn",
-            data: { action: "leave_feedback" }
+            data: { action: "show_feedback" }

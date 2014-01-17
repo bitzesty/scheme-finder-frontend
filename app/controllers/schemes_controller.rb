@@ -4,11 +4,13 @@ class SchemesController < ApplicationController
 
     if @scheme.save
       flash.notice = 'Scheme submitted for approval'
+      location = root_with_audience_url
     else
       flash.alert = 'An issue occured on scheme submission, please check form errors'
+      location = new_scheme_url
     end
 
-    respond_with(@scheme, location: new_scheme_url)
+    respond_with(@scheme, location: location)
   end
 
   def new

@@ -12,6 +12,9 @@ describe 'Creating a scheme' do
       stubs.post("/api/v1/schemes.json") do
         api_response(status: 201, file: "scheme_created.json")
       end
+
+      # triggered on returning to schemes search
+      stub_search_for_scheme_api stubs
     end
   end
 
