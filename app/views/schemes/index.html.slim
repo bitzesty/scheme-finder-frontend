@@ -2,22 +2,23 @@
   = yield(:body_classes).concat(" search-page ")
 
 .article-container.group.scheme-finder-search
+  h2
+    | You can use the filters to only show schemes that you are eligible for
+
   .block-2
     .inner-block
       .filter-block
-        h2
-          | You can use the filters to only show schemes that you are eligible for.
         = render "search", search: @search
+
+      .want-submit-own-scheme
+        h3
+          | Want to submit your own scheme?
+        = link_to "Submit scheme application",
+                  new_scheme_path,
+                  class: "button"
 
   #filtered-results.block-4.filtered-results
     = render "results",
              total_schemes: @total_schemes,
              schemes: @schemes
-
-
-h3
-  | Want to submit your own scheme?
-= link_to "Submit scheme application",
-          new_scheme_path,
-          class: "button"
 

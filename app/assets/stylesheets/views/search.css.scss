@@ -42,13 +42,18 @@ $right-to-left: false !default;
 // STYLES
 // ------
 
+.clear {
+  clear: both;
+}
+
 .hide {
   display: none;
 }
 
 .filter-block {
-
-  padding-bottom: 3em;
+  margin-bottom: $gutter-two-thirds;
+  padding: $gutter-one-third;
+  background: $grey-8;
 
   .business-location {
     margin:0 0 30px 0;
@@ -69,12 +74,14 @@ $right-to-left: false !default;
 
     fieldset {
       position: relative;
+      margin: 0;
 
       .filter {
         width: 100%;
-        margin-top: 24px;
+        margin-top: 0;
+
         @include media (tablet) {
-          margin-top: 24px;
+          margin-top: 0;
         }
       }
     }
@@ -86,6 +93,8 @@ $right-to-left: false !default;
 
   label {
     @include ig-core-14;
+    color: $grey-5;
+    font-weight: bold;
 
     &.title {
       @include copy-19;
@@ -133,6 +142,26 @@ $right-to-left: false !default;
     width: auto;
   }
 
+  .multi-row-select {
+    width: 100% !important;
+    max-width: 180px;
+    display: block;
+    margin-bottom: $gutter-one-third;
+    @include appearance(none);
+
+    .select2-choices {
+      background: $grey-7;
+      border-color: #ccc;
+      border-top-color: #999;
+    }
+
+    &.select2-container-active .select2-choices,
+    &.select2-dropdown-open .select2-choices {
+      background: #fff;
+      border-color: #5897fb;
+    }
+  }
+
   @include media (tablet) {
     .single-row-select {
       border: 1px solid #555;
@@ -143,17 +172,6 @@ $right-to-left: false !default;
       background-repeat: no-repeat;
       background-position: right center;
       border-color: $border-colour;
-      @include box-shadow(1px 1px 1px #fff);
-      @include border-radius($gutter-one-sixth);
-      @include appearance(none);
-    }
-
-    .multi-row-select {
-      border: 1px solid #555;
-      padding: $gutter-one-sixth $gutter-one-sixth $gutter-one-sixth $gutter-one-third;
-      width: 80%;
-      border-color: $border-colour;
-      display: block;
       @include box-shadow(1px 1px 1px #fff);
       @include border-radius($gutter-one-sixth);
       @include appearance(none);
@@ -243,29 +261,34 @@ $right-to-left: false !default;
   display: block;
   padding:0;
   margin:0;
-  border-bottom:1px solid $grey-2;
+    line-height: 1;
 
   h3 {
     @include copy-16;
-    //font-weight: bold;
+    color: $grey-5;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: -1px;
     display: inline-block;
     padding-right: $gutter-one-third;
     margin-top:0;
+    padding-top: 0;
     padding-bottom: 0;
 
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
+
     @include media(tablet){
+      padding-top: 0;
       padding-bottom: 0;
     }
 
     span {
-      @include heading-48;
-      font-weight: 600;
       display: inline-block;
-      padding-top: 10px;
       padding-bottom:0px;
 
       @include media(tablet){
-        //padding-top: 7px;
         padding-bottom: 0;
       }
     }
@@ -314,13 +337,18 @@ ul.results-list {
   list-style:none;
   margin:0; padding:0;
   margin-bottom: 60px;
-  margin-top: 25px;
+  margin-top: 5px;
 
   li {
-    margin:0 0 35px 0;
+    margin: 0;
+    padding-top: $gutter-two-thirds;
+    padding-bottom: $gutter-one-third;
+    border-bottom: 1px dotted $grey-2;
 
     h3 {
-      @include heading-24;
+      @include copy-19;
+      color: $accent-link-colour;
+      font-size: 18px;
       font-weight: bold;
 
       @include media(tablet){
@@ -338,12 +366,14 @@ ul.results-list {
     }
 
     p {
-      @include core-16;
-
-      @include media(tablet){
-        padding:0; margin:0;
-        margin-top:4px;
-      }
+      padding:0;
+      margin:0;
+      margin-top: 4px;
+      color: $grey-5;
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: -1px;
+      line-height: 1.63636364;
 
       &.attributes {
         @include ig-core-14;
@@ -529,11 +559,63 @@ ul.results-list {
 
 // CUSTOM STYLES AND OVERRIDES
 // WRITTEN FOR THIS PROTOTYPE
-.search-page main {
+
+.scheme-finder-frontend {
+  padding-top: 55px;
+  background: image-url('box-corner.png') no-repeat top left;
+
+  @include device-pixel-ratio {
+    background-image: image-url('box-corner@2.png');
+    background-size: 77px 36px;
+  }
+
+  .intro {
+    padding-left: $gutter-two-thirds;
+  }
+
   header.page-header {
     div {
       margin:0;
-      padding-left: $gutter;
+      padding-left: $gutter-two-thirds;
+    }
+
+    h1 {
+      color: $accent-link-colour;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  h2 {
+    margin-bottom: $gutter;
+    padding-left: $gutter-two-thirds;
+    @include ig-core-14;
+    color: $grey-5;
+    font-weight: bold;
+  }
+
+  .block-6 {
+    padding-left: $gutter-two-thirds;
+  }
+
+  .button {
+    padding: 6px 12px;
+    padding-right: 30px;
+    @include ig-core-14;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background: $accent-block-colour image-url('button-corner.png') no-repeat bottom right;
+    @include box-shadow(none);
+
+    @include device-pixel-ratio {
+      background-image: image-url('button-corner@2.png');
+      background-size: 22px 22px;
+    }
+
+    @media (max-width: 640px) {
+      padding-top: 8px;
+      padding-bottom: 7px;
     }
   }
 }
@@ -547,9 +629,9 @@ ul.results-list {
   @include media(tablet) {
     .block-2 {
       float: left;
-      width: 33.333%;
+      width: 41.1290323%;
       .inner-block {
-        padding: 0 $gutter*1.5 0 $gutter;
+        padding: 0 $gutter 0 $gutter-two-thirds;
       }
 
       @include right-to-left {
@@ -562,9 +644,9 @@ ul.results-list {
 
     .block-4 {
       float: left;
-      width: 66.666%;
+      width: 58.870967%;
       .inner-block {
-        padding: $gutter-one-sixth $gutter 0 $gutter-half;
+        padding: 0 $gutter 0 $gutter-half;
       }
 
       @include right-to-left {
@@ -574,5 +656,107 @@ ul.results-list {
         }
       }
     }
+  }
+}
+
+.filter-block  form fieldset .filter.search_had_direct_interactions {
+  display: block;
+  margin: -$gutter-one-third;
+  margin-bottom: $gutter-two-thirds;
+  padding: $gutter-one-third;
+  background: $grey-6;
+}
+
+.block-2 .want-submit-own-scheme {
+  margin-bottom: $gutter;
+
+  h3 {
+    @include ig-core-14;
+    color: $black;
+    font-weight: bold;
+    margin-bottom: $gutter-one-third;
+  }
+}
+
+.form-inputs {
+  .input {
+    clear: both;
+  }
+
+  label {
+    float: left;
+    min-width: 180px;
+    @include ig-core-14;
+    color: $grey-5;
+    font-weight: bold;
+
+    abbr {
+      color: red;
+    }
+  }
+
+  .input.boolean {
+    margin-left: 180px;
+    margin-bottom: 10px;
+
+    label {
+      float: none;
+    }
+  }
+
+  .grouped_select,
+  .multi_select {
+    max-width: 400px;
+  }
+
+  .select2-container-multi {
+    width: 55% !important;
+    display: block;
+    margin-left: 180px;
+    margin-bottom: $gutter-one-third;
+    @include appearance(none);
+
+    .select2-choices {
+      background: $grey-7;
+      border-color: #ccc;
+      border-top-color: #999;
+    }
+
+    &.select2-container-active .select2-choices,
+    &.select2-dropdown-open .select2-choices {
+      background: #fff;
+      border-color: #5897fb;
+    }
+  }
+
+  input.string,
+  textarea {
+    float: left;
+    width: 210px;
+    margin: 0;
+    padding: 5px;
+    @include ig-core-14;
+    background: $grey-7;
+    border: 1px solid #ccc;
+    border-top-color: #999;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 390px;
+    margin-bottom: 10px;
+  }
+}
+
+.form-actions {
+  max-width: 582px;
+  margin-top: 30px;
+
+  @media (max-width: 640px) {
+    max-width: 400px;
+  }
+
+  .button {
+    float: right;
   }
 }
