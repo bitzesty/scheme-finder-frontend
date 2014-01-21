@@ -46,6 +46,8 @@ $right-to-left: false !default;
   clear: both;
 }
 
+#global-header,
+#footer,
 .hide,
 .mobile-show {
   display: none;
@@ -806,12 +808,81 @@ ul.results-list {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape), only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait), only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
 
+  html, body {
+    &.no-scroll {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
   .mobile-show {
     display: block;
   }
 
   .mobile-hide {
     display: none;
+  }
+
+  .filter-block .multi-row-select.select2-container-active .select2-choices,
+  .filter-block .multi-row-select.select2-dropdown-open .select2-choices {
+    @include box-shadow(none);
+  }
+
+  .select2-drop {
+    position: fixed !important;
+    top: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    width: 215px !important;
+    height: 101% !important;
+    background: $grey-9;
+    border: none !important;
+    @include border-radius(0 !important);
+    @include box-shadow(0 -4px 5px rgba(0, 0, 0, 0.25));
+
+    .select2-results {
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+
+      .select2-selected {
+        display: block;
+        background: image-url('icon-select-check.png') no-repeat right center;
+
+        @include device-pixel-ratio {
+          background-image: image-url('icon-select-check@2.png');
+          background-size: 31px 18px;
+        }
+      }
+
+      .select2-highlighted {
+        background: transparent;
+        color: inherit;
+      }
+
+      .select2-result-label {
+        padding-top: 10px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+        color: $grey-5;
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1px solid $grey-10;
+      }
+
+      > .select2-result:last-child .select2-result-label {
+        margin-bottom: $gutter-half;
+        border-bottom: none;
+      }
+
+      .select2-result-with-children > .select2-result-label {
+        display: none;
+      }
+
+      ul.select2-result-sub > li .select2-result-label {
+        padding-left: 15px;
+      }
+    }
   }
 
   #back-banner {
@@ -821,7 +892,7 @@ ul.results-list {
       display: block;
       width: 39px;
       height: 39px;
-      background: image-url('arrow-back-mobile@2.png') no-repeat center center;
+      background: image-url('arrow-back-mobile.png') no-repeat center center;
       text-indent: -9999px;
 
       @include device-pixel-ratio {
@@ -836,8 +907,13 @@ ul.results-list {
   }
 
   .scheme-finder-frontend {
+    position: relative;
     padding-top: 0;
     background: $white;
+
+    &.select2-open {
+      background: $grey-7;
+    }
 
     #content {
       padding: 0 20px;
