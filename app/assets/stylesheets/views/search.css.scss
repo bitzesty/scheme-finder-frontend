@@ -53,6 +53,40 @@ $right-to-left: false !default;
   display: none;
 }
 
+.alert {
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  top: 10px;
+  padding: 5px 10px;
+  padding-right: 30px;
+  color: #8a6d3b;
+  text-align: center;
+  background: #fcf8e3;
+  border: 1px solid #faebcc;
+  @include border-radius(4px);
+
+  &.alert-success {
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    color: #3C763D;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 4px;
+  top: 5px;
+  margin: 0;
+  padding: 5px;
+  padding-bottom: 0;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1;
+  background: transparent;
+  border: none;
+}
+
 .filter-block {
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-one-third;
@@ -651,6 +685,12 @@ ul.results-list {
     border: none;
     @include box-shadow(none);
 
+    &.disabled:hover,
+    &[disabled="disabled"]:hover,
+    &[disabled]:hover {
+      background-color: $accent-block-colour;
+    }
+
     @include device-pixel-ratio {
       background-image: image-url('button-corner@2.png');
       background-size: 22px 22px;
@@ -773,6 +813,7 @@ ul.results-list {
   }
 
   input.string,
+  input.numeric,
   textarea {
     float: left;
     width: 210px;
@@ -785,6 +826,10 @@ ul.results-list {
     margin-bottom: 10px;
     @include appearance(none);
     @include border-radius(0);
+  }
+
+  input.numeric {
+    width: 50px;
   }
 
   textarea {

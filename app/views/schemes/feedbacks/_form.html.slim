@@ -3,14 +3,15 @@
                   url: scheme_feedbacks_path(scheme_id: scheme_id),
                   html: { class: "horizontal-form scheme-search-form" } do |f|
 
-  = f.input :score,
-            as: :integer,
-            required: true,
-            input_html: { min: 1, max: Feedback::MAX_SCORE }
-  = f.input :description,
-            as: :text,
-            required: true,
-            input_html: { rows: 5 }
+  .form-inputs
+    = f.input :score,
+              as: :integer,
+              required: true,
+              input_html: { min: 1, max: Feedback::MAX_SCORE }
+    = f.input :description,
+              as: :text,
+              required: true,
+              input_html: { rows: 5 }
 
   .form-actions
     = f.button :submit,
