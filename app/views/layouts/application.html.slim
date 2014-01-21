@@ -13,6 +13,10 @@
 
 = content_for :content do
   #wrapper.scheme-finder-frontend
+    - unless %w(pages).include? controller_name
+      #back-banner.mobile-show
+        = link_to "←", :back
+
     main#content.group role="main"
       header.page-header.group
         div

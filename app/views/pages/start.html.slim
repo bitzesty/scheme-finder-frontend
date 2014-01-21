@@ -1,8 +1,13 @@
+= content_for :body_classes do
+  = yield(:body_classes).concat(" start-page ")
+
 .inner
   section.intro
     .get-started-intro
       p
-        | Find opportunities for businesses or teachers
+        | Find opportunities
+        br.mobile-show
+        | for businesses or teachers
 
     p#get-started.get-started.group
       = link_to "Get started for teachers",

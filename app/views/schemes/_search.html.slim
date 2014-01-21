@@ -57,8 +57,8 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
-  .form-actions.hide
-    = f.button :submit, "Refresh",
-               class: "btn btn-primary",
+  .form-actions.hide.mobile-show
+    = f.button :submit, "Search for Schemes",
+               class: "button btn btn-primary",
                id: "submit_btn",
                data: { action: "submit" }

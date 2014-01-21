@@ -8,6 +8,18 @@
       p
         | Try making your search broader and try again.
   - else
+    // TODO
+      ul.tags-list.mobile-show
+        li
+          span London
+          = link_to "✕"
+        li
+          span Ireland
+          = link_to "✕"
+        li
+          span Design
+          = link_to "✕"
+
     ul.results-list
       - schemes.each do |scheme|
         = render "scheme", scheme: scheme
