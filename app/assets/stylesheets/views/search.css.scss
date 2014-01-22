@@ -58,6 +58,58 @@ body {
   display: none;
 }
 
+.back-link {
+  display: inline-block;
+  margin-bottom: $gutter;
+  font-size: 12px;
+}
+
+.field_with_errors {
+  label {
+    color: red !important;
+  }
+
+  input.text,
+  textarea,
+  .select2-container {
+    outline: 1px solid red;
+    border: 1px solid red !important;
+  }
+
+  .select2-container {
+    border: none !important;
+  }
+
+  .select2-choices {
+    border: 1px solid red !important;
+  }
+
+  .error {
+    margin-left: 10px;
+    color: red;
+    font-size: 13px;
+
+    @media (max-width: 770px) {
+      clear: both;
+      position: relative;
+      display: block;
+      margin-left: 180px;
+      margin-bottom: 10px;
+      top: -5px;
+    }
+
+    @media (max-width: 456px) {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 636px) {
+    &.text .error {
+      margin-left: 0;
+    }
+  }
+}
+
 .radio-collection {
   span {
     position: relative;
@@ -119,7 +171,7 @@ body {
 .alert {
   position: fixed;
   width: 80%;
-  left: 10%;
+  left: 5%;
   top: 10px;
   padding: 5px 10px;
   padding-right: 30px;
@@ -932,9 +984,9 @@ ul.results-list {
   }
 
   .select2-container-multi {
+    display: inline-block;
     width: 55% !important;
-    display: block;
-    margin-left: 180px;
+    max-width: 220px;
     margin-bottom: $gutter-one-third;
     @include appearance(none);
 
@@ -953,8 +1005,6 @@ ul.results-list {
 
   .grouped_select,
   .multi_select {
-    max-width: 400px;
-
     @media (max-width: 456px) {
       label {
         float: none;
@@ -993,7 +1043,7 @@ ul.results-list {
     max-width: 390px;
     margin-bottom: 10px;
 
-    @media (max-width: 636px) {
+    @media (max-width: 456px) {
       max-width: 97%;
     }
   }
@@ -1141,9 +1191,17 @@ ul.results-list {
       padding-left: 0;
     }
 
+
+    h2,
+    .block-6,
     .inner-block {
+      margin-top: $gutter;
       padding-left: 0;
       padding-right: 0;
+    }
+
+    h2 {
+      margin: 0;
     }
 
     .scheme-finder-search > h2 {
@@ -1164,13 +1222,31 @@ ul.results-list {
     }
 
     header.page-header {
-      div {
-        margin-bottom: $gutter;
-      }
-
       h1 {
         font-size: 14px;
       }
+    }
+
+    .no-matching-feedbacks,
+    .no-matching-schemes {
+      h2 {
+        font-size: 10px;
+      }
+
+      p {
+        font-size: 9px;
+        line-height: 1.45;
+      }
+    }
+
+    .radio-collection-input label {
+      min-width: 0;
+    }
+
+    .radio-collection {
+      float: right;
+      position: relative;
+      top: -3px;
     }
 
     .filter-block {
@@ -1240,6 +1316,10 @@ ul.results-list {
       display: none !important;
     }
 
+    .get-started {
+      margin-bottom: $gutter*2;
+    }
+
     .scheme-finder-frontend {
       #content {
         padding-top: 80px;
@@ -1247,6 +1327,7 @@ ul.results-list {
 
       header.page-header {
         div {
+          margin-bottom: $gutter;
           padding-left: 0;
         }
 
