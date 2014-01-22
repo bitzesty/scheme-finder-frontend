@@ -53,6 +53,56 @@ $right-to-left: false !default;
   display: none;
 }
 
+.radio-collection {
+  span {
+    position: relative;
+
+    label {
+      float: none;
+      display: none;
+    }
+
+    input {
+      display: inline-block;
+      width: 23px;
+      height: 23px;
+      background: image-url('icon-star-rating.png');
+      @include appearance(none);
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-star-rating@2.png');
+        background-size: 23px 23px;
+      }
+
+      &.active,
+      &:checked {
+        background-position: 0 -50px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.star-rating {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  background: image-url('icon-star-rating.png');
+  @include appearance(none);
+
+  @include device-pixel-ratio {
+    background-image: image-url('icon-star-rating@2.png');
+    background-size: 23px 23px;
+  }
+
+  &.active {
+    background-position: 0 -50px;
+  }
+}
+
 .alert {
   position: fixed;
   width: 80%;

@@ -4,10 +4,17 @@
                   html: { class: "horizontal-form scheme-search-form" } do |f|
 
   .form-inputs
-    = f.input :score,
-              as: :integer,
-              required: true,
-              input_html: { min: 1, max: Feedback::MAX_SCORE }
+
+    .input
+      label.col-sm-2.required
+        abbr title="required"
+          ' *
+        ' Score
+      .radio-collection.col-sm-10
+        = f.collection_radio_buttons :score,
+                  [[1],[2],[3],[4],[5]], :first, :last,
+                  required: true
+
     = f.input :description,
               as: :text,
               required: true,

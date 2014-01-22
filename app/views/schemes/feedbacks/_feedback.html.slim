@@ -1,5 +1,5 @@
 li.feedback
-  h3
-    | Score: 
-    = feedback.score
+  .star-ratings
+    - (0..4).each do |star|
+      .star-rating class="#{'active' if star < feedback.score}"
   = feedback.description
