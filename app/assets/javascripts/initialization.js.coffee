@@ -27,7 +27,7 @@ sff.apply_content_load_js = ($context) ->
   ## Select2
   for select in $context.find("select.js-select2")
     options = {
-      width: 'resolve',
+      width: '180',
     }
     # has placeholder and empty option
     if $(select).filter("[placeholder]").find("option[value='']").length
@@ -57,7 +57,9 @@ sff.apply_content_load_js = ($context) ->
       $(this).select2("open")
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
     ))
-  $(".select2-container input").prop("readonly",true);
+  $(".select2-container input").prop("readonly",true)
+
+  $(".select2-container").css("width", "100%")
   ## [END] Select2
   #########
 
