@@ -9,7 +9,8 @@
   fieldset
     = f.input :had_direct_interactions,
               as: :boolean,
-              label: had_direct_interactions_label
+              label: had_direct_interactions_label,
+              hint: "For evaluation purposes"
 
     = f.input :locations,
               as: :grouped_select,

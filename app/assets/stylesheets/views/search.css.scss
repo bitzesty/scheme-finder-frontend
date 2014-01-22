@@ -146,7 +146,10 @@ $right-to-left: false !default;
   }
 
   .hint {
+    display: block;
     @include ig-core-14;
+    color: $grey-1;
+    font-size: 13px;
     margin:0 0 5px 0; padding:0;
   }
 
