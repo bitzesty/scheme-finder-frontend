@@ -18,9 +18,9 @@ sff.apply_content_load_js = ($context) ->
       $(".radio-collection span:eq("+s+") input").addClass("active")
   $(".radio-collection input").on("change", -> (
     selected = $(".radio-collection span").index($(this).closest("span"))
-    $(".radio-collection input.active").removeClass("active")
+    $(".radio-collection .active").removeClass("active")
     for s in [0..selected]
-      $(".radio-collection span:eq("+s+") input").addClass("active")
+      $(".radio-collection span:eq("+s+")").addClass("active")
   ))
 
   #########

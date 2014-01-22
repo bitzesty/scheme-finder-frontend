@@ -3,7 +3,8 @@
     .no-matching-feedbacks
       p
         | No feedbacks for the scheme yet.
-          The feedbacks need administrator approval to appear in the list.
+        br
+        | The feedbacks need administrator approval to appear in the list.
   - else
     ul.results-list
       - @feedbacks.each do |feedback|
