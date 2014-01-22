@@ -414,8 +414,10 @@ $right-to-left: false !default;
     }
 
     @include device-pixel-ratio {
-      background-image: image-url('icon-close@2.png');
-      background-size: 9px 9px;
+      margin-top: -4px;
+      background-image: image-url('icon-close@2.png') !important;
+      background-position: 0 0 !important;
+      background-size: 9px 9px !important;
     }
   }
 }
@@ -535,8 +537,14 @@ ul.results-list {
   }
   .no-matching-schemes {
     h2 {
-      @include core-27;
-      padding-top: 0.5em;
+      margin-top: $gutter-two-thirds;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    p {
+      margin-top: $gutter-one-sixth;
+      @include ig-core-14;
     }
   }
 }
@@ -1035,7 +1043,7 @@ ul.results-list {
       padding-right: 0;
     }
 
-    h2 {
+    .scheme-finder-search > h2 {
       display: none;
     }
 
