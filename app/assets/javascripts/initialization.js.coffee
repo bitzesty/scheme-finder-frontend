@@ -42,6 +42,7 @@ sff.apply_content_load_js = ($context) ->
       $(".scheme-finder-frontend").addClass("select2-open")
     )).on("select2-open", -> (
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
+      $(".select2-dropdown-open").attr( "data-value", $(".select2-dropdown-open").closest(".input").find("select").select2("val") )
       $(".select2-drop").each( -> (
         if $(this).css("display") == "block"
           $(".select2-drop").removeClass("height-checked")
@@ -66,6 +67,17 @@ sff.apply_content_load_js = ($context) ->
   document.addEventListener('touchstart', (e) -> (
     xStart = e.touches[0].screenX
     yStart = e.touches[0].screenY
+
+    if $(e.target).attr("class") == "select2-result-label"
+      select2_selected = $(e.target).closest(".select2-drop").find("li").index($(e.target).closest("li"))
+      clicked_select = $(".select2-dropdown-open").closest(".input").find("select")
+      select_values = $(".select2-dropdown-open").attr("data-value")
+      clicked_value = clicked_select.find("option:eq("+(select2_selected-1)+")").val()
+      new_values = select_values
+      #if select2_selected > -1
+      #  if $(e.target).closest(".select2-drop").find("li:eq("+select2_selected+")").hasClass("select2-selected")
+      #    new_values = select_values.splice(select_values.indexOf(clicked_value), 1)
+      $(".scheme-finder-frontend header.page-header h1").text("["+select_values+"] "+select_values.indexOf(clicked_value)+":"+clicked_value)
   ))
 
   document.addEventListener('touchmove', (e) -> (
