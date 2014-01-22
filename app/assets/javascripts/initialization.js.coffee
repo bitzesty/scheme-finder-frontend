@@ -40,19 +40,15 @@ sff.apply_content_load_js = ($context) ->
     body_scroll = 0
     $(select).on("select2-opening", -> (
       $(".scheme-finder-frontend").addClass("select2-open")
-      $("html, body").addClass("no-scroll")
-      body_scroll = $("body").scrollTop()
-      $("body").animate {
-        scrollTop: 0
-      }, 0
-      $(".scheme-finder-frontend").css("top", -(body_scroll))
+    )).on("select2-open", -> (
+      $(".select2-drop").each( -> (
+        if $(this).css("display") == "block"
+          $(".select2-drop").removeClass("height-checked")
+          $(this).attr( "data-height", $(this).find(".select2-results").height() )
+          $(".select2-drop").addClass("height-checked")
+      ))
     )).on("select2-close", -> (
       $(".scheme-finder-frontend").removeClass("select2-open")
-      $("html, body").removeClass("no-scroll")
-      $("body").animate {
-        scrollTop: body_scroll
-      }, 0
-      $(".scheme-finder-frontend").css("top", 0)
     )).on("change", -> (
       $(this).select2("open")
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
@@ -78,7 +74,16 @@ sff.apply_content_load_js = ($context) ->
       yDirection = e.touches[0].screenY - yStart
       if (yMovement * 3) > xMovement
         target_drop = $(e.target).closest(".select2-results")
+        target_height = 0
+        $(".select2-drop").each( -> (
+          if $(this).css("display") == "block"
+            target_height = $(this).attr("data-height")
+        ))
+        alert 
         if yDirection > 0
           if target_drop.scrollTop() < 1
+            e.preventDefault()
+        else if yDirection < 0
+          if target_drop.scrollTop() + 3 >= target_height - window.innerHeight
             e.preventDefault()
   ))
