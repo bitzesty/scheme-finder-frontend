@@ -710,6 +710,11 @@ ul.results-list {
     background-size: 77px 36px;
   }
 
+  #content {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
   .intro {
     padding-left: $gutter-two-thirds;
   }
@@ -816,7 +821,7 @@ ul.results-list {
 }
 
 .block-2 .want-submit-own-scheme {
-  margin-bottom: $gutter;
+  margin-bottom: $gutter*2;
 
   h3 {
     @include ig-core-14;
