@@ -41,6 +41,7 @@ sff.apply_content_load_js = ($context) ->
     $(select).on("select2-opening", -> (
       $(".scheme-finder-frontend").addClass("select2-open")
     )).on("select2-open", -> (
+      $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
       $(".select2-drop").each( -> (
         if $(this).css("display") == "block"
           $(".select2-drop").removeClass("height-checked")
@@ -66,7 +67,7 @@ sff.apply_content_load_js = ($context) ->
     xStart = e.touches[0].screenX
     yStart = e.touches[0].screenY
   ))
-   
+
   document.addEventListener('touchmove', (e) -> (
     if $(".scheme-finder-frontend").hasClass("select2-open")
       xMovement = Math.abs(e.touches[0].screenX - xStart)
