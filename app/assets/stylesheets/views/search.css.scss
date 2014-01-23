@@ -58,6 +58,10 @@ body {
   display: none;
 }
 
+#global-cookie-message {
+  display: none !important;
+}
+
 .back-link {
   display: inline-block;
   margin-bottom: $gutter;
@@ -152,7 +156,8 @@ body {
 }
 
 .star-rating {
-  display: inline-block;
+  float: left;
+  display: block;
   width: 23px;
   height: 23px;
   background: image-url('icon-star-rating.png');
@@ -206,6 +211,10 @@ body {
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-one-third;
   background: $grey-8;
+
+  @include ie-lte(7) {
+    padding-top: 0;
+  }
 
   .business-location {
     margin:0 0 30px 0;
@@ -283,6 +292,8 @@ body {
     &.boolean {
       width: auto;
       margin-right: 10px;
+      padding: 0px;
+      border: none;
     }
   }
 
@@ -312,6 +323,14 @@ body {
     &.select2-dropdown-open .select2-choices {
       background: #fff;
       border-color: #5897fb;
+    }
+
+    .select2-drop {
+      .select2-results {
+        .select2-result-with-children > .select2-result-label {
+          font-weight: bold;
+        }
+      }
     }
   }
 
@@ -498,6 +517,7 @@ body {
   line-height: 1;
   white-space: nowrap;
   background: $accent-block-colour;
+  filter: none;
   border: none;
   @include border-radius(0);
   @include box-shadow(none);
@@ -509,6 +529,14 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include ie(8) {
+      width: 140px;
+    }
+
+    @include ie(6) {
+      float: left;
+    }
   }
 
   .select2-search-choice-close {
@@ -630,7 +658,7 @@ ul.results-list {
     padding-bottom: $gutter-one-third;
     border-bottom: 1px dotted $grey-2;
 
-    > a {
+    .feedback-link {
       margin-right: 10px;
       font-size: 11px;
     }
@@ -814,6 +842,10 @@ ul.results-list {
   #content {
     max-width: 960px;
     margin: 0 auto;
+
+    @include ie(6) {
+      width: 960px;
+    }
   }
 
   .intro {
@@ -850,17 +882,28 @@ ul.results-list {
     padding: 6px 12px;
     padding-right: 30px;
     @include ig-core-14;
-    color: #fff;
+    color: #fff !important;
     font-size: 16px;
     font-weight: bold;
     background: $accent-block-colour image-url('button-corner.png') no-repeat bottom right;
+    background-color: $accent-block-colour !important;
     border: none;
     @include box-shadow(none);
 
+    &:active,
+    &:hover,
+    &:focus,
+    &:visited,
     &.disabled:hover,
     &[disabled="disabled"]:hover,
     &[disabled]:hover {
-      background-color: $accent-block-colour;
+      color: #fff !important;
+      background-color: $accent-block-colour !important;
+    }
+
+    &:active {
+      top: 0;
+      @include box-shadow(none);
     }
 
     @include device-pixel-ratio {
@@ -895,6 +938,22 @@ ul.results-list {
 }
 
 .scheme-finder-search {
+  @include ie-lte(8) {
+    .block-2 {
+      float: left;
+      width: 41.1290323%;
+      .inner-block {
+        padding: 0 $gutter 0 $gutter-two-thirds;
+      }
+    }
+    .block-4 {
+      float: left;
+      width: 58.870967%;
+      .inner-block {
+        padding: 0 $gutter 0 $gutter-half;
+      }
+    }
+  }
   @include media(tablet) {
     .block-2 {
       float: left;
@@ -934,6 +993,14 @@ ul.results-list {
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-one-third;
   background: $grey-6;
+
+  @include ie(6) {
+    position: relative;
+    left: -$gutter-one-third;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: -$gutter-two-thirds;
+  }
 }
 
 .block-2 .want-submit-own-scheme {

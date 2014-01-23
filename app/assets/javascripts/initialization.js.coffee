@@ -10,6 +10,13 @@ sff.parse_text_response = (response) ->
 sff.apply_content_load_js = ($context) ->
   $context ||= $("body")
 
+  isIE = () ->
+    myNav = navigator.userAgent.toLowerCase()
+    if myNav.indexOf('msie') != -1
+      return parseInt(myNav.split('msie')[1])
+    else
+      return false
+
   $(".alert").delay(5000).fadeOut("slow")
 
   selected = $(".radio-collection span").index($(".radio-collection input:checked").closest("span"))
@@ -51,7 +58,8 @@ sff.apply_content_load_js = ($context) ->
     )).on("select2-close", -> (
       $(".scheme-finder-frontend").removeClass("select2-open")
     )).on("change", -> (
-      $(this).select2("open")
+      if isIE() != 6
+        $(this).select2("open")
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
     ))
   $(".select2-container input").prop("readonly",true)

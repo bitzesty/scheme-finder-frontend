@@ -7,9 +7,9 @@ li.scheme
 
   = link_to "Leave feedback",
              [:new, scheme, :feedback],
-             class: "btn",
+             class: "btn feedback-link",
              data: { action: "leave_feedback" }
   = link_to "View feeback",
             [scheme, :feedbacks],
-            class: "btn",
+            class: "btn feedback-link",
             data: { action: "show_feedback" }
