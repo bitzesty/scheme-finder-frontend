@@ -324,14 +324,6 @@ body {
       background: #fff;
       border-color: #5897fb;
     }
-
-    .select2-drop {
-      .select2-results {
-        .select2-result-with-children > .select2-result-label {
-          font-weight: bold;
-        }
-      }
-    }
   }
 
   @include media (tablet) {
@@ -397,8 +389,6 @@ body {
     }
   }
 
-
-
   .disabled {
     opacity: 0.3;
     cursor: default;
@@ -408,6 +398,17 @@ body {
   }
 }
 
+.select2-drop .select2-results .select2-result-with-children {
+  .select2-result-label {
+    font-weight: bold !important;
+  }
+
+  li {
+    .select2-result-label {
+      font-weight: normal !important;
+    }
+  }
+}
 
 .filter-results {
   padding-top: $gutter;
