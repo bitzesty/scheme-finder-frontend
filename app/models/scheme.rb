@@ -21,6 +21,16 @@ class Scheme
     false
   end
 
+  def website_url
+    if (url = website).present?
+      if url.starts_with?("http")
+        url
+      else
+        "http://#{url}"
+      end
+    end
+  end
+
   def logo_for_upload
     if logo.present? && logo.kind_of?(ActionDispatch::Http::UploadedFile)
       @logo = attributes['logo'] = UploadIO.new(
