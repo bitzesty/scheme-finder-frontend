@@ -1179,6 +1179,10 @@ ul.results-list {
       margin: 0;
       padding: 0;
 
+      .select2-no-results {
+        display: none !important;
+      }
+
       .select2-selected {
         display: block;
         background: image-url('icon-select-check.png') no-repeat right center;
