@@ -1,15 +1,15 @@
 li.scheme
   h3
-    = link_to scheme.name, scheme.website
+    = link_to scheme.name, scheme.website_url
 
   p
     = scheme.description
 
   = link_to "Leave feedback",
              [:new, scheme, :feedback],
-             class: "btn",
+             class: "btn feedback-link",
              data: { action: "leave_feedback" }
   = link_to "View feeback",
             [scheme, :feedbacks],
-            class: "btn",
+            class: "btn feedback-link",
             data: { action: "show_feedback" }
