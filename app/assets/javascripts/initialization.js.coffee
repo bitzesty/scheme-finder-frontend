@@ -56,11 +56,11 @@ sff.apply_content_load_js = ($context) ->
           $(this).attr( "data-height", $(this).find(".select2-results").height() )
           $(".select2-drop").addClass("height-checked")
 
-          #if $(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll" )
-          #  $(this).find(".select2-results").animate {
-          #    scrollTop: 0
-          #    $(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll" )
-          #  }, 0
+          opened_select_scrolled = $(".select2-dropdown-open").closest(".input").attr( "data-scroll" )
+          if opened_select_scrolled
+            $(this).find(".select2-results").animate {
+              scrollTop: opened_select_scrolled
+            }, 0
       ))
     )).on("select2-close", -> (
       $(".scheme-finder-frontend").removeClass("select2-open")
@@ -127,6 +127,7 @@ sff.apply_content_load_js = ($context) ->
                 select_values.splice(select_values.indexOf(clicked_value), 1)
                 clicked_select.select2("close").select2("val", select_values).select2("open")
                 e.preventDefault()
-          #$(".scheme-finder-frontend header.page-header h1").text($(e.target).text()+":"+clicked_value)
-          #$(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll", $(e.target).closest(".select2-drop").find(".select2-results").scrollTop())
+          drop_scrolled = $(e.target).closest(".select2-drop").find(".select2-results").scrollTop()
+          if drop_scrolled
+            $(".select2-dropdown-open").closest(".input").attr("data-scroll", drop_scrolled)
   ))
