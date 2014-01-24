@@ -1,6 +1,7 @@
 module Schemes
   class FeedbacksController < Schemes::BaseController
     def create
+      @scheme = Scheme.all[params[:scheme_id].to_i-1]
       @feedback = Feedback.new(feedback_params)
 
       if @feedback.save(scheme_id)
@@ -13,11 +14,19 @@ module Schemes
     end
 
     def new
+      @scheme = Scheme.all[params[:scheme_id].to_i-1]
       @feedback = Feedback.new
     end
 
     def index
+      @scheme = Scheme.all[params[:scheme_id].to_i-1]
       @feedbacks = Feedback.all(scheme_id: scheme_id)
+
+      @average_feedback = 0.0
+      @feedbacks.each do |feedback|
+        @average_feedback += feedback.score
+      end
+      @average_feedback = @average_feedback/@feedbacks.count
     end
 
     private

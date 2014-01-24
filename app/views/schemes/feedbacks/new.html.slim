@@ -1,5 +1,5 @@
 .article-container.group.new-feedback
-  h2 Leave Feedback
+  h2 = "Leave Feedback for #{@scheme.name}"
 
   .block-6
     = render "form", feedback: @feedback
