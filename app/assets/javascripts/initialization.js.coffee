@@ -127,6 +127,6 @@ sff.apply_content_load_js = ($context) ->
                 select_values.splice(select_values.indexOf(clicked_value), 1)
                 clicked_select.select2("close").select2("val", select_values).select2("open")
                 e.preventDefault()
-          $(".scheme-finder-frontend header.page-header h1").text($(e.target).text()+":"+clicked_value)
+          #$(".scheme-finder-frontend header.page-header h1").text($(e.target).text()+":"+clicked_value)
           #$(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll", $(e.target).closest(".select2-drop").find(".select2-results").scrollTop())
   ))
