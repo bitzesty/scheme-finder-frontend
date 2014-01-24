@@ -55,6 +55,12 @@ sff.apply_content_load_js = ($context) ->
           $(".select2-drop").removeClass("height-checked")
           $(this).attr( "data-height", $(this).find(".select2-results").height() )
           $(".select2-drop").addClass("height-checked")
+
+          #if $(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll" )
+          #  $(this).find(".select2-results").animate {
+          #    scrollTop: 0
+          #    $(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll" )
+          #  }, 0
       ))
     )).on("select2-close", -> (
       $(".scheme-finder-frontend").removeClass("select2-open")
@@ -71,28 +77,22 @@ sff.apply_content_load_js = ($context) ->
 
   xStart = 0
   yStart = 0
+  xMovement = 0
+  yMovement = 0
+  movementLimit = 10
    
   document.addEventListener('touchstart', (e) -> (
     xStart = e.touches[0].screenX
     yStart = e.touches[0].screenY
-
-    if $(e.target).attr("class") == "select2-result-label"
-      select2_selected = $(e.target).closest(".select2-drop").find("li").index($(e.target).closest("li"))
-      clicked_select = $(".select2-dropdown-open").closest(".input").find("select")
-      select_values = $(".select2-dropdown-open").attr("data-value")
-      clicked_value = clicked_select.find("option:eq("+(select2_selected-1)+")").val()
-      new_values = select_values
-      #if select2_selected > -1
-      #  if $(e.target).closest(".select2-drop").find("li:eq("+select2_selected+")").hasClass("select2-selected")
-      #    new_values = select_values.splice(select_values.indexOf(clicked_value), 1)
-      $(".scheme-finder-frontend header.page-header h1").text("["+select_values+"] "+select_values.indexOf(clicked_value)+":"+clicked_value)
+    xMovement = 0
+    yMovement = 0
   ))
 
   document.addEventListener('touchmove', (e) -> (
+    xMovement = Math.abs(e.touches[0].screenX - xStart)
+    yMovement = Math.abs(e.touches[0].screenY - yStart)
+    yDirection = e.touches[0].screenY - yStart
     if $(".scheme-finder-frontend").hasClass("select2-open")
-      xMovement = Math.abs(e.touches[0].screenX - xStart)
-      yMovement = Math.abs(e.touches[0].screenY - yStart)
-      yDirection = e.touches[0].screenY - yStart
       if (yMovement * 3) > xMovement
         target_drop = $(e.target).closest(".select2-results")
         target_height = 0
@@ -107,4 +107,26 @@ sff.apply_content_load_js = ($context) ->
         else if yDirection < 0
           if target_drop.scrollTop() + 3 >= target_height - window.innerHeight
             e.preventDefault()
+  ))
+
+  document.addEventListener('touchend', (e) -> (
+    if xMovement < movementLimit && yMovement < movementLimit
+      if $(".scheme-finder-frontend").hasClass("select2-open")
+        if $(e.target).attr("class") == "select2-result-label"
+          select2_selected = $(e.target).closest(".select2-drop").find("li").index($(e.target).closest("li"))
+          if select2_selected != -1
+            clicked_select = $(".select2-dropdown-open").closest(".input").find("select")
+            select_values = $(".select2-dropdown-open").attr("data-value").split(",")
+            clicked_value = clicked_select.find("option:eq("+(select2_selected-1)+")").val()
+            if $(e.target).text() != clicked_select.find("option:eq("+(select2_selected-1)+")").text()
+              for option in [0..clicked_select.find("option").size()]
+                if $(e.target).text() == clicked_select.find("option:eq("+option+")").text()
+                  clicked_value = clicked_select.find("option:eq("+option+")").val()
+            if $(e.target).closest(".select2-drop").find("li:eq("+select2_selected+")").hasClass("select2-selected")
+              if select_values.indexOf(clicked_value) != -1
+                select_values.splice(select_values.indexOf(clicked_value), 1)
+                clicked_select.select2("close").select2("val", select_values).select2("open")
+                e.preventDefault()
+          $(".scheme-finder-frontend header.page-header h1").text($(e.target).text()+":"+clicked_value)
+          #$(".select2-dropdown-open").closest(".input").find("select").attr( "data-scroll", $(e.target).closest(".select2-drop").find(".select2-results").scrollTop())
   ))
