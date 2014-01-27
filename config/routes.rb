@@ -9,6 +9,7 @@ SchemeFinderFrontend::Application.routes.draw do
     resources :schemes, only: [:new, :create, :index] do
       collection {
         get :search
+        get :mobile_search
       }
 
       scope module: :schemes do

@@ -1,6 +1,6 @@
 class Public.SchemesController
   constructor: () ->
-    @form = "form.scheme-search-form"
+    @form = "scheme-finder-search > form.scheme-search-form"
     @results_context = "#filtered-results"
     @error_message = "<p> Error while processing request </p>"
 

@@ -14,4 +14,13 @@ module SchemesHelper
       "What age range are your students?"
     end
   end
+
+  def search_params_list(search_params)
+    search_params.values
+                 .flatten
+                 .compact
+                 .map(&:titleize)
+                 .reject(&:blank?)
+                 .reject{ |value| %w(0 1).include?(value) }
+  end
 end

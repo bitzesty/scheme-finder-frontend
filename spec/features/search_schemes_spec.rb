@@ -12,8 +12,22 @@ describe "Scheme search" do
   end
 
   it "uses api for searching schemes" do
+    ensure_on schemes_path
     filter_by_sector("Auto")
     expect_to_see "Automotives"
+  end
+
+  context "for mobile" do
+    it "separately displays search results" do
+      ensure_on schemes_path
+
+      within mobile_search_view do
+        filter_by_sector("Auto")
+      end
+
+      expect(current_path).to eq mobile_search_schemes_path
+      expect_to_see "Automotives"
+    end
   end
 
   private
@@ -22,8 +36,11 @@ describe "Scheme search" do
   #
   # filters schemes by sector
   def filter_by_sector(sector)
-    ensure_on schemes_path
     select sector, from: "search_sectors"
     click_on "submit_btn"
+  end
+
+  def mobile_search_view
+    ".scheme-finder-mobile-search"
   end
 end

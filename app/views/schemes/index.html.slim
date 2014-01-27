@@ -1,24 +1,34 @@
 = content_for :body_classes do
   = yield(:body_classes).concat(" search-page ")
 
-.article-container.group.scheme-finder-search
-  h2
-    | You can use the filters to only show schemes that you are eligible for
+= for_web do
+  .article-container.group.scheme-finder-search
+    h2
+      | You can use the filters to only show schemes that you are eligible for
 
-  .block-2
-    .inner-block
-      .filter-block
-        = render "search", search: @search
+    .block-2
+      .inner-block
+        .filter-block
+          = render "search",
+                   search: @search,
+                   remote: true,
+                   url: search_schemes_path
 
-      /.want-submit-own-scheme.mobile-hide
-        h3
-          | Want to submit your own scheme?
-        = link_to "Submit scheme application",
-                  new_scheme_path,
-                  class: "button"
+        /.want-submit-own-scheme.mobile-hide
+          h3
+            | Want to submit your own scheme?
+          = link_to "Submit scheme application",
+                    new_scheme_path,
+                    class: "button"
 
-  = for_web do
     #filtered-results.block-4.filtered-results
       = render "results",
                total_schemes: @total_schemes,
                schemes: @schemes
+
+= for_mobile do
+  .scheme-finder-mobile-search
+    = render "search",
+             search: @search,
+             remote: false,
+             url: mobile_search_schemes_path
