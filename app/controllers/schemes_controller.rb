@@ -34,11 +34,18 @@ class SchemesController < ApplicationController
            }
   end
 
+  def mobile_search
+    search_results = SchemeSearch.new(search_params).results
+    @total_schemes = search_results.total_count
+    @schemes = search_results.for_kaminari
+  end
+
   private
 
   def search_params
     (params[:search] || {}).merge(params.slice(:page, :per_page))
   end
+  helper_method :search_params
 
   def scheme_params
     params.require(:scheme).permit(

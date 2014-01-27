@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   def default_url_options(options={})
-    { current_audience: current_audience }
+    {
+      current_agent: current_agent,
+      current_audience: current_audience,
+    }
   end
 
   private
@@ -17,4 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :current_audience
+
+  def current_agent
+    params[:current_agent].to_s
+  end
+
+  def mobile_device?
+    current_agent == "mobile"
+  end
+  helper_method :mobile_device?
 end

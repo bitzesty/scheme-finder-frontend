@@ -1,8 +1,8 @@
 = simple_form_for search,
                   as: :search,
-                  url: search_schemes_path,
+                  url: url,
                   method: :get,
-                  remote: true,
+                  remote: remote,
                   defaults: { wrapper_html: { class: "filter" } },
                   html: { class: "horizontal-form scheme-search-form" } do |f|
 
@@ -58,8 +58,9 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
-  .form-actions.hide.mobile-show
-    = f.button :submit, "Search for Schemes",
-               class: "button btn btn-primary",
-               id: "submit_btn",
-               data: { action: "submit" }
+  - for_mobile do
+    .form-actions
+      = f.button :submit, "Search for Schemes",
+                 class: "button btn btn-primary",
+                 id: "submit_btn",
+                 data: { action: "submit" }

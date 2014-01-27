@@ -1,0 +1,19 @@
+= content_for :body_classes do
+  = yield(:body_classes).concat(" search-page ")
+
+.search-results
+  = render "mobile_search_filters"
+
+  br
+  = link_to "Back to search",
+            schemes_path(search: search_params),
+            class: "back-link"
+
+  #filtered-results.filtered-results
+    = render "results",
+             total_schemes: @total_schemes,
+             schemes: @schemes
+
+  = link_to "Back to search",
+            schemes_path(search: search_params),
+            class: "back-link"

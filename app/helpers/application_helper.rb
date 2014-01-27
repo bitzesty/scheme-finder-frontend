@@ -150,4 +150,12 @@ module ApplicationHelper
 
     contents.join(" ")
   end
+
+  def for_web
+    yield unless mobile_device?
+  end
+
+  def for_mobile
+    yield if mobile_device?
+  end
 end
