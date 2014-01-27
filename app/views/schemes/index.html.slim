@@ -1,7 +1,7 @@
 = content_for :body_classes do
   = yield(:body_classes).concat(" search-page ")
 
-= for_web do
+- for_web do
   .article-container.group.scheme-finder-search
     h2
       | You can use the filters to only show schemes that you are eligible for
@@ -26,7 +26,7 @@
                total_schemes: @total_schemes,
                schemes: @schemes
 
-= for_mobile do
+- for_mobile do
   .scheme-finder-mobile-search
     = render "search",
              search: @search,

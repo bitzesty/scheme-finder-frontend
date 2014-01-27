@@ -152,14 +152,10 @@ module ApplicationHelper
   end
 
   def for_web
-    content_tag :div, class: "mobile-hide" do
-      yield if block_given?
-    end
+    yield unless mobile_device?
   end
 
   def for_mobile
-    content_tag :div, class: "mobile-show" do
-      yield if block_given?
-    end
+    yield if mobile_device?
   end
 end
