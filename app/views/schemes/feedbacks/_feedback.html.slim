@@ -2,4 +2,4 @@ li.feedback
   .star-ratings
     - (0..4).each do |star|
       .star-rating class="#{'active' if star < feedback.score}"
-  p = feedback.description
+  p = simple_format feedback.description

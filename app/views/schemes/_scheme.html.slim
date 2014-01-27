@@ -3,7 +3,7 @@ li.scheme
     = link_to scheme.name, scheme.website_url
 
   p
-    = scheme.description
+    = simple_format scheme.description
 
   = link_to "Leave feedback",
              [:new, scheme, :feedback],
