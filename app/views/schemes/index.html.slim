@@ -17,8 +17,8 @@
                   new_scheme_path,
                   class: "button"
 
-  #filtered-results.block-4.filtered-results
-    = render "results",
-             total_schemes: @total_schemes,
-             schemes: @schemes
-
+  = for_web do
+    #filtered-results.block-4.filtered-results
+      = render "results",
+               total_schemes: @total_schemes,
+               schemes: @schemes

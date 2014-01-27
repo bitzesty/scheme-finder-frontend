@@ -150,4 +150,16 @@ module ApplicationHelper
 
     contents.join(" ")
   end
+
+  def for_web
+    content_tag :div, class: "mobile-hide" do
+      yield if block_given?
+    end
+  end
+
+  def for_mobile
+    content_tag :div, class: "mobile-show" do
+      yield if block_given?
+    end
+  end
 end
