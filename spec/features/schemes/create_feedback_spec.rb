@@ -20,6 +20,10 @@ describe 'User submitting feedback' do
       stubs.get("/api/v1/schemes/#{scheme_id}/feedbacks.json?scheme_id=#{scheme_id}") do
         api_response(file: "scheme_feedbacks.json")
       end
+
+      stubs.get("/api/v1/schemes/#{scheme_id}.json") do
+        api_response(file: "scheme.json")
+      end
     end
   end
 
@@ -43,10 +47,10 @@ describe 'User submitting feedback' do
 
   def submit_feedback(feedback)
     within("form#new_feedback") do
-      fill_in 'feedback_score', with: feedback.score
-      fill_in 'feedback_description', with: feedback.description
+      choose "feedback_score_#{feedback.score}"
+      fill_in "feedback_description", with: feedback.description
 
-      click_on 'submit_btn'
+      click_on "submit_btn"
     end
   end
 end

@@ -9,6 +9,10 @@ describe 'User viewing feedback' do
       stubs.get("/api/v1/schemes/#{scheme_id}/feedbacks.json?scheme_id=#{scheme_id}") do
         api_response(file: "scheme_feedbacks.json")
       end
+
+      stubs.get("/api/v1/schemes/#{scheme_id}.json") do
+        api_response(file: "scheme.json")
+      end
     end
   end
 

@@ -1,14 +1,14 @@
 h2.feedback-title
-  = @scheme.name
+  = scheme.name
   - if @feedbacks.any?
-    span.star-ratings title="#{@average_feedback} stars"
+    span.star-ratings title="#{@average_score} stars"
       - (0..4).each do |star|
         - star_width = "width: 100%"
-        - if (@average_feedback - star).floor == 0
-          - star_width = "width: #{(@average_feedback - star)*100}%"
+        - if (@average_score - star).floor == 0
+          - star_width = "width: #{(@average_score - star)*100}%"
         span.star-rating
-          span.star class="#{'active' if star < @average_feedback}" style=star_width
-    small title="#{@average_feedback} stars"
+          span.star class="#{'active' if star < @average_score}" style=star_width
+    small title="#{@average_score} stars"
       = "(#{@feedbacks.count} feedbacks)"
 
 .block-6

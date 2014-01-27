@@ -32,4 +32,8 @@ class Feedback
   def self.collection_route
     "schemes/:scheme_id/feedbacks.json"
   end
+
+  def self.average_score_for(feedbacks)
+    feedbacks.map(&:score).sum.to_f / feedbacks.count
+  end
 end
