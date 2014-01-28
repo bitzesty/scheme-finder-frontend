@@ -85,6 +85,8 @@ SchemeFinderFrontend::Application.configure do
       app_config.api_host = ENV['API_HOST']
       app_config.api_path = "/backend/api/v1"
       app_config.ssl = true
+      app_config.google_analytics_tracker = "UA-47541764-1"
+      app_config.google_analytics_domain = "bitzesty.com"
     end
   end
 end

@@ -9,6 +9,8 @@ module SchemeFinderFrontend
     api_path: "/api/v1",
     ssl: false,
     default_audience: "businesses",
+    google_analytics_tracker: nil,
+    google_analytics_domain: nil,
   }
 
   class << self
