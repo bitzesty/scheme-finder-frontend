@@ -40,6 +40,7 @@
               as: :multi_select,
               collection: Activity.collection,
               label: 'Activities',
+              label_method: "for_#{current_audience}",
               required: false,
               input_html: { class: "multi-row-select" }
 
