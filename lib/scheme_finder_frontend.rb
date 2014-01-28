@@ -10,6 +10,7 @@ module SchemeFinderFrontend
     ssl: false,
     default_audience: "businesses",
     google_analytics_tracker: nil,
+    google_analytics_domain: nil,
   }
 
   class << self
