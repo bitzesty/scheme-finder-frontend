@@ -80,7 +80,7 @@ sff.apply_content_load_js = ($context) ->
   xMovement = 0
   yMovement = 0
   movementLimit = 10
-   
+
   document.addEventListener('touchstart', (e) -> (
     xStart = e.touches[0].screenX
     yStart = e.touches[0].screenY
@@ -100,7 +100,7 @@ sff.apply_content_load_js = ($context) ->
           if $(this).css("display") == "block"
             target_height = $(this).attr("data-height")
         ))
-        alert 
+        alert
         if yDirection > 0
           if target_drop.scrollTop() < 1
             e.preventDefault()
@@ -131,3 +131,21 @@ sff.apply_content_load_js = ($context) ->
           if drop_scrolled
             $(".select2-dropdown-open").closest(".input").attr("data-scroll", drop_scrolled)
   ))
+
+# Registered on page load only once
+$ ->
+  #########
+  ## google analytics
+  sff.GoogleAnalyticsTracker.track_clicked_links(
+    "body",
+    "ga_scheme_click",
+    sff.SchemeAnalyticsTracker.register_scheme_clicked
+  )
+
+  sff.GoogleAnalyticsTracker.track_clicked_links(
+    "body",
+    "ga_search_scheme_click",
+    sff.SchemeAnalyticsTracker.register_scheme_searched
+  )
+  ## [END] google analytics
+  #########
