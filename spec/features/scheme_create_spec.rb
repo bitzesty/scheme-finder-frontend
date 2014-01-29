@@ -40,7 +40,6 @@ describe 'Creating a scheme' do
       # fill_in 'scheme_description', with: scheme.description
       # select_by_value('scheme_location_ids', scheme.location_ids.first)
       # select_by_value('scheme_sector_ids', scheme.sector_ids.first)
-      # select_by_value('scheme_commitment_length_ids', scheme.commitment_length_ids.first)
       # select_by_value('scheme_activity_ids', scheme.activity_ids.first)
       # select_by_value('scheme_company_size_ids', scheme.company_size_ids.first)
       # select_by_value('scheme_age_range_ids', scheme.age_range_ids.first)

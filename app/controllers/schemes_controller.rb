@@ -54,7 +54,6 @@ class SchemesController < ApplicationController
       :name, :website, :description,
       location_ids: [],
       sector_ids: [],
-      commitment_length_ids: [],
       activity_ids: [],
       company_size_ids: [],
       age_range_ids: []

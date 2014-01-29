@@ -27,15 +27,6 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
-    - for_businesses do
-      = f.input :commitment_lengths,
-                as: :multi_select,
-                label: 'Commitment length',
-                collection: CommitmentLength.collection,
-                label: "Length of commitment",
-                required: false,
-                input_html: { class: "multi-row-select" }
-
     = f.input :activities,
               as: :multi_select,
               collection: Activity.collection,

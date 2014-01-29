@@ -21,9 +21,6 @@ module SearchSchemeSteps
     stubs.get("/api/v1/sectors.json") do
       api_response(file: "sectors.json")
     end
-    stubs.get("/api/v1/commitment_lengths.json") do
-      api_response(file: "commitment_lengths.json")
-    end
     stubs.get("/api/v1/activities.json") do
       api_response(file: "activities.json")
     end

@@ -6,7 +6,6 @@ class SchemeSearch
   attribute :had_direct_interactions, Boolean
   attribute :locations, Array[String]
   attribute :sectors, Array[String]
-  attribute :commitment_lengths, Array[String]
   attribute :activities, Array[String]
   attribute :company_sizes, Array[String]
   attribute :age_ranges, Array[String]

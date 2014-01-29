@@ -22,9 +22,6 @@
       "sector_ids": [
         "chemicals"
       ],
-      "commitment_length_ids": [
-        "few_hours"
-      ],
       "activity_ids": [
         "workplace_visits"
       ],
