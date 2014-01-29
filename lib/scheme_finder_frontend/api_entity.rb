@@ -112,7 +112,7 @@ module SchemeFinderFrontend
       def find(id, opts = {})
         resp = fetch_response_for member_path(opts.merge(id: id)),
                                   opts
-        new(resp)
+        new(resp.body)
       end
 
       def has_one(association, opts = {})

@@ -31,8 +31,7 @@ class sff.GoogleAnalyticsTracker
     category = "Link clicked"
     action = $link.attr("href")
     @send_event(category, action)
-    # try
-    #   @send_event("_trackEvent", category, action)
 
   @send_event: (category, action) =>
-    ga("send", "event", category, action)
+    try
+      ga("send", "event", category, action)
