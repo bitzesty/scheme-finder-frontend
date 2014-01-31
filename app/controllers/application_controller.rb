@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   def current_agent
     params[:current_agent].to_s
   end
+  helper_method :current_agent
 
   def mobile_device?
     current_agent == "mobile"
