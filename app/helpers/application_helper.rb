@@ -172,4 +172,12 @@ ga('send', 'pageview');
 )
     end
   end
+
+  def js_current_agent
+    current_agent.presence || "web"
+  end
+
+  def js_current_audience
+    current_audience
+  end
 end

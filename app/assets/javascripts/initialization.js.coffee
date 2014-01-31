@@ -7,6 +7,9 @@ sff.parse_text_response = (response) ->
   else
     response
 
+sff.current_agent = $('meta[name=current_agent]').attr("content")
+sff.current_audience = $('meta[name=current_audience]').attr("content")
+
 sff.apply_content_load_js = ($context) ->
   $context ||= $("body")
 

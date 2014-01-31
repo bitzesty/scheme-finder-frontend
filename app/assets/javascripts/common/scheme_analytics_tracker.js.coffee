@@ -2,17 +2,20 @@ class sff.SchemeAnalyticsTracker extends sff.GoogleAnalyticsTracker
   @register_scheme_clicked: (e) =>
     $link = $(e.target)
     category = "Scheme clicked"
-    action = $link.attr("href")
+    action = "#{@agent_with_audience()} #{$link.attr('href')}"
     @send_event(category, action)
 
     @register_tool_completed e
 
   @register_tool_completed: (e) =>
     category = "Tool completed"
-    action = "Via scheme click"
+    action = "Via scheme click #{@agent_with_audience()}"
     @send_event(category, action)
 
   @register_scheme_searched: =>
     category = "Schemes searched"
-    action = "Via scheme search"
+    action = "Via scheme search #{@agent_with_audience()}"
     @send_event(category, action)
+
+  @agent_with_audience: =>
+    "[#{sff.current_agent}] [#{sff.current_audience}]"
