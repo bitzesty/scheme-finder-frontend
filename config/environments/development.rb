@@ -27,6 +27,8 @@ SchemeFinderFrontend::Application.configure do
   config.after_initialize do
     SchemeFinderFrontend.configure do |app_config|
       app_config.api_host = "http://localhost:3000"
+      app_config.google_analytics_tracker = 'UA-47577328-1'
+      app_config.google_analytics_domain = "{ 'cookieDomain': 'none' }"
     end
   end
 end

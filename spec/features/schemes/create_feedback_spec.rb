@@ -5,6 +5,7 @@ describe 'User submitting feedback' do
 
   let(:feedback) { build(:feedback) }
   let(:scheme_name) { "name" }
+  let(:feedback_scheme_name) { "Scheme 1" }
   let(:scheme_id) { 2 }
 
   before do
@@ -29,6 +30,8 @@ describe 'User submitting feedback' do
 
   specify 'can leave it for scheme' do
     go_to_feedback_form
+
+    expect_to_see feedback_scheme_name
 
     submit_feedback feedback
 

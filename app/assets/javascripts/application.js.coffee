@@ -16,3 +16,4 @@
 #= require select2
 #= require initialization
 #= require public
+#= require_tree ./common

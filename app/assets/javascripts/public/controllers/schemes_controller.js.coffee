@@ -13,3 +13,4 @@ class Public.SchemesController
 
     $(@form).on "change", "input, select", (e) =>
       $(@form).submit()
+      sff.SchemeAnalyticsTracker.register_scheme_searched()
