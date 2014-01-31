@@ -100,7 +100,7 @@ sff.apply_content_load_js = ($context) ->
           if $(this).css("display") == "block"
             target_height = $(this).attr("data-height")
         ))
-        alert
+        # alert
         if yDirection > 0
           if target_drop.scrollTop() < 1
             e.preventDefault()
