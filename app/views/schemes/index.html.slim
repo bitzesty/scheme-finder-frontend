@@ -28,7 +28,10 @@
 
 - for_mobile do
   .scheme-finder-mobile-search
-    = render "search",
-             search: @search,
-             remote: false,
-             url: mobile_search_schemes_path
+    .block-2
+      .inner-block
+        .filter-block
+          = render "search",
+                   search: @search,
+                   remote: false,
+                   url: mobile_search_schemes_path

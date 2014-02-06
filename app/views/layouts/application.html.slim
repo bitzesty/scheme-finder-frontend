@@ -26,10 +26,11 @@
         = link_to "←", :back
 
     main#content.group role="main"
-      header.page-header.group
-        div
-          h1
-            = yield :inside_header
+      - if content_for? :inside_header
+        header.page-header.group
+          div
+            h1
+              = yield :inside_header
 
       .article-container.group
         article.group[role="article"]

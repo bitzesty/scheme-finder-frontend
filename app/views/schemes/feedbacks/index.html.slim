@@ -1,5 +1,5 @@
 h2.feedback-title
-  = scheme.name
+  span.title= scheme.name
   - if @feedbacks.any?
     span.star-ratings title="#{@average_score} stars"
       - (0..4).each do |star|
@@ -25,4 +25,4 @@ h2.feedback-title
 
   = link_to "Back to search",
             [:schemes],
-            class: "back-link"
+            class: "back-link mobile-hide"

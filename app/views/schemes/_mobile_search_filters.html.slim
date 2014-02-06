@@ -1,1 +1,6 @@
-= search_params_list(search_params).join(", ")
+- if search_params_list(search_params).any?
+  ul.tags-list
+    - search_params_list(search_params).each do | tag |
+      li
+        span= tag
+        = link_to "✕"

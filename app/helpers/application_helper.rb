@@ -139,13 +139,15 @@ module ApplicationHelper
   def inside_header_content
     contents = ["Make it in Great Britain"]
     unless %w(pages).include? controller_name
-      unless action_name == "new" && controller_name == "schemes"
-        contents << if businesses_audience?
-                      "for businesses"
-                    else
-                      "for teachers"
-                    end
-      end
+      contents << if businesses_audience?
+                    "for businesses"
+                  else
+                    "for teachers"
+                  end
+    end
+
+    if action_name == "new" && controller_name == "schemes" or action_name == "mobile_search"
+      contents = []
     end
 
     contents.join(" ")

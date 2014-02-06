@@ -6,8 +6,7 @@ li.scheme
               data: { ga_scheme_click: true,
                       ga_tool_completed: true }
 
-  p
-    = simple_format scheme.description
+  = simple_format scheme.description
 
   = link_to "Leave feedback",
             [:new, scheme, :feedback],
