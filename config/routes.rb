@@ -2,6 +2,8 @@ SchemeFinderFrontend::Application.routes.draw do
   resource :page, only: [] do
     member {
       get :about
+      get :intro
+      get :start
     }
   end
 
@@ -23,5 +25,5 @@ SchemeFinderFrontend::Application.routes.draw do
     end
   end
 
-  root to: "pages#start"
+  root to: "pages#intro"
 end

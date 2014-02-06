@@ -1509,4 +1509,25 @@ ul.results-list {
       }
     }
   }
+
+  .intro-page {
+    a.button.big {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      text-indent: -9999px;
+      background: $grey-7 image-url('mobile-front.png') no-repeat center center;
+      background-color: $grey-7 !important;
+
+      @include device-pixel-ratio {
+        background-image: image-url('mobile-front@2.png');
+        background-size: 568px 568px;
+      }
+    }
+  }
 }

@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def start
   end
+
+  def intro
+  end
 end
