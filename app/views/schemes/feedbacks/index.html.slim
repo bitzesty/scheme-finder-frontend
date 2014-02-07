@@ -1,5 +1,9 @@
 h2.feedback-title
-  span.title= scheme.name
+  = link_to scheme.name,
+            scheme.website_url,
+            target: "_blank",
+            data: { ga_scheme_click: true,
+                    ga_tool_completed: true }
   - if @feedbacks.any?
     span.star-ratings title="#{@average_score} stars"
       - (0..4).each do |star|
@@ -8,8 +12,8 @@ h2.feedback-title
           - star_width = "width: #{(@average_score - star)*100}%"
         span.star-rating
           span.star class="#{'active' if star < @average_score}" style=star_width
-    small title="#{@average_score} stars"
-      = "(#{@feedbacks.count} feedbacks)"
+      small title="#{@average_score} stars"
+        = "(#{@feedbacks.count})"
 
 .block-6
   - if @feedbacks.none?
@@ -26,3 +30,8 @@ h2.feedback-title
   = link_to "Back to search",
             [:schemes],
             class: "back-link mobile-hide"
+
+  = link_to "Leave feedback",
+            [:new, scheme, :feedback],
+            class: "btn feedback-link",
+            data: { action: "leave_feedback" }

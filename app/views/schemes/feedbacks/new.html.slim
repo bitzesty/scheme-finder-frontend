@@ -1,5 +1,11 @@
 .article-container.group.new-feedback
-  h2 = "Leave Feedback for #{scheme.name}"
+  h2.feedback-title
+    ' Leave feedback for &nbsp;
+    = link_to scheme.name,
+              scheme.website_url,
+              target: "_blank",
+              data: { ga_scheme_click: true,
+                      ga_tool_completed: true }
 
   .block-6
     = render "form", feedback: @feedback

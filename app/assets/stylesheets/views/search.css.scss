@@ -62,9 +62,13 @@ body {
   display: none !important;
 }
 
+
+
+.feedback-link,
 .back-link {
   display: inline-block;
   margin-bottom: $gutter;
+  margin-right: 10px;
   font-size: 12px;
 }
 
@@ -662,11 +666,11 @@ ul.results-list {
     padding-top: $gutter-two-thirds;
     padding-bottom: $gutter-one-third;
     border-bottom: 1px dotted $grey-2;
+  }
 
-    .feedback-link {
-      margin-right: 10px;
-      font-size: 11px;
-    }
+  .feedback-link {
+    margin-bottom: 0;
+    font-size: 11px;
   }
 }
 
@@ -878,15 +882,29 @@ ul.results-list {
     font-weight: bold;
 
     &.feedback-title {
+      line-height: 1.6;
+
       .star-ratings {
         position: relative;
-        top: 5px;
-        margin-left: 10px;
-        margin-right: 5px;
+        top: -2px;
       }
 
       small {
+        position: relative;
+        display: inline-block;
+        top: 2px;
+        margin-left: 10px;
         font-weight: normal;
+      }
+    }
+
+    a {
+      margin-right: 10px;
+      color: $accent-link-colour;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
@@ -1310,22 +1328,29 @@ ul.results-list {
 
       &.feedback-title {
         position: relative;
-        margin-bottom: $gutter*1.5;
+        margin-bottom: $gutter;
 
-        .title {
-          position: relative;
-          top: 25px;
-        }
         .star-ratings {
-          position: absolute;
-          display: block;
-          top: 0px;
-          margin-left: 0;
+          top: 3px;
+          margin: 0;
+          min-width: 58px;
+
+          .star-rating,
+          .star {
+            width: 12px;
+            height: 12px;
+            background-size: 12px 36px;
+          }
+
+          .star.active {
+            background-position: 0 -61px;
+          }
         }
+
         small {
-          position: absolute;
-          left: 130px;
-          top: 7px;
+          position: relative;
+          top: -4px;
+          margin-left: 5px;
         }
       }
     }
@@ -1371,8 +1396,23 @@ ul.results-list {
       }
     }
 
-    .radio-collection-input label {
-      min-width: 0;
+    .form-inputs {
+      .input {
+        margin-right: 11px;
+      }
+
+      textarea {
+        max-width: none;
+      }
+
+      .radio-collection-input {
+        max-width: 230px;
+        margin-right: 0;
+
+        label {
+          min-width: 0;
+        }
+      }
     }
 
     .radio-collection {
@@ -1437,10 +1477,44 @@ ul.results-list {
           letter-spacing: 0;
         }
 
-        > a {
+        .feedback-link {
+          margin-bottom: 0;
           font-size: 8px;
         }
+
+        &.feedback {
+          padding-top: $gutter-one-third;
+          padding-bottom: $gutter-one-sixth;
+
+          .star-ratings {
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            min-width: 58px;
+
+            .star-rating {
+              width: 12px;
+              height: 12px;
+              background-size: 12px 36px;
+
+              &.active {
+                background-position: 0 -61px;
+              }
+            }
+          }
+
+          p {
+            margin-top: $gutter-one-sixth;
+            margin-bottom: $gutter-one-sixth;
+          }
+        }
       }
+    }
+
+    .feedback-link {
+      display: inline-block;
+      margin-bottom: $gutter-two-thirds;
+      font-size: 8px;
     }
   }
 
