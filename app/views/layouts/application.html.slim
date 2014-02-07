@@ -23,7 +23,7 @@
   #wrapper.scheme-finder-frontend
     - unless %w(pages).include? controller_name
       #back-banner.mobile-show
-        = link_to "←", :back
+        = link_to "←", @back_link
 
     main#content.group role="main"
       - if content_for? :inside_header

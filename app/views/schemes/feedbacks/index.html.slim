@@ -28,7 +28,7 @@ h2.feedback-title
         = render "feedback", feedback: feedback
 
   = link_to "Back to search",
-            [:schemes],
+            @back_link,
             class: "back-link mobile-hide"
 
   = link_to "Leave feedback",

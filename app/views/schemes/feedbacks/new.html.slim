@@ -11,6 +11,10 @@
     = render "form", feedback: @feedback
 
     .clear
-    = link_to "Back to search",
-              [:schemes],
+    - if @back_link == scheme_feedbacks_path(scheme)
+      - back_text = "Back to feedback"
+    - else
+      - back_text = "Back to search"
+    = link_to back_text,
+              @back_link,
               class: "back-link mobile-hide"

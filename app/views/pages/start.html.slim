@@ -1,7 +1,7 @@
 = content_for :body_classes do
   = yield(:body_classes).concat(" start-page ")
 
-#get-started-banner
+= link_to "National Careers Service", intro_page_path, id: "get-started-banner"
 .inner
   section.intro
     .get-started-intro

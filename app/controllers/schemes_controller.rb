@@ -22,6 +22,7 @@ class SchemesController < ApplicationController
     @search_results = @search.results
     @total_schemes = @search_results.total_count
     @schemes = @search_results.for_kaminari
+    @back_link = start_page_url[/[^\?]+/]
   end
 
   def search
@@ -38,6 +39,9 @@ class SchemesController < ApplicationController
     search_results = SchemeSearch.new(search_params).results
     @total_schemes = search_results.total_count
     @schemes = search_results.for_kaminari
+    @back_link = root_with_audience_path(current_audience: params[:current_audience], current_agent: "mobile")
+    session[:mobile_search_path] = request.env['REQUEST_URI']
+    session[:feedback_path] = session[:mobile_search_path]
   end
 
   private
