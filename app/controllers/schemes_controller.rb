@@ -23,6 +23,7 @@ class SchemesController < ApplicationController
     @total_schemes = @search_results.total_count
     @schemes = @search_results.for_kaminari
     @back_link = start_page_url[/[^\?]+/]
+    session[:feedback_path] = root_with_audience_path(current_audience: params[:current_audience], current_agent: "")
   end
 
   def search

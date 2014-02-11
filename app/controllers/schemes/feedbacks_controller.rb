@@ -20,10 +20,14 @@ module Schemes
     def index
       @feedbacks = Feedback.all(scheme_id: scheme_id)
       @average_score = Feedback.average_score_for @feedbacks
-      if session[:mobile_search_path]
-        @back_link = session[:mobile_search_path]
+      if current_agent == "mobile"
+        if session[:mobile_search_path]
+          @back_link = session[:mobile_search_path]
+        else
+            @back_link = root_with_audience_path(current_audience: params[:current_audience], current_agent: "mobile")
+        end
       else
-        @back_link = root_with_audience_path(current_audience: params[:current_audience], current_agent: "mobile")
+        @back_link = root_with_audience_path(current_audience: params[:current_audience], current_agent: "")
       end
       session[:feedback_path] = scheme_feedbacks_path(scheme)
     end
