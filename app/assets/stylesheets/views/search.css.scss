@@ -981,6 +981,7 @@ ul.results-list {
 
     p {
       margin-top: $gutter-one-sixth;
+      font-size: 13px;
     }
   }
 }
@@ -1410,11 +1411,11 @@ ul.results-list {
       margin-bottom: $gutter-two-thirds;
 
       h2 {
-        font-size: 10px;
+        font-size: 12px;
       }
 
       p {
-        font-size: 9px;
+        font-size: 10px;
         line-height: 1.45;
       }
     }
