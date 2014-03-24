@@ -17,7 +17,7 @@
 = content_for :body_classes, "mainstream"
 
 = content_for :inside_header do
-  = image_tag("image-header-#{businesses_audience? ? 'businesses':'teachers'}@2.png", class: inside_header_content.parameterize)
+  = image_tag("image-header-#{businesses_audience? ? 'businesses':'teachers'}@2.png", class: "header-#{businesses_audience? ? 'businesses':'teachers'}", alt: inside_header_content)
   span.hide
     = inside_header_content
 

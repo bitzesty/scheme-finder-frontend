@@ -878,7 +878,7 @@ ul.results-list {
         display: block;
         max-width: 100%;
 
-        &.make-it-in-great-britain-for-businesses {
+        &.header-businesses {
           max-width: 603px;
 
           @media (max-width: 640px) {
@@ -886,7 +886,7 @@ ul.results-list {
           }
         }
 
-        &.make-it-in-great-britain-for-teachers {
+        &.header-teachers {
           max-width: 568px;
 
           @media (max-width: 620px) {
