@@ -590,7 +590,7 @@ ul.tags-list {
       position: relative;
       display: inline-block;
       max-width: 200px;
-      top: 1px;
+      top: -1px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1218,7 +1218,7 @@ ul.results-list {
 
     div {
       position: relative;
-      top: 1px;
+      top: -1px;
     }
   }
 
@@ -1420,6 +1420,10 @@ ul.results-list {
     }
 
     .form-inputs {
+      label {
+        font-size: 11px;
+      }
+
       .input {
         margin-right: 11px;
       }
@@ -1441,7 +1445,7 @@ ul.results-list {
     .radio-collection {
       float: right;
       position: relative;
-      top: -3px;
+      top: -10px;
     }
 
     .filter-block {
@@ -1470,6 +1474,10 @@ ul.results-list {
           background: $grey-5;
           @include box-shadow(inset 0px 0px 0px 3px $grey-7);
         }
+      }
+
+      label {
+        font-size: 11px;
       }
 
       label.boolean {
