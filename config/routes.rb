@@ -25,5 +25,5 @@ SchemeFinderFrontend::Application.routes.draw do
     end
   end
 
-  root to: "pages#intro"
+  root to: "pages#start"
 end

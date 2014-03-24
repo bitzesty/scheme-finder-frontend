@@ -17,7 +17,9 @@
 = content_for :body_classes, "mainstream"
 
 = content_for :inside_header do
-  = inside_header_content
+  = image_tag("image-header-#{businesses_audience? ? 'businesses':'teachers'}@2.png", class: inside_header_content.parameterize)
+  span.hide
+    = inside_header_content
 
 = content_for :content do
   #wrapper.scheme-finder-frontend
