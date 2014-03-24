@@ -878,6 +878,14 @@ ul.results-list {
         display: block;
         max-width: 100%;
 
+        &.header-standard {
+          max-width: 367px;
+
+          @media (max-width: 420px) {
+            max-width: 100%;
+          }
+        }
+
         &.header-businesses {
           max-width: 603px;
 
