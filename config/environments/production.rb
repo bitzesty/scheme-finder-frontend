@@ -81,6 +81,11 @@ SchemeFinderFrontend::Application.configure do
     SchemeFinderFrontend.configure do |app_config|
       # No auth required in test environment
       app_config.api_access_token = ENV['API_ACCESS_TOKEN']
+      app_config.api_host = ENV['API_HOST']
+      app_config.api_path = "/backend/api/v1"
+      app_config.ssl = true
+      app_config.google_analytics_tracker = ""
+      app_config.google_analytics_domain = "" # domain could be executable code as well
     end
   end
 end
