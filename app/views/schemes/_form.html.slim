@@ -3,16 +3,42 @@
                   url: schemes_path,
                   html: { class: "horizontal-form" } do |f|
   .form-inputs
-    /= f.input :logo,
-              as: :file,
-              required: true,
-              input_html: { class: "span5" }
+    = f.input :logo,
+              as: :file
 
     = f.input :contact_name, required: true
     = f.input :contact_email, required: true
     = f.input :contact_phone, required: true
     = f.input :name, required: true, label: "Scheme name"
     = f.input :website, required: true
+    = f.input :description, as: :text, input_html: {rows: 5}
+
+    = f.input :location_ids,
+              as: :grouped_select,
+              group_method: :last,
+              label: 'Locations',
+              collection: Location.collection,
+              input_html: { class: "js-select2", multiple: true }
+
+    = f.input :sector_ids,
+              as: :multi_select,
+              label: 'Sectors',
+              collection: Sector.collection
+
+    = f.input :activity_ids,
+              as: :multi_select,
+              label: 'Activities',
+              collection: Activity.collection
+
+    = f.input :company_size_ids,
+              as: :multi_select,
+              label: 'Company size',
+              collection: CompanySize.collection
+
+    = f.input :age_range_ids,
+              as: :multi_select,
+              label: 'Age range',
+              collection: AgeRange.collection
 
   .form-actions.scheme-actions
     = f.button :submit,
