@@ -1078,6 +1078,7 @@ ul.results-list {
 .form-inputs {
   .input {
     clear: both;
+    min-height: 37px;
   }
 
   label {
@@ -1124,8 +1125,7 @@ ul.results-list {
 
     .select2-choices {
       background: $grey-7;
-      border-color: #ccc;
-      border-top-color: #999;
+      border-color: $grey-9;
     }
 
     &.select2-container-active .select2-choices,
