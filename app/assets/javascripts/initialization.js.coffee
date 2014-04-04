@@ -153,3 +153,12 @@ $ ->
   )
   ## [END] google analytics
   #########
+
+# Fix select2 width
+select2CheckWidth = () ->
+  if $('.filter-block form fieldset .filter').width() != $('.filter-block form').width()
+    $('.filter-block form fieldset .filter').width($('.filter-block form').width())
+
+$(window).resize ->
+  if $('.filter-block form fieldset .filter').size() > 0
+    select2CheckWidth()
