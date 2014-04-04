@@ -1,5 +1,5 @@
 class SchemeSearch
-  PER_PAGE = 10
+  PER_PAGE = 5000
 
   include Virtus.model
 
