@@ -860,6 +860,7 @@ ul.results-list {
     div {
       margin:0;
       padding-left: $gutter-two-thirds;
+      padding-right: $gutter-two-thirds;
 
     }
 
@@ -881,7 +882,7 @@ ul.results-list {
         &.header-standard {
           max-width: 367px;
 
-          @media (max-width: 420px) {
+          @media (max-width: 440px) {
             max-width: 100%;
           }
         }
@@ -889,7 +890,7 @@ ul.results-list {
         &.header-businesses {
           max-width: 603px;
 
-          @media (max-width: 640px) {
+          @media (max-width: 680px) {
             max-width: 100%;
           }
         }
@@ -897,7 +898,7 @@ ul.results-list {
         &.header-teachers {
           max-width: 568px;
 
-          @media (max-width: 620px) {
+          @media (max-width: 640px) {
             max-width: 100%;
           }
         }
@@ -1046,6 +1047,20 @@ ul.results-list {
         }
       }
     }
+  }
+}
+
+.start-page .scheme-finder-frontend .button {
+  max-width: 100%;
+  width: 320px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 8px;
+  padding-bottom: 7px;
+  text-align: center;
+
+  @media (min-width: 640px) {
+    font-size: 14px;
   }
 }
 
@@ -1346,6 +1361,7 @@ ul.results-list {
     header.page-header div {
       padding-top: 20px;
       padding-left: 0;
+      padding-right: 0;
 
       h1 img {
         margin: 0 auto;
@@ -1404,9 +1420,6 @@ ul.results-list {
     }
 
     .button {
-      width: 100%;
-      padding-left: 0;
-      padding-right: 0;
       font-size: 12px;
     }
 

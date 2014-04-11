@@ -10,15 +10,29 @@
         | for businesses or teachers
 
     p#get-started.get-started.group
-      = link_to "Get Started for Teachers",
-                root_with_audience_path(current_audience: "teachers",
-                                        current_agent: "mobile"),
-                class: "big button",
-                id: "btn-teachers-guide"
-      br
-      br
-      = link_to "Get Started for Businesses",
-                root_with_audience_path(current_audience: "businesses",
-                                        current_agent: "mobile"),
-                class: "big button",
-                id: "btn-businesses-guide"
+      .mobile-hide
+        = link_to "Get Started for Teachers",
+                  root_with_audience_path(current_audience: "teachers",
+                                          current_agent: ""),
+                  class: "big button",
+                  id: "btn-teachers-guide"
+        br
+        br
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: ""),
+                  class: "big button",
+                  id: "btn-businesses-guide"
+      .mobile-show
+        = link_to "Get Started for Teachers",
+                  root_with_audience_path(current_audience: "teachers",
+                                          current_agent: "mobile"),
+                  class: "big button",
+                  id: "btn-teachers-guide"
+        br
+        br
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: "mobile"),
+                  class: "big button",
+                  id: "btn-businesses-guide"
