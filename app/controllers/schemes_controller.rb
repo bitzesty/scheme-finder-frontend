@@ -61,7 +61,7 @@ class SchemesController < ApplicationController
 
   def scheme_params
     params.require(:scheme).permit(
-      :had_direct_interactions,  :logo,
+      :had_direct_interactions,
       :contact_name, :contact_email, :contact_phone,
       :name, :website, :description,
       location_ids: [],

@@ -44,7 +44,8 @@ class Scheme
   def save
     resp = SchemeFinderFrontend.api_client.post(
       self.class.collection_path,
-      { scheme: attributes.merge('logo' => logo_for_upload) }
+      scheme: attributes
+      # { scheme: attributes.merge('logo' => logo_for_upload) }
     )
 
     case resp.status
