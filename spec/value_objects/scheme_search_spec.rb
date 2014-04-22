@@ -13,12 +13,13 @@ describe SchemeSearch do
 
   describe ".results" do
     let(:result) { search.results }
+    let(:per_page) { SchemeSearch::PER_PAGE }
 
     before do
       with_backend_api do |stubs|
         stub_search_for_scheme_api stubs,
-                                   "/api/v1/schemes.json?page=1&per_page=10&sectors%5B%5D=auto",
-                                   "schemes_auto.json"
+                                   request_url: "/api/v1/schemes.json?page=1&per_page=#{per_page}&sectors%5B%5D=auto",
+                                   schemes_response_file_path: "schemes_auto.json"
       end
     end
 

@@ -27,6 +27,14 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
+    - unless current_audience
+      = f.input :audiences,
+                as: :multi_select,
+                label: 'Audiences',
+                collection: Audience.collection,
+                required: false,
+                input_html: { class: "multi-row-select" }
+
     = f.input :activities,
               as: :multi_select,
               collection: Activity.collection,

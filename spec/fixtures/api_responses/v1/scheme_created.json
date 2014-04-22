@@ -15,6 +15,9 @@
   "sector_ids": [
     "aero"
   ],
+  "audience_ids": [
+    "businesses"
+  ],
   "activity_ids": [
     "inspiring_talks"
   ],

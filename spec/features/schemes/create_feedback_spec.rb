@@ -1,18 +1,19 @@
 require 'spec_helper'
 
-describe 'User submitting feedback' do
+describe 'User submitting feedback', pending: "Feedbacks are disables for time being" do
   include SearchSchemeSteps
 
   let(:feedback) { build(:feedback) }
-  let(:scheme_name) { "name" }
+  let(:scheme_name) { "Automotives" }
   let(:feedback_scheme_name) { "Scheme 1" }
   let(:scheme_id) { 2 }
+  let(:per_page) { SchemeSearch::PER_PAGE }
 
   before do
     with_backend_api do |stubs|
       stub_search_for_scheme_api stubs,
-                                 "/api/v1/schemes.json?page=1&per_page=10",
-                                 "schemes_auto.json"
+                                 request_url: "/api/v1/schemes.json?page=1&per_page=#{per_page}",
+                                 schemes_response_file_path: "schemes_auto.json"
 
       stubs.post("/api/v1/schemes/#{scheme_id}/feedbacks.json") do
         api_response(status: 201, file: "feedback_created.json")
