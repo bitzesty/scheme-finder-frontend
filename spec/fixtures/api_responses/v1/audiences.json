@@ -1,0 +1,12 @@
+{
+  "audiences": [
+    {
+      "id": "businesses",
+      "name": "Businesses"
+    },
+    {
+      "id": "teachers",
+      "name": "Teachers"
+    }
+  ]
+}

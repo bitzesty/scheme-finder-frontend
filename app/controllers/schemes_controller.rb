@@ -48,7 +48,14 @@ class SchemesController < ApplicationController
   private
 
   def search_params
-    (params[:search] || {}).merge(params.slice(:page, :per_page))
+    result = (params[:search] || {}).merge(params.slice(:page, :per_page))
+    if current_audience
+      result[:audiences] = [current_audience]
+    else
+      # nothing
+    end
+
+    result
   end
   helper_method :search_params
 
@@ -59,6 +66,7 @@ class SchemesController < ApplicationController
       :name, :website, :description,
       location_ids: [],
       sector_ids: [],
+      audience_ids: [],
       activity_ids: [],
       company_size_ids: [],
       age_range_ids: []

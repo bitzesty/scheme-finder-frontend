@@ -7,14 +7,16 @@ describe 'Creating a scheme' do
 
   before do
     with_backend_api do |stubs|
-      stub_scheme_form_fields_api stubs
+      stub_scheme_form_fields_api stubs,
+                                  stubs: { stub_audiences: true }
 
       stubs.post("/api/v1/schemes.json") do
         api_response(status: 201, file: "scheme_created.json")
       end
 
       # triggered on returning to schemes search
-      stub_search_for_scheme_api stubs
+      stub_search_for_scheme_api stubs,
+                                 stubs: { stub_audiences: true }
     end
   end
 

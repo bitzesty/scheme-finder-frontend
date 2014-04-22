@@ -18,4 +18,17 @@ module FeaturesHelpers
   def ensure_on(path)
     visit(path) unless current_path == path
   end
+
+  def within_mobile
+    within ".mobile-show" do
+      yield
+    end
+  end
+
+  def within_desktop
+    within ".mobile-hide" do
+      yield
+    end
+  end
 end
+

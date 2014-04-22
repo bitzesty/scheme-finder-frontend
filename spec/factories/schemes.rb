@@ -19,6 +19,7 @@ FactoryGirl.define do
     had_direct_interactions { [false, true].shuffle }
     location_ids { ['north_east', 'north_west'].shuffle }
     sector_ids { ['aero', 'chemicals'].shuffle }
+    audience_ids { ['businesses', 'teachers'].shuffle }
     activity_ids { ['hands_on_talks', 'inspiring_talks'].shuffle }
     company_size_ids { ['0-9', '10-249'].shuffle }
     age_range_ids { ['primary_school_children', 'secondary_school_children'].shuffle }

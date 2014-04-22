@@ -25,6 +25,11 @@
               label: 'Sectors',
               collection: Sector.collection
 
+    = f.input :audience_ids,
+              as: :multi_select,
+              label: 'Audiences',
+              collection: Audience.collection
+
     = f.input :activity_ids,
               as: :multi_select,
               label: 'Activities',

@@ -5,10 +5,15 @@ As a user
 I want to use guide for teachers or for businesses
 ) do
   include SearchSchemeSteps
+  let(:per_page) { SchemeSearch::PER_PAGE }
 
   before do
     with_backend_api do |stubs|
       stub_search_for_scheme_api stubs
+
+      stubs.get("/api/v1/schemes.json?audiences%5B%5D=teachers&page=1&per_page=#{per_page}") do
+        api_response(file: "schemes_auto.json")
+      end
     end
   end
 
@@ -24,7 +29,9 @@ I want to use guide for teachers or for businesses
 
   def choose_teachers_guide
     ensure_on root_path
-    click_on "btn-teachers-guide"
+    within_desktop do
+      click_on "btn-teachers-guide"
+    end
   end
 
   def expect_to_be_on_teachers_guide
@@ -34,7 +41,9 @@ I want to use guide for teachers or for businesses
 
   def choose_businesses_guide
     ensure_on root_path
-    click_on "btn-businesses-guide"
+    within_desktop do
+      click_on "btn-businesses-guide"
+    end
   end
 
   def expect_to_be_on_businesses_guide

@@ -22,6 +22,9 @@
       "sector_ids": [
         "chemicals"
       ],
+      "audience_ids": [
+        "businesses"
+      ],
       "activity_ids": [
         "workplace_visits"
       ],
