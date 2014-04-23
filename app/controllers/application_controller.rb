@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :maintenance_page
+
   protect_from_forgery with: :exception
 
   respond_to :html
@@ -30,4 +32,8 @@ class ApplicationController < ActionController::Base
     current_agent == "mobile"
   end
   helper_method :mobile_device?
+
+  def maintenance_page
+    redirect_to maintenance_page_path
+  end
 end

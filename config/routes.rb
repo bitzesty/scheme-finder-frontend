@@ -4,6 +4,7 @@ SchemeFinderFrontend::Application.routes.draw do
       get :about
       get :intro
       get :start
+      get :maintenance
     }
   end
 
