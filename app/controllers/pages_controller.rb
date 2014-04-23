@@ -11,5 +11,6 @@ class PagesController < ApplicationController
   end
 
   def maintenance
+    render status: 410
   end
 end
