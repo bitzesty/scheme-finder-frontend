@@ -1,4 +1,2 @@
-410 (Gone)  response
-robots: Disallow: /
 User-agent: *
 Disallow: /
