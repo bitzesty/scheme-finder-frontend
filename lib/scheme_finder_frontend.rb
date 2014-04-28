@@ -11,6 +11,7 @@ module SchemeFinderFrontend
     default_audience: "businesses",
     google_analytics_tracker: nil,
     google_analytics_domain: nil,
+    show_maintenance: false,
   }
 
   class << self

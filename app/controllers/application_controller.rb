@@ -34,6 +34,8 @@ class ApplicationController < ActionController::Base
   helper_method :mobile_device?
 
   def maintenance_page
-    redirect_to maintenance_page_path
+    if SchemeFinderFrontend.show_maintenance
+      redirect_to maintenance_page_path
+    end
   end
 end
