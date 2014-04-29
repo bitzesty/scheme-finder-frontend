@@ -39,6 +39,9 @@ sff.apply_content_load_js = ($context) ->
         allowClear: true,
       $.extend(options, allow_clear_options)
     $(select).select2 options
+    $(select).on("change", -> (
+      $(".js-select2").blur()
+    ))
   $(".select2-container input").prop("readonly",true)
 
   $(".select2-container").css("width", "100%")
