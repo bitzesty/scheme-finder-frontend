@@ -16,8 +16,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem "select2-rails", "3.4.7"
-
+gem "select2-rails", github: "chilian/select2-rails", branch: "master"
 gem "slim-rails"
 gem "simple_form", "~> 3.0.0"
 gem "kaminari"
