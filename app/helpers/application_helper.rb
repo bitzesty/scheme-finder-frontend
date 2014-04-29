@@ -137,7 +137,7 @@ module ApplicationHelper
   end
 
   def inside_header_content
-    contents = ["Make it in Great Britain"]
+    contents = ["Growing Ambitions"]
     unless %w(pages).include? controller_name
       contents << if businesses_audience?
                     "for businesses"
