@@ -38,7 +38,7 @@ sff.apply_content_load_js = ($context) ->
         placeholder: "",
         allowClear: true,
       $.extend(options, allow_clear_options)
-
+    $(select).select2 options
   $(".select2-container input").prop("readonly",true)
 
   $(".select2-container").css("width", "100%")

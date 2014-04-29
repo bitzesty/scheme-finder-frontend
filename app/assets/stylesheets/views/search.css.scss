@@ -834,6 +834,10 @@ ul.results-list {
 // CUSTOM STYLES AND OVERRIDES
 // WRITTEN FOR THIS PROTOTYPE
 
+.select2-hidden-accessible {
+  display: none;
+}
+
 .scheme-finder-frontend {
   font-family: $arial;
   -webkit-font-smoothing: initial;
