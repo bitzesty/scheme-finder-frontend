@@ -43,14 +43,6 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
-    - for_businesses do
-      = f.input :company_sizes,
-                as: :multi_select,
-                collection: CompanySize.collection,
-                label: 'Company size',
-                required: false,
-                input_html: { class: "multi-row-select" }
-
     = f.input :age_ranges,
               as: :multi_select,
               label: age_range_label,
