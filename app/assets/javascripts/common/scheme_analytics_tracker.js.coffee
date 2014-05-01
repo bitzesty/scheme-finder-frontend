@@ -17,5 +17,10 @@ class sff.SchemeAnalyticsTracker extends sff.GoogleAnalyticsTracker
     action = "Via scheme search #{@agent_with_audience()}"
     @send_event(category, action)
 
+  @register_had_direct_interactions: =>
+    category = "Had direct interactions"
+    action = "Via checkbox on #{@agent_with_audience()}"
+    @send_event(category, action)
+
   @agent_with_audience: =>
     "[#{sff.current_agent}] [#{sff.current_audience}]"
