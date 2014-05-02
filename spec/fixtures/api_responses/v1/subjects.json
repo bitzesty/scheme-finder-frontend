@@ -1,0 +1,40 @@
+{
+  "subjects": [
+    {
+      "id":"science",
+      "name":"Science"
+    },
+    {
+      "id":"technology",
+      "name":"Technology"
+    },
+    {
+      "id":"engineering",
+      "name":"Engineering"
+    },
+    {
+      "id":"maths",
+      "name":"Maths"
+    },
+    {
+      "id":"english",
+      "name":"English"
+    },
+    {
+      "id":"design",
+      "name":"Design"
+    },
+    {
+      "id":"other",
+      "name":"Other"
+    },
+    {
+      "id":"stem_based",
+      "name":"STEM-based"
+    },
+    {
+      "id":"enterprise",
+      "name":"Enterprise"
+    }
+  ]
+}

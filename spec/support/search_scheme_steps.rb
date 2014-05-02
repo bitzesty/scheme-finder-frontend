@@ -29,6 +29,9 @@ module SearchSchemeSteps
     stubs.get("/api/v1/sectors.json") do
       api_response(file: "sectors.json")
     end
+    stubs.get("/api/v1/subjects.json") do
+      api_response(file: "subjects.json")
+    end
 
     if stub_audiences
       stubs.get("/api/v1/audiences.json") do
