@@ -14,3 +14,11 @@ class Public.SchemesController
     $(@form).on "change", "input, select", (e) =>
       $(@form).submit()
       sff.SchemeAnalyticsTracker.register_scheme_searched()
+
+    # store had direct interactions click to google analytics
+    $("body").on "click", "input[data-register='had-direct-interactions']", (e) =>
+      sff.SchemeAnalyticsTracker.register_had_direct_interactions()
+      @hide_input(e.target)
+
+  hide_input: (input) =>
+    $(input).closest("[data-wraps='had-direct-interactions']").slideUp("slow")
