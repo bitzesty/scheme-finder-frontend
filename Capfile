@@ -21,7 +21,6 @@ require "capistrano/deploy"
 
 require "capistrano/bundler"
 require "capistrano/rails"
-require "airbrake/capistrano3"
 require "hipchat/capistrano"
 require 'dotenv'
 

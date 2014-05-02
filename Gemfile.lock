@@ -1,11 +1,11 @@
 GIT
-  remote: git://github.com/viperdezigns/airbrake.git
-  revision: 7c8aba975679a63f7fbe2ce6ff2f634f55ad68ea
-  branch: capistrano3
+  remote: https://github.com/getsentry/raven-ruby.git
+  revision: a4d2ae59ce9f92578843b6536f816e9ee2403d48
   specs:
-    airbrake (3.1.14)
-      builder
-      json
+    sentry-raven (0.8.0)
+      faraday (>= 0.7.6)
+      hashie (>= 1.1.0)
+      uuidtools
 
 GEM
   remote: https://rubygems.org/
@@ -99,6 +99,7 @@ GEM
     forgery (0.5.0)
     govuk_template (0.3.7)
       rails (>= 3.1)
+    hashie (2.1.1)
     hike (1.2.3)
     hipchat (1.0.1)
       httparty
@@ -231,6 +232,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.4)
     virtus (1.0.1)
       axiom-types (~> 0.0.5)
       coercible (~> 1.0)
@@ -244,7 +246,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake!
   bootstrap-sass (>= 3.0.0.0)
   byebug
   capistrano-rails (~> 1.1.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   rspec-rails (~> 2.14.0)
   sass-rails (~> 4.0.0)
   select2-rails (= 3.4.7)
+  sentry-raven!
   simple_form (~> 3.0.0)
   slim-rails
   spring
