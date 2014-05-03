@@ -29,6 +29,14 @@
               required: false,
               input_html: { class: "multi-row-select" }
 
+    - for_teachers do
+      = f.input :subjects,
+                as: :multi_select,
+                label: "Subjects",
+                collection: Subject.collection,
+                required: false,
+                input_html: { class: "multi-row-select" }
+
     - unless current_audience
       = f.input :audiences,
                 as: :multi_select,

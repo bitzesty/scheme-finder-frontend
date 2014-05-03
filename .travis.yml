@@ -1,0 +1,10 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.0.0
+bundler_args: --without development
+script:
+  - bundle exec rspec spec
+notifications:
+  email: false
+  hipchat: 94fcb0db90a76e9e61f4965a1f2f83@302663

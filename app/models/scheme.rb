@@ -12,6 +12,7 @@ class Scheme
                 :description,
                 :location_ids,
                 :sector_ids,
+                :subject_ids,
                 :audience_ids,
                 :activity_ids,
                 :company_size_ids,
