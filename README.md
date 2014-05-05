@@ -1,6 +1,8 @@
 Scheme finder frontend
 ======
 
+[![Build Status](https://travis-ci.org/bitzesty/scheme-finder-frontend.svg)](https://travis-ci.org/bitzesty/scheme-finder-frontend)
+
 ## Hosted on Rackspace
 
 ## Deploy
