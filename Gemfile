@@ -8,7 +8,7 @@ gem "dotenv-rails"
 gem "hipchat", "~> 1.0.1"
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
-gem 'unicorn'
+gem 'passenger'
 
 gem "govuk_template"
 gem "bootstrap-sass", ">= 3.0.0.0"
