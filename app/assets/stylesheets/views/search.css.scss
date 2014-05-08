@@ -309,9 +309,8 @@ body {
 
 .filter-block {
   margin-bottom: $gutter-two-thirds;
-  padding: $gutter-one-third;
+  padding: $gutter-two-thirds;
   background: $grey-8;
-  border: 1px solid #ccc;
 
   @include ie-lte(7) {
     padding-top: 0;
@@ -1193,9 +1192,9 @@ ul.results-list {
 
 .filter-block form fieldset .filter.search_had_direct_interactions {
   display: block;
-  margin: -$gutter-one-third;
+  margin: -$gutter-two-thirds;
   margin-bottom: $gutter-two-thirds;
-  padding: $gutter-one-third;
+  padding: $gutter-two-thirds;
   background: $grey-6;
 
   @include ie(6) {
