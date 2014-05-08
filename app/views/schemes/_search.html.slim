@@ -18,6 +18,7 @@
               as: :grouped_select,
               group_method: :last,
               label: 'Locations',
+              placeholder: 'Locations',
               collection: Location.collection,
               required: false,
               input_html: { class: "multi-row-select js-select2", multiple: true }
@@ -25,6 +26,7 @@
     = f.input :sectors,
               as: :multi_select,
               label: 'Sectors',
+              placeholder: 'Sectors',
               collection: Sector.collection,
               required: false,
               input_html: { class: "multi-row-select" }
@@ -32,7 +34,8 @@
     - for_teachers do
       = f.input :subjects,
                 as: :multi_select,
-                label: "Subjects",
+                label: 'Subjects',
+              placeholder: 'Subjects',
                 collection: Subject.collection,
                 required: false,
                 input_html: { class: "multi-row-select" }
@@ -41,6 +44,7 @@
       = f.input :audiences,
                 as: :multi_select,
                 label: 'Audiences',
+              placeholder: 'Audiences',
                 collection: Audience.collection,
                 required: false,
                 input_html: { class: "multi-row-select" }
@@ -49,6 +53,7 @@
               as: :multi_select,
               collection: Activity.collection,
               label: 'Activities',
+              placeholder: 'Activities',
               label_method: "for_#{current_audience}",
               required: false,
               input_html: { class: "multi-row-select" }
@@ -56,6 +61,7 @@
     = f.input :age_ranges,
               as: :multi_select,
               label: age_range_label,
+              placeholder: age_range_label,
               collection: AgeRange.collection,
               required: false,
               input_html: { class: "multi-row-select" }
