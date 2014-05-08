@@ -965,12 +965,17 @@ ul.results-list {
     padding: 2px 8px 1px;
     font-family: $custom-font-family;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 400;
     -webkit-font-smoothing: initial;
-    border: 1px solid $line-color;
+    border: none;
     outline: none;
     @include box-shadow(none);
-    @include border-radius(2px);
+    @include border-radius(0);
+
+    @media (max-width: 640px) {
+      padding-top: 8px;
+      padding-bottom: 7px;
+    }
 
     &,
     &:active,
@@ -987,11 +992,6 @@ ul.results-list {
     &:active {
       top: 0;
       @include box-shadow(none);
-    }
-
-    @media (max-width: 640px) {
-      padding-top: 8px;
-      padding-bottom: 7px;
     }
   }
 
@@ -1065,17 +1065,17 @@ ul.results-list {
   }
 }
 
-.start-page .scheme-finder-frontend .button {
-  max-width: 100%;
-  width: 320px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 8px;
-  padding-bottom: 7px;
-  text-align: center;
-
-  @media (min-width: 640px) {
+.start-page .scheme-finder-frontend {
+  .button {
+    max-width: 100%;
+    width: 320px;
+    padding: 12px 0;
     font-size: 14px;
+    text-align: center;
+
+    @media (min-width: 640px) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -1644,8 +1644,8 @@ ul.results-list {
         p {
           margin-bottom: $gutter-two-thirds;
           color: $grey-5;
-          font-size: 16px;
-          line-height: 1.25;
+          font-size: 19px;
+          line-height: 1.5;
         }
       }
     }
