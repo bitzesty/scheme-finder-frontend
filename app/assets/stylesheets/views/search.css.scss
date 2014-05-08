@@ -26,6 +26,93 @@ $right-to-left: false !default;
   }
 }
 
+// iOS conditionals
+$iphone-width: 320px;
+$iphone-old-height: 480px;
+$iphone-height: 568px;
+$ipad-width: 768px;
+$ipad-height: 1024px;
+
+@mixin is-ios {
+  @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), 
+  only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), 
+  only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), 
+  only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-height) and (orientation : portrait), 
+  only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape), 
+  only screen and (min-device-height : $ipad-width) and (max-device-height : $ipad-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin is-iphone-or-xs-screen {
+  @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : portrait), only screen and ($screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin is-iphone {
+  @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin iphone($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-height) and (orientation : portrait), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin is-iphone-old {
+  @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin iphone-old($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin is-ipad {
+  @media only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape), only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : portrait) {
+    @content;
+  }
+}
+@mixin ipad($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $ipad-width) and (max-device-height : $ipad-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+// Retina conditional
+@mixin is-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
 // Suitable for captions, buttons etc
 @mixin ig-core-14 {
   font-family: $NTA-Light;
@@ -880,13 +967,12 @@ ul.results-list {
 
     h1 {
       margin-bottom: $gutter-one-third;
-      padding: $gutter-two-thirds $gutter-one-third;
+      padding: $gutter-two-thirds 0;
       padding-bottom: $gutter-half;
       color: $accent-link-colour;
       font-size: 30px;
       font-weight: bold;
       line-height: 1;
-      background: $grey-8;
       background-repeat: no-repeat;
       background-position: $gutter-one-third center;
 
@@ -1066,15 +1152,41 @@ ul.results-list {
 }
 
 .start-page .scheme-finder-frontend {
-  .button {
-    max-width: 100%;
-    width: 320px;
-    padding: 12px 0;
-    font-size: 14px;
+  header.page-header h1 img.header-standard {
+    margin: 0 auto;
+  }
+
+  .intro{
+    padding-left: 0;
     text-align: center;
 
-    @media (min-width: 640px) {
-      font-size: 16px;
+    @include is-ios {
+      width: 220px;
+      margin: 0 auto;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+
+      @include is-ios {
+        margin-bottom: $gutter-two-thirds;
+        color: $grey-5;
+        font-size: 19px;
+        line-height: 1.5;
+      }
+    }
+
+    .button {
+      max-width: 100%;
+      width: 320px;
+      padding: 12px 0;
+      font-size: 14px;
+      text-align: center;
+
+      @media (min-width: 640px) {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -1632,20 +1744,6 @@ ul.results-list {
         h1 {
           font-size: 22px;
           text-align: center;
-        }
-      }
-
-      .intro {
-        width: 220px;
-        margin: 0 auto;
-        padding-left: 0;
-        text-align: center;
-
-        p {
-          margin-bottom: $gutter-two-thirds;
-          color: $grey-5;
-          font-size: 19px;
-          line-height: 1.5;
         }
       }
     }
