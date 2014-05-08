@@ -33,6 +33,10 @@ sff.apply_content_load_js = ($context) ->
       $(".radio-collection span:eq("+s+")").addClass("active")
   ))
 
+  $("input[type='checkbox']").iCheck({
+    checkboxClass: "icheckbox_minimal"
+  })
+
   #########
   ## Select2
   for select in $context.find("select.js-select2")

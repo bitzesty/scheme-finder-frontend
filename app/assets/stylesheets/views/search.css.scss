@@ -379,6 +379,7 @@ body {
 
   .boolean label {
     display: inline;
+    margin-left: 30px;
     font-size: 14px;
     font-weight: 400;
   }
@@ -389,12 +390,12 @@ body {
     font-size: 13px;
     font-weight: 300;
     margin: 0;
-    margin-left: 22px;
+    margin-left: 30px;
     padding: 0;
   }
 
   input {
-    border: 1px solid $grey-3;
+    border: 1px solid $border-colour;
     width: 100%;
     margin: 0;
     outline: none;
@@ -404,14 +405,13 @@ body {
       text-indent: $gutter-one-third;
     }
 
-    border-color: $border-colour;
-
     &.boolean {
-      width: auto;
-      margin-right: 10px;
-      padding: 0px;
-      border: none;
+      top: 28px;
     }
+  }
+
+  .icheckbox_minimal {
+    top: 26px;
   }
 
   select {
@@ -974,6 +974,45 @@ ul.results-list {
 // CUSTOM STYLES AND OVERRIDES
 // WRITTEN FOR THIS PROTOTYPE
 
+input[type="checkbox"] {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-top: -2px;
+  margin-left: 0;
+  background: #fff;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+
+  .ie & {
+    border: none;
+  }
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: white;
+  background-image: url(/assets/icon-checkbox.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include device-pixel-ratio {
+    background-image: url(/assets/icon-checkbox@2.png);
+    background-size: 30px 30px;
+  }
+}
+
 .scheme-finder-frontend {
   font-family: $custom-font-family;
   -webkit-font-smoothing: initial;
@@ -1230,9 +1269,18 @@ ul.results-list {
   }
 }
 
+div[data-wraps="had-direct-interactions"] {
+  overflow: hidden;
+  position: relative;
+  top: -$gutter-two-thirds;
+  left: -$gutter-two-thirds;
+  margin-right: -40px;
+  padding-right: $gutter-two-thirds*2;
+}
+
 .filter-block form fieldset .filter.search_had_direct_interactions {
   display: block;
-  margin: -$gutter-two-thirds;
+  margin: 0;
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-two-thirds;
   background: $grey-6;

@@ -1,0 +1,30 @@
+/* iCheck plugin Minimal skin, black
+----------------------------------- */
+.icheckbox_minimal {
+  position: absolute;
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+}
+
+.icheckbox_minimal.checked {
+  background-image: url(icon-checkbox.png);
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .icheckbox_minimal {
+    background-image: url(icon-checkbox@2x.png);
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+  }
+}
