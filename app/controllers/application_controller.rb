@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :maintenance_page
+  before_action :set_cache_headers
 
   protect_from_forgery with: :exception
 
@@ -37,5 +38,9 @@ class ApplicationController < ActionController::Base
     if SchemeFinderFrontend.show_maintenance
       redirect_to maintenance_page_path
     end
+  end
+
+  def set_cache_headers
+    expires_in 1.hour, public: true
   end
 end

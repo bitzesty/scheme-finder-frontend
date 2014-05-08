@@ -1,5 +1,7 @@
 module Schemes
   class FeedbacksController < Schemes::BaseController
+    skip_before_action :set_cache_headers, only: [:create]
+
     def create
       @feedback = Feedback.new(feedback_params)
 
