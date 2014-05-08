@@ -1,5 +1,9 @@
 // VARS
 // ----
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+$custom-font-family: 'Lato', sans-serif;
 $max-site-width: 960px;
 $gutter:            30px;
 $gutter-one-sixth:  $gutter*(1/6); // equivalent to 5px
@@ -235,6 +239,7 @@ body {
 
   h2 {
     @include core-16;
+    font-family: $custom-font-family;
     //padding-top: $gutter-one-third;
   }
 
@@ -269,6 +274,7 @@ body {
 
     &.title {
       @include copy-19;
+      font-family: $custom-font-family;
       font-weight: bold;
       display:block;
       margin-bottom:2px;
@@ -276,6 +282,7 @@ body {
 
     &.sub-title {
       @include core-19;
+      font-family: $custom-font-family;
     }
   }
 
@@ -423,13 +430,16 @@ body {
     //border-bottom: 1px solid $border-colour;
     h2 {
       @include core-27;
+      font-family: $custom-font-family;
     }
     h3 {
       @include core-19;
+      font-family: $custom-font-family;
       font-weight: bold;
     }
     p {
       @include core-19;
+      font-family: $custom-font-family;
       margin: $gutter-half 0;
     }
   }
@@ -444,7 +454,7 @@ body {
   h3 {
     @include copy-16;
     color: $grey-5;
-    font-family: $arial;
+    font-family: $custom-font-family;
     font-size: 11px;
     -webkit-font-smoothing: initial;
     display: inline-block;
@@ -485,6 +495,7 @@ body {
 
   .selections {
     @include core-16;
+    font-family: $custom-font-family;
   }
 
   .chosen {
@@ -615,6 +626,7 @@ ul.results-list {
 
   h3 {
     @include copy-19;
+    font-family: $custom-font-family;
     font-size: 18px;
     font-weight: 500;
 
@@ -731,6 +743,7 @@ ul.results-list {
 
   li {
     @include core-27;
+    font-family: $custom-font-family;
     display: block;
     padding: 0;
     margin: 0;
@@ -836,7 +849,7 @@ ul.results-list {
 // WRITTEN FOR THIS PROTOTYPE
 
 .scheme-finder-frontend {
-  font-family: $arial;
+  font-family: $custom-font-family;
   -webkit-font-smoothing: initial;
   padding-top: 55px;
 
@@ -950,7 +963,7 @@ ul.results-list {
 
   .button {
     padding: 2px 8px 1px;
-    font-family: $arial;
+    font-family: $custom-font-family;
     font-size: 11px;
     font-weight: bold;
     -webkit-font-smoothing: initial;
