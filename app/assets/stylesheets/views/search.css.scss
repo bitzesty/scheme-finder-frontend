@@ -760,10 +760,17 @@ ul.results-list {
 
     a {
       text-decoration:none;
+      padding-right: 20px;
     }
 
     a:hover {
       text-decoration:underline;
+      background: image-url('icon-external-link.png') no-repeat right center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-external-link@2.png');
+        background-size: 12px 12px;
+      }
     }
   }
 
