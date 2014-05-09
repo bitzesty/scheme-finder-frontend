@@ -382,6 +382,7 @@ body {
     margin-left: 30px;
     font-size: 14px;
     font-weight: 400;
+    line-height: 1.2;
   }
 
   .hint {
@@ -1055,6 +1056,10 @@ input[type="checkbox"]:checked {
   -webkit-font-smoothing: initial;
   padding-top: 55px;
 
+  @include is-ipad {
+    padding-top: 20px;
+  }
+
   a {
     color: $accent-link-colour;
   }
@@ -1236,6 +1241,10 @@ input[type="checkbox"]:checked {
       width: 41.1290323%;
       .inner-block {
         padding: 0 $gutter 0 $gutter-two-thirds;
+
+        @include ipad("portrait") {
+          padding: 0 $gutter-one-third 0 $gutter-two-thirds;
+        }
       }
 
       @include right-to-left {
