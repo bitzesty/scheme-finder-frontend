@@ -410,6 +410,7 @@ body {
 
       @include is-ios {
         top: 11px;
+        border: 1px solid $grey-9;
       }
     }
   }
@@ -418,7 +419,10 @@ body {
     top: 26px;
 
     @include is-ios {
-      top: 10px;
+      width: 18px;
+      height: 18px;
+      top: 9px;
+      border: 1px solid $grey-9;
     }
   }
 
@@ -1144,11 +1148,6 @@ input[type="checkbox"]:checked {
     @include box-shadow(none);
     @include border-radius(0);
 
-    @media (max-width: 640px) {
-      padding-top: 8px;
-      padding-bottom: 7px;
-    }
-
     &,
     &:active,
     &:hover,
@@ -1495,12 +1494,17 @@ body .form-inputs .multi_select .select2-container-multi {
     }
   }
 
+  .select2-drop-mask {
+    background-color: #999;
+    opacity: 0.6;
+  }
+
   .select2-drop {
     position: fixed !important;
     top: 0 !important;
     left: auto !important;
     right: 0 !important;
-    width: 215px !important;
+    width: 245px !important;
     height: auto !important;
     background: $grey-6;
     border: none !important;
@@ -1509,6 +1513,8 @@ body .form-inputs .multi_select .select2-container-multi {
 
     &.height-checked {
       height: 101% !important;
+      padding-top: 10px;
+      padding-bottom: 20px;
     }
 
     .select2-results {
@@ -1522,11 +1528,15 @@ body .form-inputs .multi_select .select2-container-multi {
 
       .select2-selected {
         display: block;
-        background: image-url('icon-select-check.png') no-repeat right center;
+        background: #e9e9e9 image-url('icon-select-check.png') no-repeat right center;
 
         @include device-pixel-ratio {
           background-image: image-url('icon-select-check@2.png');
           background-size: 31px 18px;
+        }
+
+        .select2-result-label {
+          color: #333;
         }
       }
 
@@ -1536,22 +1546,17 @@ body .form-inputs .multi_select .select2-container-multi {
       }
 
       .select2-result-with-children li .select2-result-label {
-        font-weight: bold !important;
+        font-weight: 300 !important;
       }
 
       .select2-result-label {
-        padding-top: 15px;
-        padding-bottom: 5px;
+        padding-top: 11px;
+        padding-bottom: 9px;
         padding-left: 15px;
+        padding-right: 40px;
         color: $grey-5;
-        font-size: 13px;
-        font-weight: bold !important;
-        border-bottom: 1px solid #ccc;
-      }
-
-      > .select2-result:last-child .select2-result-label {
-        margin-bottom: $gutter-half;
-        border-bottom: none;
+        font-size: 14px;
+        font-weight: 300 !important;
       }
 
       .select2-result-with-children > .select2-result-label {
@@ -1666,10 +1671,6 @@ body .form-inputs .multi_select .select2-container-multi {
 
     .scheme-finder-search > h2 {
       display: none;
-    }
-
-    .button {
-      font-size: 12px;
     }
 
     header.page-header {
