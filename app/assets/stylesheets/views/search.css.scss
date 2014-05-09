@@ -307,10 +307,16 @@ body {
   border: none;
 }
 
+p.intro-text {
+  margin: 0;
+  margin-bottom: $gutter;
+  color: $grey-5;
+  font-size: 17px;
+  font-weight: 300;
+}
+
 .filter-block {
   margin-bottom: $gutter-two-thirds;
-  padding: $gutter-two-thirds;
-  background: $grey-8;
 
   @include ie-lte(7) {
     padding-top: 0;
@@ -447,8 +453,15 @@ body {
 
     .select2-choices {
       padding: 4px;
-      background: $grey-7;
+      padding-right: 30px;
+      background: $grey-7 image-url("arrow-dropdown.png") no-repeat right center !important;
+      background-position: right 17px;
       border-color: $grey-9;
+
+      @include is-retina {
+        background-image: image-url("arrow-dropdown@2.png") !important;
+        background-size: 22px 8px !important;
+      }
     }
 
     &.select2-container-active .select2-choices,
@@ -574,15 +587,18 @@ body {
 
   h3 {
     @include copy-16;
+    position: relative;
     color: $grey-5;
     font-family: $custom-font-family;
     font-size: 14px;
     -webkit-font-smoothing: initial;
     display: inline-block;
-    padding-right: $gutter-one-third;
+    top: -20px;
     margin-top:0;
     padding-top: 0;
     padding-bottom: 0;
+    font-size: 20px;
+    font-weight: 400;
 
     @media (max-width: 640px) {
       font-size: 11px;
@@ -600,6 +616,14 @@ body {
       @include media(tablet){
         padding-bottom: 0;
       }
+    }
+
+    .results-count {
+      position: relative;
+      top: 20px;
+      margin-right: 5px;
+      font-size: 48px;
+      font-weight: 700;
     }
   }
 
@@ -660,9 +684,9 @@ body {
     margin-top: 5px;
     padding: 5px;
     padding-bottom: 2px;
-    color: #fff;
+    color: #444;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 1.4;
     white-space: nowrap;
     background: $accent-block-colour;
@@ -676,7 +700,7 @@ body {
       max-width: 140px;
       margin-right: 15px;
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -775,8 +799,16 @@ ul.results-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-top: 19px;
   margin-bottom: 60px;
-  margin-top: 5px;
+  border-top: 1px solid $grey-9;
+
+  li {
+    margin: 0;
+    padding-top: $gutter-two-thirds;
+    padding-bottom: $gutter-one-sixth;
+    border-bottom: 1px solid $grey-9;
+  }
 
   h3 {
     @include copy-19;
@@ -836,12 +868,6 @@ ul.results-list {
       }
 
     }
-  }
-
-  li {
-    margin: 0;
-    padding-top: $gutter-two-thirds;
-    padding-bottom: $gutter-one-third;
   }
 
   .feedback-link {
@@ -1086,9 +1112,9 @@ input[type="checkbox"]:checked {
     }
 
     h1 {
-      margin-bottom: $gutter-one-third;
+      margin-bottom: 0;
       padding: $gutter-two-thirds 0;
-      padding-bottom: $gutter-half;
+      padding-bottom: $gutter-one-third;
       color: $accent-link-colour;
       font-size: 30px;
       font-weight: bold;
@@ -1365,18 +1391,6 @@ input[type="checkbox"]:checked {
 
 div[data-wraps="had-direct-interactions"] {
   overflow: hidden;
-  position: relative;
-  top: -$gutter-two-thirds;
-  left: -$gutter-two-thirds;
-  margin-right: -40px;
-  padding-right: $gutter-two-thirds*2;
-
-  @include is-iphone {
-    top: -$gutter-half;
-    left: 0;
-    margin-right: 0;
-    padding-right: 0;
-  }
 }
 
 .filter-block form fieldset .filter.search_had_direct_interactions {
@@ -1384,7 +1398,8 @@ div[data-wraps="had-direct-interactions"] {
   margin: 0;
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-two-thirds;
-  background: $grey-6;
+  padding-right: 0;
+  background: #f0f0f0;
 
   @include ie(6) {
     position: relative;

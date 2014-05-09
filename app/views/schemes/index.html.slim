@@ -4,10 +4,14 @@
 - for_web do
   .article-container.group.scheme-finder-search
     h2
-      | You can use the filters to only show schemes that you are eligible for
+      - if businesses_audience?
+        ' Helping businesses to connect with schools to engage with pupils, enrich learning and showcase industry to the next generation of young people.
+      - else
+        ' Helping teachers to identify suitable schemes that provide curriculum supported lesson plans, careers advice, local visits and work experience.
 
     .block-2
       .inner-block
+        p.intro-text You can use the filters to only show schemes that you are eligible for
         .filter-block
           = render "search",
                    search: @search,
