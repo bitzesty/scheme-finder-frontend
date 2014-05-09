@@ -409,7 +409,7 @@ body {
       top: 28px;
 
       @include is-ios {
-        top: 11px;
+        top: 10px;
         border: 1px solid $grey-9;
       }
     }
@@ -421,7 +421,7 @@ body {
     @include is-ios {
       width: 18px;
       height: 18px;
-      top: 9px;
+      top: 8px;
       border: 1px solid $grey-9;
     }
   }
@@ -1613,7 +1613,6 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     header.page-header div {
-      padding-top: 20px;
       padding-left: 0;
       padding-right: 0;
 
@@ -1741,12 +1740,12 @@ body .form-inputs .multi_select .select2-container-multi {
       label.boolean {
         display: inline-block;
         position: relative;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 1.3333;
       }
 
       .hint {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .multi-row-select {
