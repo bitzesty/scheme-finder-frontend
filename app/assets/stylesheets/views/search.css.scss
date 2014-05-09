@@ -696,16 +696,16 @@ body {
       text-decoration: none;
       background: image-url('icon-close.png') no-repeat top left;
 
-      &:hover {
-        background-position: 0 0;
-        @include opacity(0.8);
-      }
-
       @include device-pixel-ratio {
         margin-top: -4px;
         background-image: image-url('icon-close@2.png') !important;
         background-position: 0 0 !important;
         background-size: 9px 9px !important;
+      }
+
+      &:hover {
+        background-position: 0 0;
+        @include opacity(0.8);
       }
     }
   }
@@ -718,13 +718,16 @@ ul.tags-list {
   padding-bottom: $gutter-two-thirds;
 
   li {
+    position: relative;
     display: inline-block;
     margin-right: 8px;
     margin-bottom: 7px;
     padding: 5px;
+    padding-bottom: 2px;
+    padding-right: 25px;
     color: #fff;
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 300;
     line-height: 1;
     white-space: nowrap;
     background: $accent-block-colour;
@@ -740,10 +743,22 @@ ul.tags-list {
     }
 
     a {
-      margin-left: 5px;
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 9px;
+      right: 5px;
+      top: 50%;
+      margin-top: -3px;
       color: #fff;
-      font-weight: bold;
-      text-decoration: none;
+      text-indent: -9999px;
+      background: image-url('icon-close.png') no-repeat center center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-close@2.png');
+        background-position: 0 0;
+        background-size: 9px 9px;
+      }
     }
   }
 }
