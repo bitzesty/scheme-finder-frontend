@@ -407,7 +407,8 @@ body {
     }
 
     &.boolean {
-      top: 28px;
+      top: 25px;
+      left: $gutter-two-thirds;
 
       @include is-iphone {
         top: 10px;
@@ -417,12 +418,14 @@ body {
   }
 
   .icheckbox_minimal {
-    top: 26px;
+    top: 23px;
+    left: $gutter-two-thirds;
 
     @include is-iphone {
       width: 18px;
       height: 18px;
       top: 8px;
+      left: 0;
       border: 1px solid $grey-9;
     }
   }
