@@ -407,11 +407,19 @@ body {
 
     &.boolean {
       top: 28px;
+
+      @include is-ios {
+        top: 11px;
+      }
     }
   }
 
   .icheckbox_minimal {
     top: 26px;
+
+    @include is-ios {
+      top: 10px;
+    }
   }
 
   select {
@@ -1009,7 +1017,7 @@ input[type="checkbox"]:checked {
 
   @include device-pixel-ratio {
     background-image: url(/assets/icon-checkbox@2.png);
-    background-size: 30px 30px;
+    background-size: 20px 20px;
   }
 }
 
@@ -1277,6 +1285,13 @@ div[data-wraps="had-direct-interactions"] {
   left: -$gutter-two-thirds;
   margin-right: -40px;
   padding-right: $gutter-two-thirds*2;
+
+  @include is-ios {
+    top: -$gutter-half;
+    left: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
 }
 
 .filter-block form fieldset .filter.search_had_direct_interactions {
@@ -1718,24 +1733,6 @@ body .form-inputs .multi_select .select2-container-multi {
         border: none;
       }
 
-      input.boolean {
-        display: inline-block;
-        position: absolute;
-        width: 1.2em;
-        height: 1.2em;
-        margin-top: 0.55em;
-        background: $grey-7;
-        border: 1px solid #999;
-        outline: none;
-        @include appearance(none);
-        @include border-radius(1000px);
-
-        &:checked {
-          background: $grey-5;
-          @include box-shadow(inset 0px 0px 0px 3px $grey-7);
-        }
-      }
-
       label {
         font-size: 11px;
       }
@@ -1743,7 +1740,6 @@ body .form-inputs .multi_select .select2-container-multi {
       label.boolean {
         display: inline-block;
         position: relative;
-        left: 1.8em;
         font-size: 11px;
         line-height: 1.3333;
       }

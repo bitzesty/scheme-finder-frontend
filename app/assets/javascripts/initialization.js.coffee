@@ -33,7 +33,7 @@ sff.apply_content_load_js = ($context) ->
       $(".radio-collection span:eq("+s+")").addClass("active")
   ))
 
-  $("input[type='checkbox']").iCheck({
+  $("sinput[type='checkbox']").iCheck({
     checkboxClass: "icheckbox_minimal"
   })
 
