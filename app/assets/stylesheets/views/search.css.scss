@@ -378,7 +378,7 @@ body {
   }
 
   .boolean label {
-    display: inline;
+    display: block;
     margin-left: 30px;
     font-size: 14px;
     font-weight: 400;
@@ -1089,8 +1089,8 @@ input[type="checkbox"]:checked {
     margin-bottom: $gutter*1.5;
     padding-left: $gutter-two-thirds;
     color: $grey-5;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 300;
 
     &.feedback-title {
       line-height: 1.6;
@@ -1126,9 +1126,9 @@ input[type="checkbox"]:checked {
   }
 
   .button {
-    padding: 2px 8px 1px;
+    padding: 10px 12px;
     font-family: $custom-font-family;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 400;
     -webkit-font-smoothing: initial;
     border: none;
@@ -1244,6 +1244,7 @@ input[type="checkbox"]:checked {
     }
 
     p {
+      color: $grey-5;
       font-size: 20px;
       font-weight: 300;
 
@@ -1262,7 +1263,7 @@ input[type="checkbox"]:checked {
       font-size: 14px;
       text-align: center;
 
-      @media (min-width: 640px) {
+      @media (min-width: 644px) {
         font-size: 16px;
       }
     }
@@ -1313,9 +1314,10 @@ div[data-wraps="had-direct-interactions"] {
   label {
     float: left;
     min-width: 180px;
+    margin-top: 7px;
     color: $grey-5;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 400;
 
     abbr {
       color: red;
@@ -1347,12 +1349,12 @@ div[data-wraps="had-direct-interactions"] {
 
   .select2-container-multi {
     display: inline-block;
-    width: 55% !important;
-    max-width: 220px;
-    margin-bottom: $gutter-one-third;
+    max-width: 410px;
+    margin-bottom: $gutter-half;
     @include appearance(none);
 
     .select2-choices {
+      padding: 3px;
       background: $grey-7;
       border-color: $grey-9;
     }
@@ -1386,10 +1388,11 @@ div[data-wraps="had-direct-interactions"] {
     max-width: 210px;
     width: 100%;
     margin: 0;
-    padding: 5px;
+    margin-bottom: $gutter-half;
+    padding: 8px 9px;
+    font-size: 14px;
     background: $grey-7;
     border: 1px solid $grey-9;
-    margin-bottom: 10px;
     outline: none;
     @include appearance(none);
     @include border-radius(0);
@@ -1401,11 +1404,17 @@ div[data-wraps="had-direct-interactions"] {
 
   textarea {
     max-width: 390px;
-    margin-bottom: 10px;
 
     @media (max-width: 456px) {
       max-width: 97%;
     }
+  }
+}
+
+body .form-inputs .grouped_select .select2-container-multi,
+body .form-inputs .multi_select .select2-container-multi {
+  @media (max-width: 464px) {
+    width: 103% !important;
   }
 }
 
@@ -1419,7 +1428,12 @@ div[data-wraps="had-direct-interactions"] {
   }
 
   &.scheme-actions {
-    max-width: 404px;
+    width: 103%;
+    max-width: 593px;
+
+    @media (max-width: 644px) {
+      max-width: 410px;
+    }
   }
 
   .button {
