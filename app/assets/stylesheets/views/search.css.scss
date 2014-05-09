@@ -1205,11 +1205,13 @@ input[type="checkbox"]:checked {
       margin-top: $gutter-two-thirds;
       margin-bottom: 0;
       padding: 0;
+      color: #444;
     }
 
     p {
       margin-top: $gutter-one-sixth;
-      font-size: 13px;
+      color: $grey-1;
+      font-size: 14px;
     }
   }
 }
@@ -1718,11 +1720,11 @@ body .form-inputs .multi_select .select2-container-multi {
       margin-bottom: $gutter-two-thirds;
 
       h2 {
-        font-size: 12px;
+        font-size: 18px;
       }
 
       p {
-        font-size: 10px;
+        font-size: 14px;
         line-height: 1.45;
       }
     }
