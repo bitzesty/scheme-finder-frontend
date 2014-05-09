@@ -1055,9 +1055,15 @@ input[type="checkbox"]:checked {
 }
 
 .scheme-finder-frontend {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 55px;
   font-family: $custom-font-family;
   -webkit-font-smoothing: initial;
-  padding-top: 55px;
+
+  @include ie(6) {
+    width: 960px;
+  }
 
   @include is-ipad {
     padding-top: 20px;
@@ -1065,15 +1071,6 @@ input[type="checkbox"]:checked {
 
   a {
     color: $accent-link-colour;
-  }
-
-  #content {
-    max-width: 960px;
-    margin: 0 auto;
-
-    @include ie(6) {
-      width: 960px;
-    }
   }
 
   .intro {
@@ -1277,6 +1274,7 @@ input[type="checkbox"]:checked {
 
 .start-page .scheme-finder-frontend {
   position: absolute;
+  max-width: none;
   width: 100%;
   top: 50%;
   left: 0;
