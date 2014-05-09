@@ -789,16 +789,22 @@ ul.results-list {
     a {
       text-decoration:none;
       padding-right: 20px;
-    }
-
-    a:hover {
-      text-decoration:underline;
-      background: image-url('icon-external-link.png') no-repeat right center;
+      background: image-url('icon-external-link.png') no-repeat;
+      background-position: 1000px 1000px;
 
       @include device-pixel-ratio {
         background-image: image-url('icon-external-link@2.png');
         background-size: 12px 12px;
       }
+
+      @include is-ios {
+        background-position: right center;
+      }
+    }
+
+    a:hover {
+      text-decoration:underline;
+      background-position: right center;
     }
   }
 
@@ -1769,19 +1775,18 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     ul.results-list {
-      margin-bottom: $gutter;
-      border-top: 1px solid $grey-9;
+      margin-bottom: $gutter-half;
 
       li {
         padding-top: $gutter-one-sixth;
 
         h3 {
-          font-size: 13px;
+          font-size: 16px;
+          line-height: 1.4;
         }
 
         p {
-          margin-top: 0;
-          font-size: 10px;
+          font-size: 14px;
         }
 
         .feedback-link {
