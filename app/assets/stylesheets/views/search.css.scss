@@ -409,8 +409,12 @@ body {
       top: 28px;
 
       @include is-ios {
-        top: 10px;
+        top: 5px;
         border: 1px solid $grey-9;
+      }
+
+      @include iphone("landscape") {
+        top: 10px;
       }
     }
   }
@@ -421,8 +425,12 @@ body {
     @include is-ios {
       width: 18px;
       height: 18px;
-      top: 8px;
+      top: 3px;
       border: 1px solid $grey-9;
+    }
+
+    @include iphone("landscape") {
+      top: 8px;
     }
   }
 
@@ -659,7 +667,7 @@ body {
     color: #fff;
     font-size: 13px;
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.4;
     white-space: nowrap;
     background: $accent-block-colour;
     filter: none;
@@ -728,9 +736,13 @@ ul.tags-list {
     color: #fff;
     font-size: 14px;
     font-weight: 300;
-    line-height: 1;
+    line-height: 1.4;
     white-space: nowrap;
     background: $accent-block-colour;
+
+    @include is-ios {
+      padding-bottom: 3px;
+    }
 
     span {
       position: relative;
@@ -1845,6 +1857,11 @@ body .form-inputs .multi_select .select2-container-multi {
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 60px;
+
+        @include iphone("landscape") {
+          padding-top: 15px;
+          padding-bottom: 20px;
+        }
       }
 
       .article-container {
