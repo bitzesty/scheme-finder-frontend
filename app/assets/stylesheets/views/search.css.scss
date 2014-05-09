@@ -408,7 +408,7 @@ body {
     &.boolean {
       top: 28px;
 
-      @include is-ios {
+      @include is-iphone {
         top: 10px;
         border: 1px solid $grey-9;
       }
@@ -418,7 +418,7 @@ body {
   .icheckbox_minimal {
     top: 26px;
 
-    @include is-ios {
+    @include is-iphone {
       width: 18px;
       height: 18px;
       top: 8px;
@@ -732,7 +732,7 @@ ul.tags-list {
     white-space: nowrap;
     background: $accent-block-colour;
 
-    @include is-ios {
+    @include is-iphone {
       padding-bottom: 3px;
     }
 
@@ -801,7 +801,7 @@ ul.results-list {
         background-size: 12px 12px;
       }
 
-      @include is-ios {
+      @include is-iphone {
         background-position: right center;
       }
     }
@@ -1272,7 +1272,7 @@ input[type="checkbox"]:checked {
     padding-left: 0;
     text-align: center;
 
-    @include is-ios {
+    @include is-iphone {
       width: 220px;
       margin: 0 auto;
     }
@@ -1282,7 +1282,7 @@ input[type="checkbox"]:checked {
       font-size: 20px;
       font-weight: 300;
 
-      @include is-ios {
+      @include is-iphone {
         margin-bottom: $gutter-two-thirds;
         color: $grey-5;
         font-size: 19px;
@@ -1312,7 +1312,7 @@ div[data-wraps="had-direct-interactions"] {
   margin-right: -40px;
   padding-right: $gutter-two-thirds*2;
 
-  @include is-ios {
+  @include is-iphone {
     top: -$gutter-half;
     left: 0;
     margin-right: 0;
