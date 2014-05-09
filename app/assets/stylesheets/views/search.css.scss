@@ -1081,83 +1081,83 @@ input[type="checkbox"]:checked {
 }
 
 .scheme-finder-frontend {
-  max-width: 960px;
-  margin: 0 auto;
-  padding-top: 55px;
   font-family: $custom-font-family;
   -webkit-font-smoothing: initial;
-
-  @include ie(6) {
-    width: 960px;
-  }
-
-  @include is-ipad {
-    padding-top: 20px;
-  }
 
   a {
     color: $accent-link-colour;
   }
 
-  .intro {
-    padding-left: $gutter-two-thirds;
+  header.page-header > div,
+  #content > .article-container {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+
+    @include ie(6) {
+      width: 960px;
+    }
   }
 
   header.page-header {
-    div {
-      margin:0;
-      padding-left: $gutter-two-thirds;
-      padding-right: $gutter-two-thirds;
+    height: 85px;
+    background: #333;
 
+    .inner-block {
+      padding: 0 $gutter-two-thirds;
     }
 
     h1 {
       margin-bottom: 0;
       padding: $gutter-two-thirds 0;
       padding-bottom: $gutter-one-third;
-      color: $accent-link-colour;
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 36px;
+      font-weight: 500;
       line-height: 1;
       background-repeat: no-repeat;
       background-position: $gutter-one-third center;
 
-      img {
-        display: block;
-        max-width: 100%;
-
-        &.header-standard {
-          max-width: 307px;
-
-          @media (max-width: 380px) {
-            max-width: 100%;
-          }
-        }
-
-        &.header-businesses {
-          max-width: 541px;
-
-          @media (max-width: 616px) {
-            max-width: 100%;
-          }
-        }
-
-        &.header-teachers {
-          max-width: 506px;
-
-          @media (max-width: 580px) {
-            max-width: 100%;
-          }
-        }
+      &,
+      a {
+        color: #fff;
+        text-decoration: none;
       }
+    }
+
+    .pull-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    p {
+      margin-top: 32px;
+      margin-bottom: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+
+  #content > .article-container {
+    padding-top: 90px;
+
+    @include is-ipad {
+      padding-top: 20px;
+    }
+
+    h1 {
+      margin-bottom: $gutter-two-thirds;
+      color: #444;
+      font-size: 30px;
+      font-weight: 700;
     }
   }
 
   h2 {
-    margin-bottom: $gutter*1.5;
-    padding-left: $gutter-two-thirds;
+    margin-bottom: $gutter*2;
     color: $grey-5;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 300;
 
     &.feedback-title {
@@ -1239,18 +1239,13 @@ input[type="checkbox"]:checked {
   }
 }
 
-.search-page .article-container {
-  margin-right:0;
-  max-width:none;
-}
-
 .scheme-finder-search {
   @include ie-lte(8) {
     .block-2 {
       float: left;
       width: 41.1290323%;
       .inner-block {
-        padding: 0 $gutter 0 $gutter-two-thirds;
+        padding: 0 $gutter;
       }
     }
     .block-4 {
@@ -1261,22 +1256,17 @@ input[type="checkbox"]:checked {
       }
     }
   }
+
   @include media(tablet) {
     .block-2 {
       float: left;
       width: 41.1290323%;
       .inner-block {
-        padding: 0 $gutter 0 $gutter-two-thirds;
+        padding: 0;
+        padding-right: $gutter;
 
         @include ipad("portrait") {
           padding: 0 $gutter-one-third 0 $gutter-two-thirds;
-        }
-      }
-
-      @include right-to-left {
-        float: right;
-        .inner-block {
-          padding: 0 $gutter 0 $gutter*1.5;
         }
       }
     }
@@ -1285,7 +1275,8 @@ input[type="checkbox"]:checked {
       float: left;
       width: 58.870967%;
       .inner-block {
-        padding: 0 $gutter 0 $gutter-half;
+        padding: 0;
+        padding-left: $gutter-half;
       }
 
       @include right-to-left {
@@ -1299,85 +1290,85 @@ input[type="checkbox"]:checked {
 }
 
 .start-page .scheme-finder-frontend {
-  position: absolute;
-  max-width: none;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  padding-top: 0;
-  -webkit-transform: translateY(-80%);
-  -moz-transform: translateY(-80%);
+  #content > .article-container .intro {
+    .get-started-intro {
+      position: relative;
 
-  @media (max-width: 360px) {
-    position: static;
-    top: 0;
-    left: 0;
-    padding-top: 55px;
-    -webkit-transform: none;
-    -moz-transform: none;
-  }
+      h1 {
+        margin-bottom: $gutter*2;
+      }
 
-  @media (max-height: 600px) {
-    position: static;
-    top: 0;
-    left: 0;
-    padding-top: 55px;
-    -webkit-transform: none;
-    -moz-transform: none;
-  }
-
-  @include ipad("landscape") {
-    -webkit-transform: translateY(-60%);
-    -moz-transform: translateY(-60%);
-  }
-
-  @include is-iphone {
-    position: static;
-    top: 0;
-    left: 0;
-    padding-top: 0px;
-    -webkit-transform: none;
-    -moz-transform: none;
-  }
-
-  @include ie-lte(8) {
-    position: static;
-    top: 0;
-    left: 0;
-    padding-top: 55px;
-    -webkit-transform: none;
-    -moz-transform: none;
-  }
-
-  header.page-header h1 img.header-standard {
-    margin: 0 auto;
-  }
-
-  .intro{
-    padding-left: 0;
-    text-align: center;
-
-    @include is-iphone {
-      width: 220px;
-      margin: 0 auto;
-    }
-
-    p {
-      color: $grey-5;
-      font-size: 20px;
-      font-weight: 300;
-
-      @include is-iphone {
-        margin-bottom: $gutter-two-thirds;
+      p {
+        width: 47.826087%;
+        margin-bottom: $gutter*2.5;
         color: $grey-5;
-        font-size: 19px;
-        line-height: 1.5;
+        font-size: 24px;
+        font-weight: 300;
+
+        @include is-iphone {
+          margin-bottom: $gutter-two-thirds;
+          color: $grey-5;
+          font-size: 19px;
+          line-height: 1.5;
+        }
+      }
+
+      .partnership-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 35px 30px;
+        padding-right: 40px;
+        border: 1px solid #999;
+
+        p {
+          font-size: 16px;
+          width: 100%;
+          margin: 0;
+          line-height: 1.9;
+
+          strong {
+            display: block;
+            margin-bottom: 10px;
+          }
+        }
       }
     }
 
+    h3 {
+      margin-bottom: $gutter;
+      font-size: 24px;
+    }
+
+    hr {
+      height: 3px;
+      margin: 0;
+      color: #777;
+      background-color: #777;
+      border: none;
+    }
+
+    .pull-left,
+    .pull-right {
+      float: left;
+      width: 41.3043478%;
+      margin-top: $gutter*1.5;
+
+      p {
+        margin-bottom: $gutter*1.5;
+        color: $grey-5;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.66666667;
+      }
+    }
+
+    .pull-right {
+      float: right;
+    }
+
     .button {
-      max-width: 100%;
-      width: 320px;
+      width: 100%;
       padding: 12px 0;
       font-size: 14px;
       text-align: center;

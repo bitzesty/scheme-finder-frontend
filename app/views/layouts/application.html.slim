@@ -22,12 +22,7 @@
 = content_for :body_classes, "mainstream"
 
 = content_for :inside_header do
-  - unless %w(pages).include? controller_name
-    = image_tag("image-header-#{businesses_audience? ? 'businesses':'teachers'}@2.png", class: "header-#{businesses_audience? ? 'businesses':'teachers'}", alt: inside_header_content)
-  - else
-    = image_tag("image-header-standard@2.png", class: "header-standard", alt: inside_header_content)
-  span.hide
-    = inside_header_content
+  = inside_header_content
 
 = content_for :content do
   #wrapper.scheme-finder-frontend
@@ -41,7 +36,9 @@
         header.page-header.group
           div
             h1
-              = yield :inside_header
+              = link_to "Growing Ambitions", root_path
+            .pull-right
+              p Learning, Connecting and Inspiring
 
       .article-container.group
         article.group[role="article"]
