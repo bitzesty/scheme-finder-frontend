@@ -409,12 +409,8 @@ body {
       top: 28px;
 
       @include is-ios {
-        top: 5px;
-        border: 1px solid $grey-9;
-      }
-
-      @include iphone("landscape") {
         top: 10px;
+        border: 1px solid $grey-9;
       }
     }
   }
@@ -425,12 +421,8 @@ body {
     @include is-ios {
       width: 18px;
       height: 18px;
-      top: 3px;
-      border: 1px solid $grey-9;
-    }
-
-    @include iphone("landscape") {
       top: 8px;
+      border: 1px solid $grey-9;
     }
   }
 
@@ -1640,7 +1632,7 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     #content {
-      padding: 0 10px;
+      padding: 0;
       padding-top: 20px;
       background: $grey-8;
       border: 25px solid $grey-8;
