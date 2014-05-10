@@ -25,11 +25,10 @@
               label: 'Sectors',
               collection: Sector.collection
 
-    - for_teachers do
-      = f.input :subject_ids,
-                as: :multi_select,
-                label: 'Subjects',
-                collection: Subject.collection
+    = f.input :subject_ids,
+              as: :multi_select,
+              label: 'Subjects',
+              collection: Subject.collection
 
     = f.input :audience_ids,
               as: :multi_select,
