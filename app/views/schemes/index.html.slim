@@ -35,6 +35,15 @@
 
 - for_mobile do
   .scheme-finder-mobile-search
+    - if businesses_audience?
+      h1 For Businesses
+      h2 Helping businesses to connect with schools to engage with pupils, enrich learning and showcase industry to the next generation of young people.
+    - else
+      h1 For Teachers
+      h2 Helping teachers to identify suitable schemes that provide curriculum supported lesson plans, careers advice, local visits and work experience.
+
+    hr
+
     .block-2
       .inner-block
         .filter-block

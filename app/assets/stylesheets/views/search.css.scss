@@ -165,6 +165,22 @@ hr {
   display: none;
 }
 
+.visible-iphone {
+  display: none;
+
+  @include is-iphone {
+    display: block;
+  }
+}
+
+.visible-iphone-portrait {
+  display: none;
+
+  @include iphone("portrait") {
+    display: block;
+  }
+}
+
 #global-cookie-message {
   display: none !important;
 }
@@ -240,6 +256,10 @@ hr {
 
   .pull-right {
     float: right;
+
+    @media (max-width: 660px) {
+      color: #777;
+    }
   }
 
   .pull-left,
@@ -484,6 +504,10 @@ p.intro-text {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.2;
+
+    @include is-iphone {
+      margin-left: 30px;
+    }
   }
 
   .hint {
@@ -494,6 +518,10 @@ p.intro-text {
     margin: 0;
     margin-left: 50px;
     padding: 0;
+
+    @include is-iphone {
+      margin-left: 30px;
+    }
   }
 
   input {
@@ -555,7 +583,7 @@ p.intro-text {
 
       @include is-retina {
         background-image: image-url("icon-dropdown@2.png") !important;
-        background-size: 22px 8px !important;
+        background-size: 22px 7px !important;
       }
     }
 
@@ -848,7 +876,7 @@ ul.tags-list {
     padding: 5px;
     padding-bottom: 2px;
     padding-right: 25px;
-    color: #fff;
+    color: #444;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.4;
@@ -857,6 +885,7 @@ ul.tags-list {
 
     @include is-iphone {
       padding-bottom: 3px;
+      font-weight: 400;
     }
 
     span {
@@ -867,6 +896,10 @@ ul.tags-list {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      @include is-iphone {
+        top: -2px;
+      }
     }
 
     a {
@@ -897,6 +930,10 @@ ul.results-list {
   margin-top: 19px;
   margin-bottom: 60px;
   border-top: 1px solid $grey-9;
+
+  @include is-iphone {
+    border-top: 3px solid #777;
+  }
 
   li {
     margin: 0;
@@ -1223,6 +1260,10 @@ input[type="checkbox"]:checked {
       height: auto;
     }
 
+    @include is-iphone {
+      height: 110px;
+    }
+
     .inner-block {
       padding: 0 $gutter-two-thirds;
     }
@@ -1236,10 +1277,6 @@ input[type="checkbox"]:checked {
       line-height: 1;
       background-repeat: no-repeat;
       background-position: $gutter-one-third center;
-
-      @media (max-width: 360px) {
-        font-size: 32px;
-      }
 
       &,
       a {
@@ -1295,6 +1332,11 @@ input[type="checkbox"]:checked {
       @include ipad("portrait") {
         font-size: 26px;
       }
+
+      @include is-iphone {
+        margin-bottom: $gutter-one-third;
+        font-size: 26px;
+      }
     }
   }
 
@@ -1306,6 +1348,12 @@ input[type="checkbox"]:checked {
 
     @include ipad("portrait") {
       font-size: 20px;
+    }
+
+    @include is-iphone {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: $gutter;
     }
 
     &.feedback-title {
@@ -1339,6 +1387,10 @@ input[type="checkbox"]:checked {
   .block-2,
   .block-4 {
     margin-top: $gutter*1.5;
+
+    @include is-iphone {
+      margin-top: $gutter;
+    }
   }
 
   .block-6 {
@@ -1379,9 +1431,11 @@ input[type="checkbox"]:checked {
     &.btn-teachers {
       color: #fff !important;
     }
+
     &.btn-businesses {
       background-color: $color-businesses !important;
     }
+
     &.btn-teachers {
       background-color: $color-teachers !important;
     }
@@ -1409,6 +1463,7 @@ input[type="checkbox"]:checked {
     .block-2 {
       float: left;
       width: 41.1290323%;
+
       .inner-block {
         padding: 0 $gutter;
       }
@@ -1416,6 +1471,7 @@ input[type="checkbox"]:checked {
     .block-4 {
       float: left;
       width: 58.870967%;
+
       .inner-block {
         padding: 0 $gutter 0 $gutter-half;
       }
@@ -1489,6 +1545,10 @@ input[type="checkbox"]:checked {
         @include ipad("portrait") {
           font-size: 26px;
         }
+
+        @include is-iphone {
+          font-size: 26px;
+        }
       }
 
       p {
@@ -1536,19 +1596,25 @@ input[type="checkbox"]:checked {
         @include ipad("portrait") {
           overflow: hidden;
           position: absolute;
-          width: 330px;
+          width: 315px;
           margin-top: -3px;
           margin-bottom: 0;
-          padding: 10px 0;
+          padding: 13px 0;
+        }
+
+        @include is-iphone {
+          overflow: hidden;
+          padding: 13px 0;
         }
 
         p {
           width: 100%;
           margin: 0;
+          margin-bottom: 10px;
           padding-left: 30px;
           padding-right: 40px;
           font-size: 16px;
-          line-height: 1.9;
+          line-height: 1.45;
 
           @media (max-width: 900px) {
             max-width: 80%;
@@ -1556,15 +1622,26 @@ input[type="checkbox"]:checked {
 
           @include ipad("portrait") {
             max-width: 100%;
-            padding-left: 11px;
+            padding-left: 15px;
+            font-size: 15px;
+          }
+
+          @include is-iphone {
+            max-width: 89%;
+            padding-left: 15px;
+            font-size: 15px;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
           }
 
           strong {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
 
             @include ipad("portrait") {
-              margin-bottom: 5px;
+              margin-bottom: 15px;
             }
           }
         }
@@ -1634,7 +1711,7 @@ input[type="checkbox"]:checked {
 
       @include device-pixel-ratio {
         background-image: image-url('icon-arrow-right@2.png');
-        background-size: 31px 18px;
+        background-size: 28px 20px;
       }
 
       @media (min-width: 644px) {
@@ -1643,6 +1720,11 @@ input[type="checkbox"]:checked {
 
       @include is-ios {
         font-weight: 400;
+      }
+
+      @include is-iphone {
+        padding-bottom: 14px;
+        letter-spacing: 0.04em;
       }
     }
   }
@@ -1658,6 +1740,11 @@ div[data-wraps="had-direct-interactions"] {
   margin-bottom: $gutter-two-thirds;
   padding: $gutter-two-thirds 0;
   background: #f0f0f0;
+
+  @include is-iphone {
+    position: relative;
+    top: -5px;
+  }
 
   @include ie(6) {
     position: relative;
@@ -1812,6 +1899,37 @@ body .form-inputs .multi_select .select2-container-multi {
   .button {
     float: right;
   }
+
+  .btn-search {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    text-indent: 20px;
+    letter-spacing: 0.08em;
+    background-image: image-url('icon-arrow-right.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+
+    @include device-pixel-ratio {
+      background-image: image-url('icon-arrow-right@2.png');
+      background-size: 28px 20px;
+    }
+
+    @media (min-width: 644px) {
+      font-size: 18px;
+    }
+
+    @include is-ios {
+      font-weight: 400;
+    }
+
+    @include is-iphone {
+      padding-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+  }
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
@@ -1896,6 +2014,13 @@ body .form-inputs .multi_select .select2-container-multi {
 
         .select2-result-label {
           color: #333;
+
+          .scheme-businesses & {
+            color: $color-businesses;
+          }
+          .scheme-teachers & {
+            color: $color-teachers;
+          }
         }
       }
 
@@ -1931,6 +2056,13 @@ body .form-inputs .multi_select .select2-container-multi {
   #back-banner {
     background: $accent-link-colour;
 
+    .scheme-businesses & {
+      background: $color-businesses;
+    }
+    .scheme-teachers & {
+      background: $color-teachers;
+    }
+
     a {
       display: block;
       width: 39px;
@@ -1959,29 +2091,26 @@ body .form-inputs .multi_select .select2-container-multi {
     padding-top: 0;
     background: $white;
 
-    &.select2-open {
-      //background: $grey-7;
-    }
-
-    #content {
-      padding: 0;
-      padding-top: 20px;
-      background: $grey-8;
-      border: 25px solid $grey-8;
-      border-top: none;
-    }
-
     header.page-header div {
       padding-left: 0;
       padding-right: 0;
 
-      h1 img {
-        margin: 0 auto;
+      h1 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .pull-right {
+        margin-bottom: 15px;
+        text-align: center;
+
+        p {
+          margin: 0;
+          font-size: 17px;
+        }
       }
     }
 
-
-    h2,
     .block-6,
     .inner-block {
       margin-top: $gutter;
@@ -1990,9 +2119,6 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     h2 {
-      margin: 0;
-      font-size: 13px;
-
       &.feedback-title {
         position: relative;
         margin-bottom: $gutter;
@@ -2029,14 +2155,6 @@ body .form-inputs .multi_select .select2-container-multi {
 
     .scheme-finder-search > h2 {
       display: none;
-    }
-
-    header.page-header {
-      h1 {
-        padding-left: 0;
-        padding-right: 0;
-        font-size: 14px;
-      }
     }
 
     .no-matching-feedbacks,
@@ -2090,21 +2208,29 @@ body .form-inputs .multi_select .select2-container-multi {
         padding: 0;
         background: transparent;
         border: none;
+
+        @include is-iphone {
+          margin-bottom: $gutter;
+        }
       }
 
       label {
         font-size: 11px;
       }
 
+      label.boolean,
+      .hint {
+        font-size: 12px;
+
+        @include is-iphone {
+          font-size: 14px;
+        }
+      }
+
       label.boolean {
         display: inline-block;
         position: relative;
-        font-size: 12px;
         line-height: 1.3333;
-      }
-
-      .hint {
-        font-size: 12px;
       }
 
       .multi-row-select {
@@ -2113,11 +2239,9 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     ul.results-list {
-      margin-bottom: $gutter-half;
+      margin-bottom: 0;
 
       li {
-        padding-top: $gutter-one-sixth;
-
         h3 {
           font-size: 16px;
           line-height: 1.4;
@@ -2178,17 +2302,6 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     .scheme-finder-frontend {
-      #content  {
-        padding-top: 70px;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 60px;
-
-        @include iphone("landscape") {
-          padding-top: 15px;
-          padding-bottom: 20px;
-        }
-      }
 
       .article-container {
         padding-left: 20px;
@@ -2199,11 +2312,6 @@ body .form-inputs .multi_select .select2-container-multi {
         div {
           margin-bottom: $gutter-one-third;
           padding-left: 0;
-        }
-
-        h1 {
-          font-size: 22px;
-          text-align: center;
         }
       }
     }
