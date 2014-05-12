@@ -11,8 +11,10 @@
       = f.input :had_direct_interactions,
                 as: :boolean,
                 label: had_direct_interactions_label,
-                hint: "For evaluation purposes",
                 input_html: { data: { register: "had-direct-interactions" } }
+
+      .hint
+        ' For evaluation purposes
 
     = f.input :locations,
               as: :grouped_select,
