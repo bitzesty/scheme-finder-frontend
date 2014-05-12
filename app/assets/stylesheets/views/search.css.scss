@@ -1880,12 +1880,7 @@ body .form-inputs .multi_select .select2-container-multi {
 
 .form-actions {
   clear: both;
-  max-width: 582px;
   margin-top: 30px;
-
-  @media (max-width: 640px) {
-    max-width: 400px;
-  }
 
   &.scheme-actions {
     width: 103%;
@@ -1901,9 +1896,9 @@ body .form-inputs .multi_select .select2-container-multi {
   }
 
   .btn-search {
-    width: 100%;
+    width: 200px;
     padding: 12px 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     text-align: left;
     text-indent: 20px;
@@ -1918,10 +1913,11 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     @media (min-width: 644px) {
-      font-size: 18px;
+      width: 100%;
     }
 
     @include is-ios {
+      width: 100%;
       font-weight: 400;
     }
 
