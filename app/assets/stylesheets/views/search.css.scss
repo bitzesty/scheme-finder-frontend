@@ -795,6 +795,11 @@ p.intro-text {
       overflow: hidden;
       text-overflow: ellipsis;
 
+      @include is-ios {
+        position: relative;
+        top: -2px;
+      }
+
       @include ie(8) {
         width: 140px;
       }
@@ -1286,6 +1291,10 @@ input[type="checkbox"]:checked {
       color: #444;
       font-size: 30px;
       font-weight: 700;
+
+      @include ipad("portrait") {
+        font-size: 26px;
+      }
     }
   }
 
@@ -1294,6 +1303,10 @@ input[type="checkbox"]:checked {
     color: $grey-5;
     font-size: 24px;
     font-weight: 300;
+
+    @include ipad("portrait") {
+      font-size: 20px;
+    }
 
     &.feedback-title {
       line-height: 1.6;
@@ -1472,6 +1485,10 @@ input[type="checkbox"]:checked {
         @media (max-width: 900px) {
           margin-bottom: $gutter;
         }
+
+        @include ipad("portrait") {
+          font-size: 26px;
+        }
       }
 
       p {
@@ -1485,6 +1502,11 @@ input[type="checkbox"]:checked {
           max-width: 440px;
           width: 100%;
           margin-bottom: $gutter*2;
+        }
+
+        @include ipad("portrait") {
+          max-width: 370px;
+          font-size: 20px;
         }
 
         @include is-iphone {
@@ -1511,6 +1533,15 @@ input[type="checkbox"]:checked {
           margin-bottom: $gutter*2;
         }
 
+        @include ipad("portrait") {
+          overflow: hidden;
+          position: absolute;
+          width: 330px;
+          margin-top: -3px;
+          margin-bottom: 0;
+          padding: 10px 0;
+        }
+
         p {
           width: 100%;
           margin: 0;
@@ -1523,9 +1554,18 @@ input[type="checkbox"]:checked {
             max-width: 80%;
           }
 
+          @include ipad("portrait") {
+            max-width: 100%;
+            padding-left: 11px;
+          }
+
           strong {
             display: block;
             margin-bottom: 10px;
+
+            @include ipad("portrait") {
+              margin-bottom: 5px;
+            }
           }
         }
       }
@@ -1550,6 +1590,10 @@ input[type="checkbox"]:checked {
         width: 100%;
       }
 
+      @include ipad("portrait") {
+        width: 45%;
+      }
+
       p {
         margin-top: 0;
         margin-bottom: $gutter*1.5;
@@ -1569,6 +1613,10 @@ input[type="checkbox"]:checked {
 
       @media (max-width: 900px) {
         margin-top: $gutter*2;
+
+        @include ipad("portrait") {
+          margin-top: $gutter*1.5;
+        }
       }
     }
 
@@ -1591,6 +1639,10 @@ input[type="checkbox"]:checked {
 
       @media (min-width: 644px) {
         font-size: 18px;
+      }
+
+      @include is-ios {
+        font-weight: 400;
       }
     }
   }
