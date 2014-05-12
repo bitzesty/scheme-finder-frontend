@@ -44,6 +44,16 @@
         article.group[role="article"]
           = yield
 
+= content_for :footer_top do
+  .pull-left
+    ul
+      li = link_to "About #{yield(:page_title)}"
+      li = link_to "Cookie Policy"
+      li = link_to "Contact"
+  .pull-right
+    ' © #{yield(:page_title)} #{Time.now.year}
+  .clear
+
 = content_for :body_end do
   = javascript_include_tag "application"
   = google_analytics_init
