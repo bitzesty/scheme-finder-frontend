@@ -454,12 +454,12 @@ p.intro-text {
     .select2-choices {
       padding: 4px;
       padding-right: 30px;
-      background: $grey-7 image-url("arrow-dropdown.png") no-repeat right center !important;
+      background: $grey-7 image-url("icon-dropdown.png") no-repeat right center !important;
       background-position: right 17px;
       border-color: $grey-9;
 
       @include is-retina {
-        background-image: image-url("arrow-dropdown@2.png") !important;
+        background-image: image-url("icon-dropdown@2.png") !important;
         background-size: 22px 8px !important;
       }
     }
@@ -626,7 +626,6 @@ p.intro-text {
       font-weight: 700;
     }
   }
-
 
   .feeds {
     margin:52px 0 0 0;
@@ -1091,17 +1090,22 @@ input[type="checkbox"]:checked {
   header.page-header > div,
   #content > .article-container {
     position: relative;
-    max-width: 960px;
+    max-width: $max-site-width -$gutter-two-thirds*2;
     margin: 0 auto;
+    padding: 0 $gutter-two-thirds;
 
     @include ie(6) {
-      width: 960px;
+      width: $max-site-width -$gutter-two-thirds*2;
     }
   }
 
   header.page-header {
     height: 85px;
     background: #333;
+
+    @media (max-width: 660px) {
+      height: 120px;
+    }
 
     .inner-block {
       padding: 0 $gutter-two-thirds;
@@ -1120,14 +1124,19 @@ input[type="checkbox"]:checked {
       &,
       a {
         color: #fff;
-        text-decoration: none;
+        text-decoration: none !important;
       }
     }
 
     .pull-right {
       position: absolute;
-      right: 0;
+      right: $gutter-two-thirds;
       top: 0;
+      margin: 0;
+
+      @media (max-width: 660px) {
+        position: static;
+      }
     }
 
     p {
@@ -1136,11 +1145,21 @@ input[type="checkbox"]:checked {
       color: #fff;
       font-size: 18px;
       font-weight: 300;
+
+      @media (max-width: 660px) {
+        margin-top: $gutter-one-sixth;
+      }
     }
   }
 
   #content > .article-container {
-    padding-top: 90px;
+    padding-top: $gutter*3;
+    padding-bottom: $gutter*3;
+
+    @media (max-width: 900px) {
+      padding-top: $gutter*1.5;
+      padding-bottom: $gutter*2;
+    }
 
     @include is-ipad {
       padding-top: 20px;
@@ -1220,6 +1239,17 @@ input[type="checkbox"]:checked {
       top: 0;
       @include box-shadow(none);
     }
+
+    &.btn-businesses,
+    &.btn-teachers {
+      color: #fff !important;
+    }
+    &.btn-businesses {
+      background-color: $color-businesses !important;
+    }
+    &.btn-teachers {
+      background-color: $color-teachers !important;
+    }
   }
 
   .no-matching-feedbacks,
@@ -1290,12 +1320,26 @@ input[type="checkbox"]:checked {
 }
 
 .start-page .scheme-finder-frontend {
+  a {
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   #content > .article-container .intro {
     .get-started-intro {
       position: relative;
 
       h1 {
         margin-bottom: $gutter*2;
+        line-height: 1.3;
+
+        @media (max-width: 900px) {
+          margin-bottom: $gutter;
+        }
       }
 
       p {
@@ -1304,6 +1348,12 @@ input[type="checkbox"]:checked {
         color: $grey-5;
         font-size: 24px;
         font-weight: 300;
+
+        @media (max-width: 900px) {
+          max-width: 440px;
+          width: 100%;
+          margin-bottom: $gutter*2;
+        }
 
         @include is-iphone {
           margin-bottom: $gutter-two-thirds;
@@ -1315,17 +1365,29 @@ input[type="checkbox"]:checked {
 
       .partnership-container {
         position: absolute;
-        top: 0;
+        width: 41.1%;
+        top: 10px;
         right: 0;
-        padding: 35px 30px;
-        padding-right: 40px;
+        padding: 30px 0;
         border: 1px solid #999;
 
+        @media (max-width: 900px) {
+          position: static;
+          width: 100%;
+          margin-bottom: $gutter*2;
+        }
+
         p {
-          font-size: 16px;
           width: 100%;
           margin: 0;
+          padding-left: 30px;
+          padding-right: 40px;
+          font-size: 16px;
           line-height: 1.9;
+
+          @media (max-width: 900px) {
+            max-width: 80%;
+          }
 
           strong {
             display: block;
@@ -1338,6 +1400,10 @@ input[type="checkbox"]:checked {
     h3 {
       margin-bottom: $gutter;
       font-size: 24px;
+
+      @media (max-width: 900px) {
+        margin-bottom: $gutter-half;
+      }
     }
 
     hr {
@@ -1354,27 +1420,51 @@ input[type="checkbox"]:checked {
       width: 41.3043478%;
       margin-top: $gutter*1.5;
 
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+
       p {
+        margin-top: 0;
         margin-bottom: $gutter*1.5;
         color: $grey-5;
         font-size: 18px;
         font-weight: 300;
         line-height: 1.66666667;
+
+        @media (max-width: 900px) {
+          margin-bottom: $gutter;
+        }
       }
     }
 
     .pull-right {
       float: right;
+
+      @media (max-width: 900px) {
+        margin-top: $gutter*2;
+      }
     }
 
     .button {
       width: 100%;
       padding: 12px 0;
-      font-size: 14px;
-      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      text-align: left;
+      text-indent: 20px;
+      letter-spacing: 0.08em;
+      background-image: image-url('icon-arrow-right.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-arrow-right@2.png');
+        background-size: 31px 18px;
+      }
 
       @media (min-width: 644px) {
-        font-size: 16px;
+        font-size: 18px;
       }
     }
   }
@@ -1504,7 +1594,7 @@ div[data-wraps="had-direct-interactions"] {
     @include border-radius(0);
 
     @media (max-width: 456px) {
-      max-width: 97%%;
+      max-width: 97%;
     }
   }
 
@@ -1668,11 +1758,11 @@ body .form-inputs .multi_select .select2-container-multi {
       display: block;
       width: 39px;
       height: 39px;
-      background: image-url('arrow-back-mobile.png') no-repeat center center;
+      background: image-url('icon-arrow-left.png') no-repeat center center;
       text-indent: -9999px;
 
       @include device-pixel-ratio {
-        background-image: image-url('arrow-back-mobile@2.png');
+        background-image: image-url('icon-arrow-left@2.png');
         background-size: 39px 39px;
       }
     }

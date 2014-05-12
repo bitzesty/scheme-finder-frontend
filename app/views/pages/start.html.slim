@@ -15,19 +15,19 @@
           ' Department of Business, Innovation and Skills
     hr
     .pull-left
-      h3 For Business
+      h3 For Businesses
       p Helping businesses to connect with schools to engage with pupils, enrich learning and showcase industry to the next generation of young people.
       .mobile-hide
         = link_to "Get Started for Businesses",
                   root_with_audience_path(current_audience: "businesses",
                                           current_agent: ""),
-                  class: "big button",
+                  class: "big button btn-businesses",
                   id: "btn-businesses-guide"
       .mobile-show
         = link_to "Get Started for Businesses",
                   root_with_audience_path(current_audience: "businesses",
                                           current_agent: "mobile"),
-                  class: "big button",
+                  class: "big button btn-businesses",
                   id: "btn-businesses-guide"
 
     .pull-right
@@ -37,12 +37,12 @@
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: ""),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
       .mobile-show
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: "mobile"),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
     .clear
