@@ -73,6 +73,7 @@ sff.apply_content_load_js = ($context) ->
       $(".scheme-finder-frontend").removeClass("select2-open")
     )).on("change", -> (
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
+      $(".filtered-results").css("min-height", $(".block-2").height())
     ))
   $(".select2-container input").prop("readonly",true)
 

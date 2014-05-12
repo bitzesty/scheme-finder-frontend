@@ -25,7 +25,7 @@
   = inside_header_content
 
 = content_for :content do
-  #wrapper.scheme-finder-frontend
+  #wrapper.scheme-finder-frontend class="#{'scheme-businesses' if businesses_audience?}#{'scheme-teachers' if teachers_audience?}"
     #ipad-check
     - unless %w(pages).include? controller_name
       #back-banner.mobile-show
