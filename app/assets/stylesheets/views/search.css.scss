@@ -145,6 +145,12 @@ body {
   position: relative;
 }
 
+a:focus {
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+}
+
 hr {
   height: 3px;
   margin: 0;
@@ -537,6 +543,7 @@ p.intro-text {
         display: inline-block;
         padding-left: 22px;
         font-weight: 300;
+        white-space: nowrap;
       }
 
       .iradio {
@@ -1575,6 +1582,7 @@ input[type="checkbox"]:checked {
   }
 
   .block-4 {
+    min-height: 560px;
     @media (max-width: 640px) {
       min-height: 0 !important;
     }
@@ -1787,6 +1795,12 @@ input[type="checkbox"]:checked {
         padding-bottom: 14px;
         letter-spacing: 0.04em;
       }
+
+      @include ie-lte(8) {
+        width: 360px;
+        padding-left: 20px;
+        text-indent: 0;
+      }
     }
   }
 }
@@ -1805,7 +1819,8 @@ input[type="checkbox"]:checked {
     background: transparent;
   }
 
-  .multi_select.filter {
+  .filter.multi_select,
+  .filter.grouped_select {
     max-width: 90%;
     margin-left: $gutter-half;
 
@@ -2017,6 +2032,10 @@ body .form-inputs .multi_select .select2-container-multi {
     @include is-iphone {
       padding-bottom: 14px;
       letter-spacing: 0.04em;
+    }
+
+    @include ie-lte(8) {
+      width: 100%;
     }
   }
 }

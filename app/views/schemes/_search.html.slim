@@ -13,6 +13,14 @@
                 label: had_direct_interactions_label,
                 input_html: { data: { register: "had-direct-interactions" } }
 
+      = f.input :age_ranges,
+                as: :radio_buttons,
+                label: age_range_label,
+                placeholder: age_range_label,
+                collection: AgeRange.collection,
+                required: false,
+                hint: ''
+
       .hint
         ' For evaluation purposes
 

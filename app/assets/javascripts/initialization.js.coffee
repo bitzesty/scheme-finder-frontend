@@ -75,6 +75,7 @@ sff.apply_content_load_js = ($context) ->
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
       $(".filtered-results").css("min-height", $(".block-2").height())
     ))
+    $(".filtered-results").css("min-height", $(".block-2").height())
   $(".select2-container input").prop("readonly",true)
 
   $(".select2-container").css("width", "100%")
