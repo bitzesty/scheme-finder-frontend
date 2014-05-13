@@ -7,17 +7,20 @@
                   html: { class: "horizontal-form scheme-search-form" } do |f|
 
   fieldset
-    div data-wraps="had-direct-interactions"
+    .had-direct-interactions-container data-wraps="had-direct-interactions"
       = f.input :had_direct_interactions,
                 as: :boolean,
                 label: had_direct_interactions_label,
-                hint: "For evaluation purposes",
                 input_html: { data: { register: "had-direct-interactions" } }
+
+      .hint
+        ' For evaluation purposes
 
     = f.input :locations,
               as: :grouped_select,
               group_method: :last,
               label: 'Locations',
+              placeholder: 'Locations',
               collection: Location.collection,
               required: false,
               input_html: { class: "multi-row-select js-select2", multiple: true }
@@ -25,6 +28,7 @@
     = f.input :sectors,
               as: :multi_select,
               label: 'Sectors',
+              placeholder: 'Sectors',
               collection: Sector.collection,
               required: false,
               input_html: { class: "multi-row-select" }
@@ -32,7 +36,8 @@
     - for_teachers do
       = f.input :subjects,
                 as: :multi_select,
-                label: "Subjects",
+                label: 'Subjects',
+              placeholder: 'Subjects',
                 collection: Subject.collection,
                 required: false,
                 input_html: { class: "multi-row-select" }
@@ -41,6 +46,7 @@
       = f.input :audiences,
                 as: :multi_select,
                 label: 'Audiences',
+              placeholder: 'Audiences',
                 collection: Audience.collection,
                 required: false,
                 input_html: { class: "multi-row-select" }
@@ -49,6 +55,7 @@
               as: :multi_select,
               collection: Activity.collection,
               label: 'Activities',
+              placeholder: 'Activities',
               label_method: "for_#{current_audience}",
               required: false,
               input_html: { class: "multi-row-select" }
@@ -56,14 +63,15 @@
     = f.input :age_ranges,
               as: :multi_select,
               label: age_range_label,
+              placeholder: age_range_label,
               collection: AgeRange.collection,
               required: false,
               input_html: { class: "multi-row-select" }
 
-  - for_mobile do
-    .form-actions
-      = f.button :submit, "Search for Schemes",
-                 class: "button btn btn-primary",
-                 id: "submit_btn",
-                 data: { action: "submit",
-                         ga_search_scheme_click: "true" }
+  .form-actions
+    = f.button :submit, "Search for Schemes",
+               class: "btn-search button btn btn-primary #{'btn-businesses' if businesses_audience?}#{'btn-teachers' if teachers_audience?}",
+               id: "submit_btn",
+               data: { action: "submit",
+                       ga_search_scheme_click: "true" }
+    .clear

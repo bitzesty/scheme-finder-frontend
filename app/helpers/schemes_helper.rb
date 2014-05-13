@@ -9,7 +9,7 @@ module SchemesHelper
 
   def age_range_label
     if businesses_audience?
-      "What age range would you prefer to engage with?"
+      "Age range you prefer to engage with?"
     else
       "What age range are your students?"
     end

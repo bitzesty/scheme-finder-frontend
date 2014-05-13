@@ -33,6 +33,10 @@ sff.apply_content_load_js = ($context) ->
       $(".radio-collection span:eq("+s+")").addClass("active")
   ))
 
+  $("input[type='checkbox'], input[type='radio']").iCheck({
+    checkboxClass: "icheckbox_minimal"
+  })
+
   #########
   ## Select2
   for select in $context.find("select.js-select2")
@@ -69,7 +73,9 @@ sff.apply_content_load_js = ($context) ->
       $(".scheme-finder-frontend").removeClass("select2-open")
     )).on("change", -> (
       $(".select2-selected").addClass("select2-result-unselectable").removeClass("select2-result-selectable")
+      $(".filtered-results").css("min-height", $(".block-2").height())
     ))
+    $(".filtered-results").css("min-height", $(".block-2").height())
   $(".select2-container input").prop("readonly",true)
 
   $(".select2-container").css("width", "100%")

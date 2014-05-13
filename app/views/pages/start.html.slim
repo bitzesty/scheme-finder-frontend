@@ -4,35 +4,49 @@
 .inner
   section.intro
     .get-started-intro
-      p
-        ' Find opportunities
-        br.mobile-show
-        ' for businesses or teachers
+      h1
+        ' Welcome to
+        br.visible-iphone-portrait
+        ' Growing Ambitions
+      p The best place for businesses and teachers to find schemes aimed at young people
 
-    p#get-started.get-started.group
+      .partnership-container
+        p
+          strong In partnership with:
+        p
+          ' Education and Employers Taskforce
+        p
+          ' Department of Business, Innovation and Skills
+    hr
+    .pull-left.for-business
+      h3 For Businesses
+      p Helping businesses to connect with schools to engage with pupils, enrich learning and showcase industry to the next generation of young people.
+      .mobile-hide
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: ""),
+                  class: "big button btn-businesses",
+                  id: "btn-businesses-guide"
+      .mobile-show
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: "mobile"),
+                  class: "big button btn-businesses",
+                  id: "btn-businesses-guide"
+
+    .pull-right.for-teachers
+      h3 For Teachers
+      p Helping businesses to connect with schools to engage with pupils, enrich learning and showcase industry to the next generation of young people.
       .mobile-hide
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: ""),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
-        br
-        br
-        = link_to "Get Started for Businesses",
-                  root_with_audience_path(current_audience: "businesses",
-                                          current_agent: ""),
-                  class: "big button",
-                  id: "btn-businesses-guide"
       .mobile-show
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: "mobile"),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
-        br
-        br
-        = link_to "Get Started for Businesses",
-                  root_with_audience_path(current_audience: "businesses",
-                                          current_agent: "mobile"),
-                  class: "big button",
-                  id: "btn-businesses-guide"
+    .clear
