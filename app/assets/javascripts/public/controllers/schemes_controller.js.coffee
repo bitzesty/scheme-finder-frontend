@@ -18,10 +18,10 @@ class Public.SchemesController
     # store had direct interactions click to google analytics
     $("body").on "click", "input[data-register='had-direct-interactions']", (e) =>
       sff.SchemeAnalyticsTracker.register_had_direct_interactions()
-      @hide_input(e.target)
+
     $(".search_had_direct_interactions input[data-register='had-direct-interactions']").on 'ifChanged', ()->
       sff.SchemeAnalyticsTracker.register_had_direct_interactions()
-      $("[data-wraps='had-direct-interactions']").slideUp("slow")
 
-  hide_input: (input) =>
-    $(input).closest("[data-wraps='had-direct-interactions']").slideUp("slow")
+    $("body").on "change", "#company-size-for-evaluation-purposes", ->
+      if !!@value # do not register if user selects prompt
+        sff.SchemeAnalyticsTracker.register_company_size @value
