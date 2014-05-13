@@ -1646,6 +1646,10 @@ input[type="checkbox"]:checked {
         }
       }
 
+      > p {
+        text-align: justify;
+      }
+
       .partnership-container {
         overflow: hidden;
         position: absolute;
@@ -1746,6 +1750,7 @@ input[type="checkbox"]:checked {
         color: $grey-5;
         font-size: 18px;
         font-weight: 300;
+        text-align: justify;
         line-height: 1.66666667;
 
         @media (max-width: 900px) {
@@ -1762,6 +1767,14 @@ input[type="checkbox"]:checked {
 
         @include ipad("portrait") {
           margin-top: $gutter*1.5;
+        }
+      }
+
+      p {
+        padding-right: 3px;
+
+        @media (max-width: 900px) {
+          padding-right: 0;
         }
       }
     }
