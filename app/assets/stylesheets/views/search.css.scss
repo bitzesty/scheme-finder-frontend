@@ -1461,11 +1461,6 @@ input[type="checkbox"]:checked {
     }
   }
 
-  .block-6 {
-    padding-left: $gutter-two-thirds;
-    padding-right: $gutter-two-thirds;
-  }
-
   .button {
     padding: 10px 12px;
     font-family: $custom-font-family;
@@ -1735,6 +1730,7 @@ input[type="checkbox"]:checked {
       float: left;
       width: 41.3043478%;
       margin-top: $gutter*1.5;
+      margin-bottom: $gutter*1.5;
 
       @media (max-width: 900px) {
         width: 100%;
@@ -1776,6 +1772,49 @@ input[type="checkbox"]:checked {
         @media (max-width: 900px) {
           padding-right: 0;
         }
+      }
+    }
+
+    .register-title {
+      width: 31.5217391%;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      @include ipad("portrait") {
+        width: 31.5217391%;
+      }
+    }
+
+    .register-content {
+      width: 63.0434783%;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-top: 0;
+      }
+
+      @include ipad("portrait") {
+        width: 63.0434783%;
+        margin-top: $gutter*1.5;
+      }
+
+      a {
+        margin-left: $gutter-one-sixth;
+      }
+    }
+
+    .register-link {
+      padding-right: 19px;
+      background-image: image-url('icon-arrow-right-blue.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-arrow-right-blue@2.png');
+        background-size: 10px 16px;
       }
     }
 
@@ -1890,6 +1929,10 @@ input[type="checkbox"]:checked {
   .input {
     clear: both;
     min-height: 37px;
+
+    @include ie-lte(8) {
+      margin-bottom: 10px;
+    }
   }
 
   label {
@@ -1935,9 +1978,16 @@ input[type="checkbox"]:checked {
     @include appearance(none);
 
     .select2-choices {
-      padding: 3px;
-      background: $grey-7;
+      padding: 4px;
+      padding-right: 30px;
+      background: $grey-7 image-url("icon-dropdown.png") no-repeat right 16px !important;
+      background-position: right 17px;
       border-color: $grey-9;
+
+      @include is-retina {
+        background-image: image-url("icon-dropdown@2.png") !important;
+        background-size: 22px 7px !important;
+      }
     }
 
     &.select2-container-active .select2-choices,
@@ -2294,7 +2344,8 @@ body .form-inputs .multi_select .select2-container-multi {
 
     .form-inputs {
       label {
-        font-size: 11px;
+        margin-bottom: $gutter-one-sixth;
+        font-size: 13px;
       }
 
       .input {
@@ -2303,6 +2354,10 @@ body .form-inputs .multi_select .select2-container-multi {
 
       textarea {
         max-width: none;
+
+        @include iphone("portrait") {
+          max-width: 260px;
+        }
       }
 
       .radio-collection-input {
@@ -2453,5 +2508,13 @@ body .form-inputs .multi_select .select2-container-multi {
       border: none;
       @include border-radius(0);
     }
+  }
+}
+
+.new-scheme-header {
+  margin-bottom: $gutter*1.5;
+
+  @include is-iphone {
+    margin-bottom: 0;
   }
 }
