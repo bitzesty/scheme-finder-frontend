@@ -42,6 +42,7 @@ sff.apply_content_load_js = ($context) ->
   for select in $context.find("select.js-select2")
     options = {
       width: '180',
+      allowClear: true
     }
     # has placeholder and empty option
     if $(select).filter("[placeholder]").find("option[value='']").length

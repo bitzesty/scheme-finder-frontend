@@ -14,8 +14,8 @@
                 input_html: { data: { register: "had-direct-interactions" } }
 
       - if businesses_audience?
-        select#company-size-for-evaluation-purposes
-          option value="" Select your company size
+        select#company-size-for-evaluation-purposes.company-size-for-evaluation-purposes.js-select2 data-placeholder="Select your company size"
+          option
           - %w(0-9 10-249 250-500 501-1000 1000+).each do |size|
             option value="#{size}" = "#{size} employees"
 
