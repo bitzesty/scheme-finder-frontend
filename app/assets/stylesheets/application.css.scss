@@ -1,6 +1,5 @@
 // BASE Stylesheet
 @import "select2";
-@import "icheck";
 
 // govuk_frontend_toolkit mixins
 @import "_conditionals";
@@ -10,4 +9,5 @@
 @import "design-patterns/_buttons.scss";
 
 // View stylesheets
+@import "views/icheck";
 @import "views/search";
