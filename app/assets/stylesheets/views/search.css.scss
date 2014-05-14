@@ -1352,12 +1352,12 @@ input[type="checkbox"]:focus {
 
 input[type="checkbox"]:checked {
   background-color: white;
-  background-image: url(/assets/icon-checkbox.png);
+  background-image: image-url('icon-checkbox.png');
   background-repeat: no-repeat;
   background-position: center center;
 
   @include device-pixel-ratio {
-    background-image: url(/assets/icon-checkbox@2.png);
+    background-image: image-url('icon-checkbox@2.png');
     background-size: 20px 20px;
   }
 }
