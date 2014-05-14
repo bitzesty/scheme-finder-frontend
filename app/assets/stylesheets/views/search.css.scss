@@ -2615,7 +2615,7 @@ body .form-inputs .multi_select .select2-container-multi {
 }
 
 .icheckbox_minimal.checked {
-  background-image: url(/assets/icon-checkbox.png);
+  background-image: image-url('/assets/icon-checkbox.png');
 }
 
 .iradio {
@@ -2628,7 +2628,7 @@ body .form-inputs .multi_select .select2-container-multi {
   padding: 0;
   width: 16px;
   height: 16px;
-  background: url(/assets/icon-radio.png);
+  background: image-url('/assets/icon-radio.png');
   background-repeat: no-repeat;
   background-position: center top;
   border: none;
@@ -2641,12 +2641,12 @@ body .form-inputs .multi_select .select2-container-multi {
 
 @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   .icheckbox_minimal.checked {
-    background-image: url(/assets/icon-checkbox@2.png);
+    background-image: image-url('/assets/icon-checkbox@2.png');
     -webkit-background-size: 20px 20px;
     background-size: 20px 20px;
   }
   .iradio {
-    background-image: url(/assets/icon-radio@2.png);
+    background-image: image-url('/assets/icon-radio@2.png');
     -webkit-background-size: 16px 32px;
     background-size: 16px 32px;
   }
