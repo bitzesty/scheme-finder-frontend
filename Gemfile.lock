@@ -1,11 +1,4 @@
 GIT
-  remote: git@github.com:bitzesty/govuk_template.git
-  revision: 615d5d281cce9eee55acd84d245d4066c6ca481f
-  specs:
-    govuk_template (0.7.1)
-      rails (>= 3.1)
-
-GIT
   remote: https://github.com/getsentry/raven-ruby.git
   revision: a4d2ae59ce9f92578843b6536f816e9ee2403d48
   specs:
@@ -108,6 +101,8 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     forgery (0.6.0)
+    govuk_template (0.7.1)
+      rails (>= 3.1)
     hashie (2.1.1)
     hike (1.2.3)
     hipchat (1.0.1)
@@ -264,7 +259,7 @@ DEPENDENCIES
   faraday_middleware
   foreman
   forgery
-  govuk_template!
+  govuk_template
   hipchat (~> 1.0.1)
   jquery-rails
   kaminari
