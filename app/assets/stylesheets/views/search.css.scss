@@ -2595,3 +2595,59 @@ body .form-inputs .multi_select .select2-container-multi {
     margin-bottom: 0;
   }
 }
+
+/* iCheck plugin Minimal skin, black
+----------------------------------- */
+.icheckbox_minimal {
+  position: absolute;
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+}
+
+.icheckbox_minimal.checked {
+  background-image: url(/assets/icon-checkbox.png);
+}
+
+.iradio {
+  position: absolute;
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: url(/assets/icon-radio.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: none;
+  cursor: pointer;
+}
+
+.iradio.checked {
+  background-position: center bottom;
+}
+
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .icheckbox_minimal.checked {
+    background-image: url(/assets/icon-checkbox@2.png);
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+  }
+  .iradio {
+    background-image: url(/assets/icon-radio@2.png);
+    -webkit-background-size: 16px 32px;
+    background-size: 16px 32px;
+  }
+}
