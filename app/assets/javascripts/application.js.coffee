@@ -14,6 +14,7 @@
 #= require jquery_ujs
 #= require bootstrap
 #= require select2
+#= require vendor/icheck
 #= require initialization
 #= require public
 #= require_tree ./common

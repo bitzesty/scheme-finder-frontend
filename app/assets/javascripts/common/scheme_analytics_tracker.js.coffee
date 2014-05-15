@@ -22,5 +22,10 @@ class sff.SchemeAnalyticsTracker extends sff.GoogleAnalyticsTracker
     action = "Via checkbox on #{@agent_with_audience()}"
     @send_event(category, action)
 
+  @register_company_size: (company_size) =>
+    category = "Company size"
+    action = "#{@agent_with_audience()} #{company_size} employees"
+    @send_event(category, action)
+
   @agent_with_audience: =>
     "[#{sff.current_agent}] [#{sff.current_audience}]"

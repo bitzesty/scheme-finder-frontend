@@ -4,35 +4,61 @@
 .inner
   section.intro
     .get-started-intro
-      p
-        ' Find opportunities
-        br.mobile-show
-        ' for businesses or teachers
+      h1
+        ' Welcome to
+        br.visible-iphone-portrait
+        ' Growing Ambitions
+      p The best place for teachers and businesses to find schemes aimed at young people.
 
-    p#get-started.get-started.group
+      .partnership-container
+        p
+          strong In partnership with:
+        p
+          ' Education and Employers Taskforce
+        p
+          ' Department of Business, Innovation and Skills
+    hr
+    .pull-left.for-business
+      h3 For Businesses
+      p We help businesses connect with schools, engage with pupils, enrich learning and showcase industry to the next generation of young people.
+      .mobile-hide
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: ""),
+                  class: "big button btn-businesses",
+                  id: "btn-businesses-guide"
+      .mobile-show
+        = link_to "Get Started for Businesses",
+                  root_with_audience_path(current_audience: "businesses",
+                                          current_agent: "mobile"),
+                  class: "big button btn-businesses",
+                  id: "btn-businesses-guide"
+
+    .pull-right.for-teachers
+      h3 For Teachers
+      p We help teachers to identify suitable schemes that provide curriculum supported lesson plans, careers advice, local visits and work experience.
       .mobile-hide
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: ""),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
-        br
-        br
-        = link_to "Get Started for Businesses",
-                  root_with_audience_path(current_audience: "businesses",
-                                          current_agent: ""),
-                  class: "big button",
-                  id: "btn-businesses-guide"
       .mobile-show
         = link_to "Get Started for Teachers",
                   root_with_audience_path(current_audience: "teachers",
                                           current_agent: "mobile"),
-                  class: "big button",
+                  class: "big button btn-teachers",
                   id: "btn-teachers-guide"
-        br
-        br
-        = link_to "Get Started for Businesses",
-                  root_with_audience_path(current_audience: "businesses",
-                                          current_agent: "mobile"),
-                  class: "big button",
-                  id: "btn-businesses-guide"
+    .clear
+
+    hr
+
+    .pull-left.register-title
+      h3 Register a Scheme
+    .pull-right.register-content
+      p
+        ' Please help us to identify sector or company led programmes aimed at inspiring enterprise to young people and schools.
+        = link_to 'Register a Scheme', schemes_new_path, class: "register-link"
+      p
+        ' Alternatively we would be grateful if you email any details to Karen Willcocks at Department of Business, Innovation and Skills by clicking 
+        = link_to 'this link.', 'mailto:k.willcocks@bis.gsi.gov.uk'

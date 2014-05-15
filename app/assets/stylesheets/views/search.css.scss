@@ -1,5 +1,9 @@
 // VARS
 // ----
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+$custom-font-family: 'Lato', sans-serif;
 $max-site-width: 960px;
 $gutter:            30px;
 $gutter-one-sixth:  $gutter*(1/6); // equivalent to 5px
@@ -18,6 +22,93 @@ $right-to-left: false !default;
 }
 @mixin left-to-right {
   @if $right-to-left == false {
+    @content;
+  }
+}
+
+// iOS conditionals
+$iphone-width: 320px;
+$iphone-old-height: 480px;
+$iphone-height: 568px;
+$ipad-width: 768px;
+$ipad-height: 1024px;
+
+@mixin is-ios {
+  @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), 
+  only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), 
+  only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), 
+  only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-height) and (orientation : portrait), 
+  only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape), 
+  only screen and (min-device-height : $ipad-width) and (max-device-height : $ipad-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin is-iphone-or-xs-screen {
+  @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : portrait), only screen and ($screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin is-iphone {
+  @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin iphone($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-height) and (orientation : portrait), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin is-iphone-old {
+  @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape), only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin iphone-old($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $iphone-width) and (max-device-width : $iphone-old-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $iphone-width) and (max-device-height : $iphone-old-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin is-ipad {
+  @media only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape), only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : portrait) {
+    @content;
+  }
+}
+@mixin ipad($orientation) {
+  @if ($orientation == "landscape") {
+    @media only screen and (min-device-width : $ipad-width) and (max-device-width : $ipad-height) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @if ($orientation == "portrait") {
+    @media only screen and (min-device-height : $ipad-width) and (max-device-height : $ipad-height) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+// Retina conditional
+@mixin is-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     @content;
   }
 }
@@ -45,6 +136,27 @@ $right-to-left: false !default;
 html,
 body {
   min-width: 320px;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+a:focus {
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+}
+
+hr {
+  height: 3px;
+  margin: 0;
+  color: #777;
+  background-color: #777;
+  border: none;
 }
 
 .clear {
@@ -52,18 +164,124 @@ body {
 }
 
 #global-header,
-#footer,
+#global-header-bar,
+#skiplink-container,
+#footer .footer-meta,
 .hide,
 .mobile-show,
 #ipad-check {
   display: none;
 }
 
+.visible-iphone {
+  display: none;
+
+  @include is-iphone {
+    display: block;
+  }
+}
+
+.visible-iphone-portrait {
+  display: none;
+
+  @include iphone("portrait") {
+    display: block;
+  }
+}
+
 #global-cookie-message {
   display: none !important;
 }
 
+#footer {
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 77px;
+  margin-top: -77px;
+  background: #f0f0f0;
+  border: none;
 
+  @media (max-width: 660px) {
+    height: 99px;
+    margin-top: -99px;
+  }
+
+  @media (max-width: 480px) {
+    height: 183px;
+    margin-top: -183px;
+  }
+
+  .footer-wrapper {
+    max-width: $max-site-width -$gutter-two-thirds*2;
+    padding: $gutter-two-thirds;
+    padding-top: 30px;
+    padding-bottom: 0;
+    color: #444;
+    font-family: $custom-font-family;
+    font-size: 15px;
+    background: transparent;
+
+    @media (max-width: 660px) {
+      padding-top: 25px;
+    }
+  }
+
+  a {
+    color: #444;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 480px) {
+      margin-bottom: $gutter;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 40px;
+      margin-bottom: $gutter-one-third;
+
+      @media (max-width: 480px) {
+        display: block;
+        margin-right: 0;
+      }
+
+      @include ie-lte(7) {
+        display: inline;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+
+    @media (max-width: 660px) {
+      color: #777;
+    }
+  }
+
+  .pull-left,
+  .pull-right {
+    @media (max-width: 660px) {
+      float: none;
+      text-align: center;
+    }
+  }
+}
 
 .feedback-link,
 .back-link {
@@ -216,11 +434,16 @@ body {
   border: none;
 }
 
+p.intro-text {
+  margin: 0;
+  margin-bottom: $gutter;
+  color: $grey-5;
+  font-size: 17px;
+  font-weight: 300;
+}
+
 .filter-block {
   margin-bottom: $gutter-two-thirds;
-  padding: $gutter-one-third;
-  background: $grey-8;
-  border: 1px solid #ccc;
 
   @include ie-lte(7) {
     padding-top: 0;
@@ -235,6 +458,7 @@ body {
 
   h2 {
     @include core-16;
+    font-family: $custom-font-family;
     //padding-top: $gutter-one-third;
   }
 
@@ -263,12 +487,18 @@ body {
   }
 
   label {
+    display: none;
     color: $grey-5;
     font-size: 13px;
     font-weight: bold;
 
+    @include ie-lte(8){
+      display: inline;
+    }
+
     &.title {
       @include copy-19;
+      font-family: $custom-font-family;
       font-weight: bold;
       display:block;
       margin-bottom:2px;
@@ -276,18 +506,112 @@ body {
 
     &.sub-title {
       @include core-19;
+      font-family: $custom-font-family;
+    }
+  }
+
+  .input,
+  .hint {
+    clear: both;
+  }
+
+  .input.radio_buttons {
+    margin-left: $gutter-half;
+    margin-bottom: 10px;
+
+    @include is-iphone {
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+
+    label {
+      @include is-iphone {
+        font-size: 14px;
+      }
+    }
+
+    .radio_buttons {
+      display: block;
+      font-weight: 400;
+
+      @include is-iphone {
+        margin-bottom: 5px;
+      }
+    }
+
+    .radio {
+      float: left;
+      position: relative;
+      display: block;
+      margin-right: 15px;
+
+      label {
+        display: inline-block;
+        padding-left: 22px;
+        font-weight: 300;
+        white-space: nowrap;
+      }
+
+      .iradio {
+        position: absolute;
+        top: -1px;
+        left: 0;
+
+        @include is-iphone {
+          border: 1px solid $grey-9;
+          border-radius: 10000px;
+        }
+      }
+    }
+  }
+
+  .boolean {
+    min-height: 25px;
+    margin-bottom: 10px;
+
+    label {
+      position: relative;
+      display: block;
+      top: 5px;
+      margin-left: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.2;
+
+      @include is-iphone {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .company-size-for-evaluation-purposes {
+    width: 90% !important;
+    margin-left: 15px;
+    margin-bottom: 15px;
+
+    @include is-iphone {
+      max-width: 280px;
+      width: 100% !important;
+      margin-left: 0;
     }
   }
 
   .hint {
     display: block;
-    color: $grey-5;
+    color: $grey-1;
     font-size: 13px;
-    margin:0 0 5px 0; padding:0;
+    font-weight: 300;
+    margin: 0;
+    margin-left: 15px;
+    padding: 0;
+
+    @include is-iphone {
+      margin-left: 0;
+    }
   }
 
   input {
-    border: 1px solid $grey-3;
+    border: 1px solid $border-colour;
     width: 100%;
     margin: 0;
     outline: none;
@@ -297,13 +621,27 @@ body {
       text-indent: $gutter-one-third;
     }
 
-    border-color: $border-colour;
-
     &.boolean {
-      width: auto;
-      margin-right: 10px;
-      padding: 0px;
-      border: none;
+      top: 25px;
+      left: $gutter-two-thirds;
+
+      @include is-iphone {
+        top: 10px;
+        border: 1px solid $grey-9;
+      }
+    }
+  }
+
+  .icheckbox_minimal {
+    top: 23px;
+    left: $gutter-half;
+
+    @include is-iphone {
+      width: 18px;
+      height: 18px;
+      top: 8px;
+      left: 0;
+      border: 1px solid $grey-9;
     }
   }
 
@@ -319,19 +657,85 @@ body {
 
   .multi-row-select {
     display: block;
-    margin-bottom: $gutter-one-third;
+    margin-bottom: $gutter-two-thirds;
     @include appearance(none);
+  }
+  .select2-choices {
+    padding: 4px;
+    padding-right: 30px;
+    background: $grey-7 image-url("icon-dropdown.png") no-repeat right 16px !important;
+    background-position: right 17px;
+    border-color: $grey-9;
 
-    .select2-choices {
+    @include is-retina {
+      background-image: image-url("icon-dropdown@2.png") !important;
+      background-size: 22px 7px !important;
+    }
+  }
+
+  .select2-dropdown-open {
+    &,
+    &.select2-drop-above .select2-choice {
       background: $grey-7;
-      border-color: $grey-9;
+      @include border-radius(0);
     }
 
-    &.select2-container-active .select2-choices,
-    &.select2-dropdown-open .select2-choices {
-      background: #fff;
-      border-color: #5897fb;
+    .select2-choice {
+      border-color: #5897FB;
     }
+  }
+
+  .select2-choice {
+    padding: 4px;
+    padding-right: 30px;
+    background: $grey-7;
+    background-position: right 17px;
+    border-color: $grey-9;
+    @include border-radius(0);
+    filter: none !important;
+
+    .select2-search-choice-close {
+      z-index: 2;
+      width: 30px;
+      height: 100%;
+      right: 0;
+      top: 0;
+      background: $grey-7 image-url("icon-cross.png") no-repeat center center;
+
+      @include is-retina {
+        background-image: image-url("icon-cross@2.png") !important;
+        background-size: 11px 11px !important;
+      }
+
+      &:hover {
+        background-position: center center;
+      }
+    }
+
+    .select2-arrow {
+      width: 30px;
+      background: $grey-7;
+      border: none;
+
+      b {
+        background: $grey-7 image-url("icon-dropdown.png") no-repeat right center !important;
+
+        @include is-retina {
+          background-image: image-url("icon-dropdown@2.png") !important;
+          background-size: 22px 7px !important;
+        }
+      }
+    }
+  }
+
+  &.select2-container-active .select2-choices,
+  &.select2-dropdown-open .select2-choices {
+    background: #fff;
+    border-color: #5897fb;
+  }
+
+  .multi_select:last-child .multi-row-select {
+    margin-bottom: $gutter-one-third;
   }
 
   @include media (tablet) {
@@ -423,13 +827,16 @@ body {
     //border-bottom: 1px solid $border-colour;
     h2 {
       @include core-27;
+      font-family: $custom-font-family;
     }
     h3 {
       @include core-19;
+      font-family: $custom-font-family;
       font-weight: bold;
     }
     p {
       @include core-19;
+      font-family: $custom-font-family;
       margin: $gutter-half 0;
     }
   }
@@ -439,23 +846,22 @@ body {
   display: block;
   padding:0;
   margin:0;
-    line-height: 1;
+  line-height: 1;
 
   h3 {
     @include copy-16;
+    position: relative;
     color: $grey-5;
-    font-family: $arial;
-    font-size: 11px;
+    font-family: $custom-font-family;
+    font-size: 14px;
     -webkit-font-smoothing: initial;
     display: inline-block;
-    padding-right: $gutter-one-third;
+    top: -20px;
     margin-top:0;
     padding-top: 0;
     padding-bottom: 0;
-
-    @media (max-width: 640px) {
-      font-size: 11px;
-    }
+    font-size: 20px;
+    font-weight: 400;
 
     @include media(tablet){
       padding-top: 0;
@@ -470,8 +876,15 @@ body {
         padding-bottom: 0;
       }
     }
-  }
 
+    .results-count {
+      position: relative;
+      top: 20px;
+      margin-right: 5px;
+      font-size: 48px;
+      font-weight: 700;
+    }
+  }
 
   .feeds {
     margin:52px 0 0 0;
@@ -485,6 +898,7 @@ body {
 
   .selections {
     @include core-16;
+    font-family: $custom-font-family;
   }
 
   .chosen {
@@ -510,61 +924,91 @@ body {
   }
 }
 
-.select2-container-multi .select2-choices .select2-search-choice {
-  display: inline-block;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-top: 5px;
-  padding: 5px;
-  padding-bottom: 1px;
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1;
-  white-space: nowrap;
-  background: $accent-block-colour;
-  filter: none;
-  border: none;
-  @include border-radius(0);
-  @include box-shadow(none);
+body .select2-drop {
+  &,
+  &.select2-drop-above {
+    @include border-radius(0);
+  }
 
-  div {
-    display: inline-block;
-    max-width: 140px;
-    margin-right: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .select2-search {
+    display: none;
+  }
+}
 
-    @include ie(8) {
-      width: 140px;
-    }
+.select2-container-multi .select2-choices {
+  .select2-search-field {
+    width: 100%;
 
-    @include ie(6) {
-      float: left;
+    input {
+      width: 100% !important;
+      font-size: 14px;
+      text-indent: 0;
     }
   }
 
-  .select2-search-choice-close {
-    left: auto;
-    right: 2px;
-    top: 50%;
-    margin-top: -5px;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    background: image-url('icon-close.png') no-repeat top left;
+  .select2-search-choice {
+    display: inline-block;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    padding: 5px;
+    padding-bottom: 2px;
+    color: #444;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: nowrap;
+    background: $accent-block-colour;
+    filter: none;
+    border: none;
+    @include border-radius(0);
+    @include box-shadow(none);
 
-    &:hover {
-      background-position: 0 0;
-      @include opacity(0.8);
+    div {
+      display: inline-block;
+      max-width: 140px;
+      margin-right: 15px;
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include is-ios {
+        position: relative;
+        top: -2px;
+      }
+
+      @include ie(8) {
+        width: 140px;
+      }
+
+      @include ie(6) {
+        float: left;
+      }
     }
 
-    @include device-pixel-ratio {
+    .select2-search-choice-close {
+      left: auto;
+      right: 2px;
+      top: 50%;
       margin-top: -4px;
-      background-image: image-url('icon-close@2.png') !important;
-      background-position: 0 0 !important;
-      background-size: 9px 9px !important;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      background: image-url('icon-close.png') no-repeat top left;
+
+      @include device-pixel-ratio {
+        margin-top: -4px;
+        background-image: image-url('icon-close@2.png') !important;
+        background-position: 0 0 !important;
+        background-size: 9px 9px !important;
+      }
+
+      &:hover {
+        background-position: 0 0;
+        @include opacity(0.8);
+      }
     }
   }
 }
@@ -576,16 +1020,24 @@ ul.tags-list {
   padding-bottom: $gutter-two-thirds;
 
   li {
+    position: relative;
     display: inline-block;
     margin-right: 8px;
     margin-bottom: 7px;
     padding: 5px;
-    color: #fff;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 1;
+    padding-bottom: 2px;
+    padding-right: 25px;
+    color: #444;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
     white-space: nowrap;
     background: $accent-block-colour;
+
+    @include is-iphone {
+      padding-bottom: 3px;
+      font-weight: 400;
+    }
 
     span {
       position: relative;
@@ -595,13 +1047,29 @@ ul.tags-list {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      @include is-iphone {
+        top: -2px;
+      }
     }
 
     a {
-      margin-left: 5px;
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 9px;
+      right: 5px;
+      top: 50%;
+      margin-top: -3px;
       color: #fff;
-      font-weight: bold;
-      text-decoration: none;
+      text-indent: -9999px;
+      background: image-url('icon-close.png') no-repeat center center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-close@2.png');
+        background-position: 0 0;
+        background-size: 9px 9px;
+      }
     }
   }
 }
@@ -610,17 +1078,35 @@ ul.results-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-top: 19px;
   margin-bottom: 60px;
-  margin-top: 5px;
+  border-top: 1px solid $grey-9;
+
+  @include is-iphone {
+    border-top: 3px solid #777;
+  }
+
+  li {
+    margin: 0;
+    padding-top: $gutter-two-thirds;
+    padding-bottom: $gutter-one-sixth;
+    border-bottom: 1px solid $grey-9;
+  }
 
   h3 {
     @include copy-19;
+    font-family: $custom-font-family;
     font-size: 18px;
     font-weight: 500;
 
     &,
     a {
-      color: $accent-header-colour;
+      .scheme-businesses & {
+        color: $color-businesses;
+      }
+      .scheme-teachers & {
+        color: $color-teachers;
+      }
     }
 
     @include media(tablet){
@@ -630,20 +1116,34 @@ ul.results-list {
 
     a {
       text-decoration:none;
+      padding-right: 20px;
+      background: image-url('icon-external-link.png') no-repeat;
+      background-position: 1000px 1000px;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-external-link@2.png');
+        background-size: 12px 12px;
+      }
+
+      @include is-iphone {
+        background-position: right center;
+      }
     }
 
     a:hover {
       text-decoration:underline;
+      background-position: right center;
     }
   }
 
   p {
     padding:0;
     margin:0;
-    margin-top: 4px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     color: $grey-5;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: 300;
     line-height: 1.63636364;
 
     &.attributes {
@@ -658,13 +1158,6 @@ ul.results-list {
     }
   }
 
-  li {
-    margin: 0;
-    padding-top: $gutter-two-thirds;
-    padding-bottom: $gutter-one-third;
-    border-bottom: 1px solid $grey-9;
-  }
-
   .feedback-link {
     margin-bottom: 0;
     font-size: 11px;
@@ -673,7 +1166,7 @@ ul.results-list {
 
 
 .inner-block {
-  padding: 0 $gutter-half;
+  padding: 0;
 
   @include media(tablet){
     padding: 0 $gutter;
@@ -731,6 +1224,7 @@ ul.results-list {
 
   li {
     @include core-27;
+    font-family: $custom-font-family;
     display: block;
     padding: 0;
     margin: 0;
@@ -835,85 +1329,183 @@ ul.results-list {
 // CUSTOM STYLES AND OVERRIDES
 // WRITTEN FOR THIS PROTOTYPE
 
+input[type="checkbox"] {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-top: -2px;
+  margin-left: 0;
+  background: #fff;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+
+  .ie & {
+    border: none;
+  }
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: white;
+  background-image: image-url('icon-checkbox.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include device-pixel-ratio {
+    background-image: image-url('icon-checkbox@2.png');
+    background-size: 20px 20px;
+  }
+}
+
 .scheme-finder-frontend {
-  font-family: $arial;
+  min-height: 100%;
+  _height: 100%;
+  z-index: 2;
+  font-family: $custom-font-family;
   -webkit-font-smoothing: initial;
-  padding-top: 55px;
+
+  > #content {
+    padding-bottom: 77px;
+
+    @media (max-width: 660px) {
+      padding-bottom: 99px;
+    }
+
+    @media (max-width: 480px) {
+      padding-bottom: 183px;
+    }
+  }
 
   a {
     color: $accent-link-colour;
   }
 
-  #content {
-    max-width: 960px;
+  header.page-header > div,
+  #content > .article-container {
+    position: relative;
+    max-width: $max-site-width -$gutter-two-thirds*2;
     margin: 0 auto;
+    padding: 0 $gutter-two-thirds;
 
     @include ie(6) {
-      width: 960px;
+      width: $max-site-width -$gutter-two-thirds*2;
     }
-  }
-
-  .intro {
-    padding-left: $gutter-two-thirds;
   }
 
   header.page-header {
-    div {
-      margin:0;
-      padding-left: $gutter-two-thirds;
-      padding-right: $gutter-two-thirds;
+    height: 85px;
+    background: #333;
 
+    @media (max-width: 660px) {
+      height: auto;
+    }
+
+    @include is-iphone {
+      height: 110px;
+    }
+
+    .inner-block {
+      padding: 0 $gutter-two-thirds;
     }
 
     h1 {
-      margin-bottom: $gutter-one-third;
-      padding: $gutter-two-thirds $gutter-one-third;
-      padding-bottom: $gutter-half;
-      color: $accent-link-colour;
-      font-size: 30px;
-      font-weight: bold;
+      margin-bottom: 0;
+      padding: $gutter-two-thirds 0;
+      padding-bottom: $gutter-one-third;
+      font-size: 36px;
+      font-weight: 500;
       line-height: 1;
-      background: $grey-8;
       background-repeat: no-repeat;
       background-position: $gutter-one-third center;
 
-      img {
-        display: block;
-        max-width: 100%;
+      &,
+      a {
+        color: #fff;
+        text-decoration: none !important;
+      }
+    }
 
-        &.header-standard {
-          max-width: 307px;
+    .pull-right {
+      position: absolute;
+      right: $gutter-two-thirds;
+      top: 0;
+      margin: 0;
 
-          @media (max-width: 380px) {
-            max-width: 100%;
-          }
-        }
+      @media (max-width: 660px) {
+        position: static;
+        margin-bottom: $gutter-two-thirds;
+      }
+    }
 
-        &.header-businesses {
-          max-width: 541px;
+    p {
+      margin-top: 32px;
+      margin-bottom: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
 
-          @media (max-width: 616px) {
-            max-width: 100%;
-          }
-        }
+      @media (max-width: 660px) {
+        margin-top: $gutter-one-sixth;
+      }
+    }
+  }
 
-        &.header-teachers {
-          max-width: 506px;
+  #content > .article-container {
+    padding-top: $gutter*3;
+    padding-bottom: $gutter*3;
 
-          @media (max-width: 580px) {
-            max-width: 100%;
-          }
-        }
+    @media (max-width: 900px) {
+      padding-top: $gutter*1.5;
+      padding-bottom: $gutter*2;
+    }
+
+    @include is-ipad {
+      padding-top: $gutter;
+    }
+
+    h1 {
+      margin-bottom: $gutter-two-thirds;
+      color: #444;
+      font-size: 30px;
+      font-weight: 700;
+
+      @include ipad("portrait") {
+        font-size: 26px;
+      }
+
+      @include is-iphone {
+        margin-bottom: $gutter-one-third;
+        font-size: 26px;
       }
     }
   }
 
   h2 {
-    margin-bottom: $gutter;
-    padding-left: $gutter-two-thirds;
+    margin-bottom: $gutter*2;
     color: $grey-5;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 300;
+
+    @include ipad("portrait") {
+      font-size: 20px;
+    }
+
+    @include is-iphone {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: $gutter;
+    }
 
     &.feedback-title {
       line-height: 1.6;
@@ -943,21 +1535,25 @@ ul.results-list {
     }
   }
 
-  .block-6 {
-    padding-left: $gutter-two-thirds;
-    padding-right: $gutter-two-thirds;
+  .block-2,
+  .block-4 {
+    margin-top: $gutter*1.5;
+
+    @include is-iphone {
+      margin-top: $gutter;
+    }
   }
 
   .button {
-    padding: 2px 8px 1px;
-    font-family: $arial;
-    font-size: 11px;
-    font-weight: bold;
+    padding: 10px 12px;
+    font-family: $custom-font-family;
+    font-size: 14px;
+    font-weight: 400;
     -webkit-font-smoothing: initial;
-    border: 1px solid $line-color;
+    border: none;
     outline: none;
     @include box-shadow(none);
-    @include border-radius(2px);
+    @include border-radius(0);
 
     &,
     &:active,
@@ -969,6 +1565,7 @@ ul.results-list {
     &[disabled]:hover {
       color: #000 !important;
       background-color: $btn-color !important;
+      text-decoration: none !important;
     }
 
     &:active {
@@ -976,9 +1573,17 @@ ul.results-list {
       @include box-shadow(none);
     }
 
-    @media (max-width: 640px) {
-      padding-top: 8px;
-      padding-bottom: 7px;
+    &.btn-businesses,
+    &.btn-teachers {
+      color: #fff !important;
+    }
+
+    &.btn-businesses {
+      background-color: $color-businesses !important;
+    }
+
+    &.btn-teachers {
+      background-color: $color-teachers !important;
     }
   }
 
@@ -988,18 +1593,15 @@ ul.results-list {
       margin-top: $gutter-two-thirds;
       margin-bottom: 0;
       padding: 0;
+      color: #444;
     }
 
     p {
       margin-top: $gutter-one-sixth;
-      font-size: 13px;
+      color: $grey-1;
+      font-size: 14px;
     }
   }
-}
-
-.search-page .article-container {
-  margin-right:0;
-  max-width:none;
 }
 
 .scheme-finder-search {
@@ -1007,39 +1609,45 @@ ul.results-list {
     .block-2 {
       float: left;
       width: 41.1290323%;
+
       .inner-block {
-        padding: 0 $gutter 0 $gutter-two-thirds;
+        padding: 0 $gutter;
       }
     }
     .block-4 {
       float: left;
       width: 58.870967%;
+
       .inner-block {
         padding: 0 $gutter 0 $gutter-half;
       }
     }
   }
+
   @include media(tablet) {
     .block-2 {
       float: left;
-      width: 41.1290323%;
-      .inner-block {
-        padding: 0 $gutter 0 $gutter-two-thirds;
-      }
+      position: absolute;
+      width: 340px;
 
-      @include right-to-left {
-        float: right;
-        .inner-block {
-          padding: 0 $gutter 0 $gutter*1.5;
+      .inner-block {
+        padding: 0;
+        padding-right: $gutter;
+
+        @include ipad("portrait") {
+          padding-right: $gutter-two-thirds;
         }
       }
     }
 
     .block-4 {
-      float: left;
-      width: 58.870967%;
+      float: right;
+      width: 100%;
+
       .inner-block {
-        padding: 0 $gutter 0 $gutter-half;
+        margin-left: 340px;
+        padding: 0;
+        padding-left: $gutter-half;
       }
 
       @include right-to-left {
@@ -1050,28 +1658,340 @@ ul.results-list {
       }
     }
   }
+
+  .block-4 {
+    min-height: 560px;
+    @media (max-width: 640px) {
+      min-height: 0 !important;
+    }
+  }
 }
 
-.start-page .scheme-finder-frontend .button {
-  max-width: 100%;
-  width: 320px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 8px;
-  padding-bottom: 7px;
-  text-align: center;
+.start-page .scheme-finder-frontend {
+  a {
+    text-decoration: none;
+    font-weight: 400;
 
-  @media (min-width: 640px) {
-    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  #content > .article-container .intro {
+    .get-started-intro {
+      position: relative;
+
+      h1 {
+        margin-bottom: $gutter*2;
+        line-height: 1.3;
+
+        @media (max-width: 900px) {
+          margin-bottom: $gutter;
+        }
+
+        @include ipad("portrait") {
+          font-size: 26px;
+        }
+
+        @include is-iphone {
+          font-size: 26px;
+        }
+      }
+
+      p {
+        width: 47.826087%;
+        margin-bottom: $gutter*2.5;
+        color: $grey-5;
+        font-size: 24px;
+        font-weight: 300;
+
+        @media (max-width: 900px) {
+          max-width: 440px;
+          width: 100%;
+          margin-bottom: $gutter*2;
+        }
+
+        @include ipad("portrait") {
+          max-width: 370px;
+          font-size: 20px;
+        }
+
+        @include is-iphone {
+          margin-bottom: $gutter-two-thirds;
+          color: $grey-5;
+          font-size: 19px;
+          line-height: 1.5;
+        }
+
+        @include ie-lte(8) {
+          width: 50%;
+        }
+      }
+
+      > p {
+        text-align: justify;
+      }
+
+      .partnership-container {
+        overflow: hidden;
+        position: absolute;
+        width: 41.1%;
+        top: 10px;
+        right: 0;
+        padding: 30px 0;
+        border: 1px solid #999;
+
+        @media (max-width: 900px) {
+          overflow: visible;
+          position: static;
+          width: 100%;
+          margin-bottom: $gutter*2;
+        }
+
+        @include ipad("portrait") {
+          overflow: hidden;
+          position: absolute;
+          width: 315px;
+          margin-top: -3px;
+          margin-bottom: 0;
+          padding: 13px 0;
+        }
+
+        @include is-iphone {
+          overflow: hidden;
+          padding: 13px 0;
+        }
+
+        p {
+          width: 100%;
+          margin: 0;
+          margin-bottom: 10px;
+          padding-left: 30px;
+          padding-right: 40px;
+          font-size: 16px;
+          line-height: 1.45;
+
+          @media (max-width: 900px) {
+            max-width: 80%;
+          }
+
+          @include ipad("portrait") {
+            max-width: 100%;
+            padding-left: 15px;
+            font-size: 15px;
+          }
+
+          @include is-iphone {
+            max-width: 89%;
+            padding-left: 15px;
+            font-size: 15px;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          strong {
+            display: block;
+            margin-bottom: 20px;
+
+            @include ipad("portrait") {
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    h3 {
+      margin-bottom: $gutter;
+      font-size: 24px;
+
+      @media (max-width: 900px) {
+        margin-bottom: $gutter-half;
+      }
+    }
+
+    .pull-left,
+    .pull-right {
+      float: left;
+      width: 41.3043478%;
+      margin-top: $gutter*1.5;
+      margin-bottom: $gutter*1.5;
+
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+
+      @include ipad("portrait") {
+        width: 45%;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: $gutter*1.5;
+        color: $grey-5;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: justify;
+        line-height: 1.66666667;
+
+        @media (max-width: 900px) {
+          margin-bottom: $gutter;
+        }
+      }
+    }
+
+    .pull-right {
+      float: right;
+
+      @media (max-width: 900px) {
+        margin-top: $gutter*2;
+
+        @include ipad("portrait") {
+          margin-top: $gutter*1.5;
+        }
+      }
+
+      p {
+        padding-right: 3px;
+
+        @media (max-width: 900px) {
+          padding-right: 0;
+        }
+      }
+    }
+
+    .register-title {
+      width: 31.5217391%;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      @include ipad("portrait") {
+        width: 31.5217391%;
+      }
+    }
+
+    .register-content {
+      width: 63.0434783%;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-top: 0;
+      }
+
+      @include ipad("portrait") {
+        width: 63.0434783%;
+        margin-top: $gutter*1.5;
+      }
+
+      a {
+        margin-left: $gutter-one-sixth;
+      }
+    }
+
+    .register-link {
+      padding-right: 19px;
+      background-image: image-url('icon-arrow-right-blue.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-arrow-right-blue@2.png');
+        background-size: 10px 16px;
+      }
+    }
+
+    .button {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 16px;
+      font-weight: 300;
+      text-align: left;
+      text-indent: 20px;
+      letter-spacing: 0.08em;
+      background-image: image-url('icon-arrow-right.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-arrow-right@2.png');
+        background-size: 28px 20px;
+      }
+
+      @media (min-width: 644px) {
+        font-size: 18px;
+      }
+
+      @include is-ios {
+        font-weight: 400;
+      }
+
+      @include is-iphone {
+        padding-bottom: 14px;
+        letter-spacing: 0.04em;
+      }
+
+      @include ie-lte(8) {
+        width: 360px;
+        padding-left: 20px;
+        text-indent: 0;
+      }
+    }
+  }
+}
+
+.had-direct-interactions-container {
+  overflow: hidden;
+  margin: 0;
+  margin-bottom: $gutter-two-thirds;
+  padding: 0;
+  padding-top: $gutter-two-thirds;
+  padding-bottom: $gutter-half;
+  background: #f0f0f0;
+
+  @include is-iphone {
+    padding-top: 0;
+    background: transparent;
+  }
+
+  .filter.multi_select,
+  .filter.grouped_select {
+    max-width: 90%;
+    margin-left: $gutter-half;
+
+    @media (max-width: 640px) {
+      max-width: 95%;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 90%;
+    }
+
+    @include is-iphone {
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    .select2-choices {
+      border-color: #fff;
+
+      @include is-iphone {
+        border-color: $grey-9;
+      }
+    }
   }
 }
 
 .filter-block form fieldset .filter.search_had_direct_interactions {
   display: block;
-  margin: -$gutter-one-third;
-  margin-bottom: $gutter-two-thirds;
-  padding: $gutter-one-third;
-  background: $grey-6;
+
+  @include is-iphone {
+    position: relative;
+  }
 
   @include ie(6) {
     position: relative;
@@ -1096,14 +2016,19 @@ ul.results-list {
   .input {
     clear: both;
     min-height: 37px;
+
+    @include ie-lte(8) {
+      margin-bottom: 10px;
+    }
   }
 
   label {
     float: left;
     min-width: 180px;
+    margin-top: 7px;
     color: $grey-5;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 400;
 
     abbr {
       color: red;
@@ -1135,14 +2060,21 @@ ul.results-list {
 
   .select2-container-multi {
     display: inline-block;
-    width: 55% !important;
-    max-width: 220px;
-    margin-bottom: $gutter-one-third;
+    max-width: 410px;
+    margin-bottom: $gutter-half;
     @include appearance(none);
 
     .select2-choices {
-      background: $grey-7;
+      padding: 4px;
+      padding-right: 30px;
+      background: $grey-7 image-url("icon-dropdown.png") no-repeat right 16px !important;
+      background-position: right 17px;
       border-color: $grey-9;
+
+      @include is-retina {
+        background-image: image-url("icon-dropdown@2.png") !important;
+        background-size: 22px 7px !important;
+      }
     }
 
     &.select2-container-active .select2-choices,
@@ -1174,22 +2106,22 @@ ul.results-list {
     max-width: 210px;
     width: 100%;
     margin: 0;
-    padding: 5px;
+    margin-bottom: $gutter-half;
+    padding: 8px 9px;
+    font-size: 14px;
     background: $grey-7;
     border: 1px solid $grey-9;
-    margin-bottom: 10px;
     outline: none;
     @include appearance(none);
     @include border-radius(0);
 
     @media (max-width: 456px) {
-      max-width: 97%%;
+      max-width: 97%;
     }
   }
 
   textarea {
     max-width: 390px;
-    margin-bottom: 10px;
 
     @media (max-width: 456px) {
       max-width: 97%;
@@ -1197,21 +2129,64 @@ ul.results-list {
   }
 }
 
+body .form-inputs .grouped_select .select2-container-multi,
+body .form-inputs .multi_select .select2-container-multi {
+  @media (max-width: 464px) {
+    width: 103% !important;
+  }
+}
+
 .form-actions {
   clear: both;
-  max-width: 582px;
   margin-top: 30px;
 
-  @media (max-width: 640px) {
-    max-width: 400px;
-  }
-
   &.scheme-actions {
-    max-width: 404px;
+    width: 103%;
+    max-width: 593px;
+
+    @media (max-width: 644px) {
+      max-width: 410px;
+    }
   }
 
   .button {
     float: right;
+  }
+
+  .btn-search {
+    width: 200px;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    text-indent: 20px;
+    letter-spacing: 0.08em;
+    background-image: image-url('icon-arrow-right.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+
+    @include device-pixel-ratio {
+      background-image: image-url('icon-arrow-right@2.png');
+      background-size: 28px 20px;
+    }
+
+    @media (min-width: 644px) {
+      width: 100%;
+    }
+
+    @include is-ios {
+      width: 100%;
+      font-weight: 400;
+    }
+
+    @include is-iphone {
+      padding-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    @include ie-lte(8) {
+      width: 100%;
+    }
   }
 }
 
@@ -1254,12 +2229,17 @@ ul.results-list {
     }
   }
 
+  .select2-drop-mask {
+    background-color: #999;
+    opacity: 0.6;
+  }
+
   .select2-drop {
     position: fixed !important;
     top: 0 !important;
     left: auto !important;
     right: 0 !important;
-    width: 215px !important;
+    width: 245px !important;
     height: auto !important;
     background: $grey-6;
     border: none !important;
@@ -1268,6 +2248,8 @@ ul.results-list {
 
     &.height-checked {
       height: 101% !important;
+      padding-top: 10px;
+      padding-bottom: 20px;
     }
 
     .select2-results {
@@ -1281,11 +2263,22 @@ ul.results-list {
 
       .select2-selected {
         display: block;
-        background: image-url('icon-select-check.png') no-repeat right center;
+        background: #e9e9e9 image-url('icon-select-check.png') no-repeat right center;
 
         @include device-pixel-ratio {
           background-image: image-url('icon-select-check@2.png');
           background-size: 31px 18px;
+        }
+
+        .select2-result-label {
+          color: #333;
+
+          .scheme-businesses & {
+            color: $color-businesses;
+          }
+          .scheme-teachers & {
+            color: $color-teachers;
+          }
         }
       }
 
@@ -1295,22 +2288,17 @@ ul.results-list {
       }
 
       .select2-result-with-children li .select2-result-label {
-        font-weight: bold !important;
+        font-weight: 300 !important;
       }
 
       .select2-result-label {
-        padding-top: 15px;
-        padding-bottom: 5px;
+        padding-top: 11px;
+        padding-bottom: 9px;
         padding-left: 15px;
+        padding-right: 40px;
         color: $grey-5;
-        font-size: 13px;
-        font-weight: bold !important;
-        border-bottom: 1px solid #ccc;
-      }
-
-      > .select2-result:last-child .select2-result-label {
-        margin-bottom: $gutter-half;
-        border-bottom: none;
+        font-size: 14px;
+        font-weight: 300 !important;
       }
 
       .select2-result-with-children > .select2-result-label {
@@ -1326,15 +2314,22 @@ ul.results-list {
   #back-banner {
     background: $accent-link-colour;
 
+    .scheme-businesses & {
+      background: $color-businesses;
+    }
+    .scheme-teachers & {
+      background: $color-teachers;
+    }
+
     a {
       display: block;
       width: 39px;
       height: 39px;
-      background: image-url('arrow-back-mobile.png') no-repeat center center;
+      background: image-url('icon-arrow-left.png') no-repeat center center;
       text-indent: -9999px;
 
       @include device-pixel-ratio {
-        background-image: image-url('arrow-back-mobile@2.png');
+        background-image: image-url('icon-arrow-left@2.png');
         background-size: 39px 39px;
       }
     }
@@ -1354,30 +2349,26 @@ ul.results-list {
     padding-top: 0;
     background: $white;
 
-    &.select2-open {
-      //background: $grey-7;
-    }
-
-    #content {
-      padding: 0 10px;
-      padding-top: 20px;
-      background: $grey-8;
-      border: 25px solid $grey-8;
-      border-top: none;
-    }
-
     header.page-header div {
-      padding-top: 20px;
       padding-left: 0;
       padding-right: 0;
 
-      h1 img {
-        margin: 0 auto;
+      h1 {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .pull-right {
+        margin-bottom: 15px;
+        text-align: center;
+
+        p {
+          margin: 0;
+          font-size: 17px;
+        }
       }
     }
 
-
-    h2,
     .block-6,
     .inner-block {
       margin-top: $gutter;
@@ -1386,9 +2377,6 @@ ul.results-list {
     }
 
     h2 {
-      margin: 0;
-      font-size: 13px;
-
       &.feedback-title {
         position: relative;
         margin-bottom: $gutter;
@@ -1427,35 +2415,24 @@ ul.results-list {
       display: none;
     }
 
-    .button {
-      font-size: 12px;
-    }
-
-    header.page-header {
-      h1 {
-        padding-left: 0;
-        padding-right: 0;
-        font-size: 14px;
-      }
-    }
-
     .no-matching-feedbacks,
     .no-matching-schemes {
       margin-bottom: $gutter-two-thirds;
 
       h2 {
-        font-size: 12px;
+        font-size: 18px;
       }
 
       p {
-        font-size: 10px;
+        font-size: 14px;
         line-height: 1.45;
       }
     }
 
     .form-inputs {
       label {
-        font-size: 11px;
+        margin-bottom: $gutter-one-sixth;
+        font-size: 13px;
       }
 
       .input {
@@ -1464,6 +2441,10 @@ ul.results-list {
 
       textarea {
         max-width: none;
+
+        @include iphone("portrait") {
+          max-width: 260px;
+        }
       }
 
       .radio-collection-input {
@@ -1490,23 +2471,9 @@ ul.results-list {
         padding: 0;
         background: transparent;
         border: none;
-      }
 
-      input.boolean {
-        display: inline-block;
-        position: absolute;
-        width: 1.2em;
-        height: 1.2em;
-        margin-top: 0.55em;
-        background: $grey-7;
-        border: 1px solid #999;
-        outline: none;
-        @include appearance(none);
-        @include border-radius(1000px);
-
-        &:checked {
-          background: $grey-5;
-          @include box-shadow(inset 0px 0px 0px 3px $grey-7);
+        @include is-iphone {
+          margin-bottom: $gutter-one-third;
         }
       }
 
@@ -1514,16 +2481,19 @@ ul.results-list {
         font-size: 11px;
       }
 
+      label.boolean,
+      .hint {
+        font-size: 12px;
+
+        @include is-iphone {
+          font-size: 14px;
+        }
+      }
+
       label.boolean {
         display: inline-block;
         position: relative;
-        left: 1.8em;
-        font-size: 11px;
         line-height: 1.3333;
-      }
-
-      .hint {
-        font-size: 11px;
       }
 
       .multi-row-select {
@@ -1532,19 +2502,16 @@ ul.results-list {
     }
 
     ul.results-list {
-      margin-bottom: $gutter;
-      border-top: 1px solid $grey-9;
+      margin-bottom: 0;
 
       li {
-        padding-top: $gutter-one-sixth;
-
         h3 {
-          font-size: 13px;
+          font-size: 16px;
+          line-height: 1.4;
         }
 
         p {
-          margin-top: 0;
-          font-size: 10px;
+          font-size: 14px;
         }
 
         .feedback-link {
@@ -1598,12 +2565,6 @@ ul.results-list {
     }
 
     .scheme-finder-frontend {
-      #content  {
-        padding-top: 70px;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 60px;
-      }
 
       .article-container {
         padding-left: 20px;
@@ -1614,25 +2575,6 @@ ul.results-list {
         div {
           margin-bottom: $gutter-one-third;
           padding-left: 0;
-        }
-
-        h1 {
-          font-size: 22px;
-          text-align: center;
-        }
-      }
-
-      .intro {
-        width: 220px;
-        margin: 0 auto;
-        padding-left: 0;
-        text-align: center;
-
-        p {
-          margin-bottom: $gutter-two-thirds;
-          color: $grey-5;
-          font-size: 16px;
-          line-height: 1.25;
         }
       }
     }
@@ -1653,5 +2595,69 @@ ul.results-list {
       border: none;
       @include border-radius(0);
     }
+  }
+}
+
+.new-scheme-header {
+  margin-bottom: $gutter*1.5;
+
+  @include is-iphone {
+    margin-bottom: 0;
+  }
+}
+
+/* iCheck plugin Minimal skin, black
+----------------------------------- */
+.icheckbox_minimal {
+  position: absolute;
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+}
+
+.icheckbox_minimal.checked {
+  background-image: image-url('icon-checkbox.png');
+}
+
+.iradio {
+  position: absolute;
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: image-url('icon-radio.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: none;
+  cursor: pointer;
+}
+
+.iradio.checked {
+  background-position: center bottom;
+}
+
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .icheckbox_minimal.checked {
+    background-image: image-url('icon-checkbox@2.png');
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+  }
+  .iradio {
+    background-image: image-url('icon-radio@2.png');
+    -webkit-background-size: 16px 32px;
+    background-size: 16px 32px;
   }
 }

@@ -29,8 +29,10 @@ I want to use guide for teachers or for businesses
 
   def choose_teachers_guide
     ensure_on root_path
-    within_desktop do
-      click_on "btn-teachers-guide"
+    within ".for-teachers" do
+      within_desktop do
+        click_on "btn-teachers-guide"
+      end
     end
   end
 
@@ -41,8 +43,10 @@ I want to use guide for teachers or for businesses
 
   def choose_businesses_guide
     ensure_on root_path
-    within_desktop do
-      click_on "btn-businesses-guide"
+    within ".for-business" do
+      within_desktop do
+        click_on "btn-businesses-guide"
+      end
     end
   end
 

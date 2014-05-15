@@ -146,7 +146,7 @@ module ApplicationHelper
                   end
     end
 
-    if action_name == "new" && controller_name == "schemes" or action_name == "mobile_search" or controller_name == "feedbacks"
+    if action_name == "new" && action_name == "mobile_search" or controller_name == "feedbacks"
       contents = []
     end
 

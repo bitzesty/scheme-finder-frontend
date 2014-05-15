@@ -3,11 +3,18 @@
 
 - for_web do
   .article-container.group.scheme-finder-search
-    h2
-      | You can use the filters to only show schemes that you are eligible for
+    - if businesses_audience?
+      h1 For Businesses
+      h2 We help businesses connect with schools, engage with pupils, enrich learning and showcase industry to the next generation of young people.
+    - else
+      h1 For Teachers
+      h2 We help teachers to identify suitable schemes that provide curriculum supported lesson plans, careers advice, local visits and work experience.
+
+    hr
 
     .block-2
       .inner-block
+        p.intro-text You can use the filters to only show schemes that you are eligible for
         .filter-block
           = render "search",
                    search: @search,
@@ -28,6 +35,15 @@
 
 - for_mobile do
   .scheme-finder-mobile-search
+    - if businesses_audience?
+      h1 For Businesses
+      h2 We help businesses connect with schools, engage with pupils, enrich learning and showcase industry to the next generation of young people.
+    - else
+      h1 For Teachers
+      h2 We help teachers to identify suitable schemes that provide curriculum supported lesson plans, careers advice, local visits and work experience.
+
+    hr
+
     .block-2
       .inner-block
         .filter-block
