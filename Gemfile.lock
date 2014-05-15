@@ -1,6 +1,7 @@
 GIT
   remote: git@github.com:bitzesty/govuk_template.git
-  revision: 615d5d281cce9eee55acd84d245d4066c6ca481f
+  revision: 7a4409b792167f62c5e5a0dd2ba0830ca71ecd49
+  branch: compiled-assets
   specs:
     govuk_template (0.7.1)
       rails (>= 3.1)

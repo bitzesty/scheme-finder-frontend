@@ -6,11 +6,14 @@ gem 'rails', '4.0.5'
 gem "foreman"
 gem "dotenv-rails"
 gem "hipchat", "~> 1.0.1"
-gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+gem "sentry-raven",
+    git: "https://github.com/getsentry/raven-ruby.git"
 
 gem 'passenger'
 
-gem "govuk_template", :git => "git@github.com:bitzesty/govuk_template.git"
+gem "govuk_template",
+    git: "git@github.com:bitzesty/govuk_template.git",
+    branch: "compiled-assets"
 gem "bootstrap-sass", ">= 3.0.0.0"
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
