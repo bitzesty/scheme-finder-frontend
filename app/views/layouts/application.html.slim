@@ -55,9 +55,9 @@
 = content_for :footer_top do
   .pull-left
     ul
-      li = link_to "About #{yield(:page_title)}"
-      li = link_to "Cookie Policy"
-      li = link_to "Contact"
+      li = link_to "About #{yield(:page_title)}", about_page_path
+      li = link_to "Cookie Policy", cookies_page_path
+      li = link_to "Contact", contact_page_path
   .pull-right
     ' © #{yield(:page_title)} #{Time.now.year}
   .clear
