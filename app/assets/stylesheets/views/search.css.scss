@@ -251,6 +251,10 @@ hr {
         margin-right: 0;
       }
 
+      @include ie-lte(7) {
+        display: inline;
+      }
+
       &:last-child {
         margin-right: 0;
       }
