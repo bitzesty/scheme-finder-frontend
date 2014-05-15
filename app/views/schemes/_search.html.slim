@@ -73,11 +73,11 @@
               collection: AgeRange.collection,
               required: false,
               input_html: { class: "multi-row-select" }
-
-  .form-actions
-    = f.button :submit, "Search for Schemes",
-               class: "btn-search button btn btn-primary #{'btn-businesses' if businesses_audience?}#{'btn-teachers' if teachers_audience?}",
-               id: "submit_btn",
-               data: { action: "submit",
-                       ga_search_scheme_click: "true" }
-    .clear
+  - for_mobile do
+    .form-actions
+      = f.button :submit, "Search for Schemes",
+                 class: "btn-search button btn btn-primary #{'btn-businesses' if businesses_audience?}#{'btn-teachers' if teachers_audience?}",
+                 id: "submit_btn",
+                 data: { action: "submit",
+                         ga_search_scheme_click: "true" }
+      .clear
