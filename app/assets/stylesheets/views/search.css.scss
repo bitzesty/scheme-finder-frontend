@@ -1721,6 +1721,10 @@ input[type="checkbox"]:checked {
           font-size: 19px;
           line-height: 1.5;
         }
+
+        @include ie-lte(8) {
+          width: 50%;
+        }
       }
 
       > p {
