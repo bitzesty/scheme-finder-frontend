@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:bitzesty/govuk_template.git
+  remote: git://github.com/bitzesty/govuk_template.git
   revision: 7a4409b792167f62c5e5a0dd2ba0830ca71ecd49
   branch: compiled-assets
   specs:
