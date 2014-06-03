@@ -6,6 +6,7 @@ SchemeFinderFrontend::Application.routes.draw do
       get :start
       get :maintenance
       get :cookies
+      get :terms
       get :contact
     }
   end

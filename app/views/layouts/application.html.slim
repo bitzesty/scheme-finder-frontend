@@ -56,6 +56,7 @@
   .pull-left
     ul
       li = link_to "About #{yield(:page_title)}", about_page_path
+      li = link_to "Terms & Conditions", terms_page_path
       li = link_to "Cookie Policy", cookies_page_path
       li = link_to "Contact", contact_page_path
   .pull-right
