@@ -1,13 +1,11 @@
-li.scheme.mobile-hide
-  h3
+li.scheme
+  h3.mobile-hide
     = link_to scheme.name,
               scheme.website_url,
               target: "_blank",
               data: { ga_scheme_click: true,
                       ga_tool_completed: true }
-
-li.scheme.mobile-show
-  h3
+  h3.mobile-show
     = link_to scheme.name,
               scheme.website_url,
               target: "_system",
