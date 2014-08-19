@@ -1403,6 +1403,15 @@ input[type="checkbox"]:checked {
     }
   }
 
+  header.page-header > div {
+    padding-top: 15px;
+
+    @include is-iphone {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   header.page-header {
     height: 85px;
     background: #333;
@@ -1412,7 +1421,7 @@ input[type="checkbox"]:checked {
     }
 
     @include is-iphone {
-      height: 110px;
+      height: 170px;
     }
 
     .inner-block {
@@ -1420,14 +1429,34 @@ input[type="checkbox"]:checked {
     }
 
     h1 {
-      margin-bottom: 0;
-      padding: $gutter-two-thirds 0;
-      padding-bottom: $gutter-one-third;
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 1;
+      display: block;
+      width: 128px;
+      height: 47px;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      text-indent: -9999px;
+      background-image: image-url('logo-white.png');
       background-repeat: no-repeat;
-      background-position: $gutter-one-third center;
+      background-position: 0 center;
+
+      @include is-retina {
+        background-image: image-url('logo-white@2.png');
+        background-size: 128px 47px;
+      }
+
+      @include is-iphone {
+        width: 250px;
+        height: 91px;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        background: image-url('logo-white-mobile.png');
+
+        @include is-retina {
+          background: image-url('logo-white-mobile@2.png');
+          background-size: 250px 91px;
+        }
+      }
 
       &,
       a {
@@ -1446,6 +1475,11 @@ input[type="checkbox"]:checked {
         position: static;
         margin-bottom: $gutter-two-thirds;
       }
+
+      @include is-iphone {
+        margin-bottom: 15px;
+        text-align: center;
+      }
     }
 
     p {
@@ -1457,6 +1491,11 @@ input[type="checkbox"]:checked {
 
       @media (max-width: 660px) {
         margin-top: $gutter-one-sixth;
+      }
+
+      @include is-iphone {
+        margin: 0;
+        font-size: 17px;
       }
     }
   }
@@ -2197,7 +2236,6 @@ body .form-inputs .multi_select .select2-container-multi {
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape), only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait), only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-
   html,
   body {
     background: $grey-8;
@@ -2348,26 +2386,6 @@ body .form-inputs .multi_select .select2-container-multi {
     position: relative;
     padding-top: 0;
     background: $white;
-
-    header.page-header div {
-      padding-left: 0;
-      padding-right: 0;
-
-      h1 {
-        font-size: 30px;
-        text-align: center;
-      }
-
-      .pull-right {
-        margin-bottom: 15px;
-        text-align: center;
-
-        p {
-          margin: 0;
-          font-size: 17px;
-        }
-      }
-    }
 
     .block-6,
     .inner-block {
