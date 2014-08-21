@@ -1706,6 +1706,35 @@ input[type="checkbox"]:checked {
   }
 }
 
+.static-page {
+  h3 {
+    margin-bottom: $gutter;
+    font-size: 24px;
+
+    @media (max-width: 900px) {
+      margin-bottom: $gutter-half;
+    }
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: $gutter;
+    color: $grey-5;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.66666667;
+
+    @media (max-width: 900px) {
+      margin-bottom: $gutter;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .start-page .scheme-finder-frontend {
   a {
     text-decoration: none;
@@ -1856,7 +1885,7 @@ input[type="checkbox"]:checked {
       float: left;
       width: 41.3043478%;
       margin-top: $gutter*1.5;
-      margin-bottom: $gutter*1.5;
+      margin-bottom: $gutter;
 
       @media (max-width: 900px) {
         width: 100%;
@@ -1866,9 +1895,13 @@ input[type="checkbox"]:checked {
         width: 45%;
       }
 
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       p {
         margin-top: 0;
-        margin-bottom: $gutter*1.5;
+        margin-bottom: $gutter;
         color: $grey-5;
         font-size: 18px;
         font-weight: 300;
@@ -1877,6 +1910,10 @@ input[type="checkbox"]:checked {
 
         @media (max-width: 900px) {
           margin-bottom: $gutter;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
