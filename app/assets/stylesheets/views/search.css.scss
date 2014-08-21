@@ -1711,6 +1711,7 @@ input[type="checkbox"]:checked {
 .static-page {
   h3 {
     margin-bottom: $gutter;
+    color: #444;
     font-size: 24px;
 
     @media (max-width: 900px) {
@@ -1730,6 +1731,19 @@ input[type="checkbox"]:checked {
     @media (max-width: 900px) {
       margin-bottom: $gutter;
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    margin-bottom: $gutter;
+  }
+
+  li {
+    margin-bottom: $gutter-half;
 
     &:last-child {
       margin-bottom: 0;
