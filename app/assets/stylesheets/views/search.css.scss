@@ -1429,39 +1429,41 @@ input[type="checkbox"]:checked {
     }
 
     h1 {
-      display: block;
-      width: 128px;
-      height: 47px;
-      margin: 0;
-      padding: 0;
-      text-align: left;
-      text-indent: -9999px;
-      background-image: image-url('logo-white.png');
-      background-repeat: no-repeat;
-      background-position: 0 center;
-
-      @include is-retina {
-        background-image: image-url('logo-white@2.png');
-        background-size: 128px 47px;
-      }
-
-      @include is-iphone {
-        width: 250px;
-        height: 91px;
-        margin: 0 auto;
-        margin-bottom: 15px;
-        background: image-url('logo-white-mobile.png');
-
-        @include is-retina {
-          background: image-url('logo-white-mobile@2.png');
-          background-size: 250px 91px;
-        }
-      }
-
       &,
       a {
         color: #fff;
         text-decoration: none !important;
+      }
+
+      a {
+        display: block;
+        width: 128px;
+        height: 47px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-indent: -9999px;
+        background-image: image-url('logo-white.png');
+        background-repeat: no-repeat;
+        background-position: 0 center;
+
+        @include is-retina {
+          background-image: image-url('logo-white@2.png');
+          background-size: 128px 47px;
+        }
+
+        @include is-iphone {
+          width: 250px;
+          height: 91px;
+          margin: 0 auto;
+          margin-bottom: 15px;
+          background: image-url('logo-white-mobile.png');
+
+          @include is-retina {
+            background: image-url('logo-white-mobile@2.png');
+            background-size: 250px 91px;
+          }
+        }
       }
     }
 
