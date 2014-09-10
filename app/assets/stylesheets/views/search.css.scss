@@ -2744,7 +2744,7 @@ body .form-inputs .multi_select .select2-container-multi {
   background: #333;
   font-family: $custom-font-family;
   opacity: 0.95;
-  z-index: 999;
+  z-index: 998;
 
   @media (max-width: 900px) {
     padding: 30px 20px;
@@ -2856,5 +2856,166 @@ body .form-inputs .multi_select .select2-container-multi {
       padding-left: 35px;
       padding-right: 0;
     }
+  }
+}
+
+/* Terms & Conditions pop up
+----------------------------------- */
+#terms-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: $custom-font-family;
+  z-index: 999;
+
+  h2,
+  h3,
+  p {
+    margin: 0;
+    margin-bottom: 20px;
+    color: #333;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2,
+  h3 {
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3,
+  label {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    padding: 12px 0;
+    padding-right: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: left;
+    text-indent: 20px;
+    letter-spacing: 0.08em;
+    background-image: url(/assets/icon-arrow-right.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+
+    @include is-retina {
+      background-image: image-url('icon-arrow-right@2.png');
+      background-size: 28px 20px;
+    }
+
+    @media (max-width: 900px) {
+      position: static;
+      display: block;
+    }
+
+    &.disabled,
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &.btn-businesses,
+    &.btn-teachers {
+      color: #fff !important;
+    }
+
+    &.btn-businesses {
+      background-color: $color-businesses !important;
+    }
+
+    &.btn-teachers {
+      background-color: $color-teachers !important;
+    }
+  }
+
+  .form-control {
+    position: relative;
+    margin: 10px 0;
+
+    @media (max-width: 900px) {
+      margin: 0 10px;
+      margin-bottom: 25px;
+    }
+
+    .icheckbox_minimal,
+    input[type="checkbox"] {
+      position: absolute;
+      top: 3px;
+    }
+
+    label {
+      padding-left: 30px;
+    }
+  }
+
+  .terms-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eee;
+    opacity: 0.5;
+  }
+
+  .terms-contents {
+    overflow: hidden;
+    position: fixed;
+    max-width: 840px;
+    width: 95%;
+    top: 45%;
+    left: 50%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.1);
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+    @media (max-height: 1150px) {
+      top: 50%;
+    }
+  }
+
+  .terms-body {
+    overflow: auto;
+    max-height: 750px;
+    padding: 45px;
+    padding-bottom: 60px;
+
+    @media (max-height: 1150px) {
+      max-height: 600px;
+    }
+
+    @media (max-height: 1000px) {
+      max-height: 400px;
+    }
+
+    @media (max-height: 700px) {
+      max-height: 300px;
+    }
+  }
+
+  .terms-footer {
+    position: relative;
+    padding: 25px 45px;
+    color: #fff;
+    background: #333;
   }
 }

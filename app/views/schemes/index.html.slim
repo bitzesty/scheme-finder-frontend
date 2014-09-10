@@ -51,3 +51,25 @@
                    search: @search,
                    remote: false,
                    url: mobile_search_schemes_path
+
+#terms-container
+  .terms-overlay
+  .terms-contents
+    .terms-body
+      h2 Growing Ambitions – Disclaimers
+      - if businesses_audience?
+        h3
+          ' Disclaimer for businesses
+        = render "pages/terms_businesses"
+      - else
+        h3
+          ' Disclaimer for schools
+        = render "pages/terms_teachers"
+    .terms-footer
+      .form-control
+        input#terms-accept type='checkbox'
+        label for="terms-accept" Confirm and accept Terms & Conditions
+      - if businesses_audience?
+        = link_to "Get Started for Businesses", "#terms-accepted", class: "big button btn-businesses", disabled: true
+      - else
+        = link_to "Get Started for Teachers", "#terms-accepted", class: "big button btn-teachers", disabled: true
