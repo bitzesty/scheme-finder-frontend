@@ -6,4 +6,12 @@ class TermsController < ApplicationController
       format.js
     end
   end
+
+  def cookies
+    session[:accepted_cookies] = true
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
 end

@@ -2755,14 +2755,19 @@ body .form-inputs .multi_select .select2-container-multi {
     display: none;
   }
 
+  .btn {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   &,
-  a {
+  .btn {
     color: #fff;
   }
 
   h3,
   p,
-  a {
+  .btn {
     font-size: 14px;
   }
 
@@ -2777,13 +2782,13 @@ body .form-inputs .multi_select .select2-container-multi {
     text-align: justify;
 
     &,
-    a {
+    .btn {
       @include is-iphone {
         font-size: 11px;
       }
     }
 
-    a {
+    .btn {
       font-weight: bold;
       text-decoration: none;
     }
