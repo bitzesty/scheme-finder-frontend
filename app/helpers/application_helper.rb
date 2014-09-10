@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
 module ApplicationHelper
+  def accepted_terms
+    session[:accepted_terms]
+  end
+
   # From Lupin V2
   #
   # Highlight the nav item if current page matching controllers_options

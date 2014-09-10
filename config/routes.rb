@@ -15,6 +15,8 @@ SchemeFinderFrontend::Application.routes.draw do
   scope "(:current_agent)", current_agent: /mobile/ do
     get "schemes/new", to: "schemes#new"
 
+    resources :terms, only: :create
+
     scope "/:current_audience", constraints: { current_audience: /businesses|teachers/  } do
       resources :schemes, only: [:new, :create, :index] do
         collection {

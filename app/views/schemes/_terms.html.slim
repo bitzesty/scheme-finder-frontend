@@ -1,0 +1,24 @@
+#terms-container
+  .terms-overlay
+  .terms-contents
+    = form_tag terms_path, remote: true do
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+
+      .terms-body
+        h2 Growing Ambitions – Disclaimers
+        - if businesses_audience?
+          h3
+            ' Disclaimer for businesses
+          = render "pages/terms_businesses"
+        - else
+          h3
+            ' Disclaimer for schools
+          = render "pages/terms_teachers"
+      .terms-footer
+        .form-control
+          = check_box_tag "accept", "1", false, id: "terms-accept"
+          label for="terms-accept" Confirm and accept Terms & Conditions
+        - if businesses_audience?
+          = submit_tag "Get Started for Businesses", class: "big button btn-businesses", id: "terms-accepted"
+        - else
+          = submit_tag "Get Started for Teachers", class: "big button btn-teachers", id: "terms-accepted"
