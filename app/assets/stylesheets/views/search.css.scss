@@ -2732,3 +2732,129 @@ body .form-inputs .multi_select .select2-container-multi {
     background-size: 16px 32px;
   }
 }
+
+/* Cookie Policy pop up
+----------------------------------- */
+#cookie-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 35px 30px;
+  background: #333;
+  font-family: $custom-font-family;
+  opacity: 0.95;
+  z-index: 999;
+
+  @media (max-width: 900px) {
+    padding: 30px 20px;
+    padding-right: 30px;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &,
+  a {
+    color: #fff;
+  }
+
+  h3,
+  p,
+  a {
+    font-size: 14px;
+  }
+
+  h3 {
+    @include is-iphone {
+      font-size: 13px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    text-align: justify;
+
+    &,
+    a {
+      @include is-iphone {
+        font-size: 11px;
+      }
+    }
+
+    a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+
+  .visible-sm {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: block;
+    }
+  }
+
+  .icon-info {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    left: 0;
+    top: 0;
+    background: red;
+    background: image-url("icon-info.png") no-repeat;
+
+    @include is-retina {
+      background-image: image-url("icon-info@2.png");
+      background-size: 23px 23px;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    padding: 5px 17px;
+    padding-bottom: 7px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    -webkit-transition: background 0.15s ease-in-out, color 0.1s ease-in-out;
+         -o-transition: background 0.15s ease-in-out, color 0.1s ease-in-out;
+            transition: background 0.15s ease-in-out, color 0.1s ease-in-out;
+
+    @media (max-width: 900px) {
+      position: static;
+      display: block;
+      margin-left: 35px;
+      text-align: center;
+    }
+
+    @include is-iphone {
+      font-size: 12px;
+    }
+
+    &:hover {
+      color: #333;
+      background: #fff;
+    }
+  }
+
+  .container {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .cookie-contents {
+    padding-left: 40px;
+    padding-right: 170px;
+
+    @media (max-width: 900px) {
+      margin-bottom: 20px;
+      padding-left: 35px;
+      padding-right: 0;
+    }
+  }
+}
