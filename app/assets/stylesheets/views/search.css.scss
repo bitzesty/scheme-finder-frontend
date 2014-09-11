@@ -2850,6 +2850,11 @@ body .form-inputs .multi_select .select2-container-multi {
       font-size: 12px;
     }
 
+    @include ie-lte(7){
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     &:hover {
       color: #333;
       background: #fff;
@@ -2961,6 +2966,10 @@ body .form-inputs .multi_select .select2-container-multi {
 
     @include is-iphone {
       font-size: 13px;
+    }
+
+    @include ie-lte(7){
+      width: 320px;
     }
 
     &.disabled,
