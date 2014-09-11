@@ -1,0 +1,15 @@
+#cookie-container
+  = form_tag cookies_terms_path, remote: true do
+    = hidden_field_tag :authenticity_token, form_authenticity_token
+
+    .container
+      i.icon-info
+      .cookie-contents
+        h3 Cookie Policy
+        p
+          ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          br.visible-sm
+          br.visible-sm
+          = link_to "Find out more »", cookies_page_path
+      .cookie-btn
+        = submit_tag "Accept & Close", class: "btn"
