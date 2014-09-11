@@ -35,6 +35,7 @@
 = content_for :content do
   #wrapper.scheme-finder-frontend
     #ipad-check
+    #ios-check.visible-iphone
     - unless %w(pages).include? controller_name
       #back-banner.mobile-show
         = link_to "←", @back_link
