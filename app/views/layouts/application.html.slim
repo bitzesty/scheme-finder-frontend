@@ -63,7 +63,8 @@
           br.visible-sm
           br.visible-sm
           = link_to "Find out more »", cookies_page_path
-      = link_to "Accept & Close", "#", class: 'btn', id: "cookie-close-btn"
+      .cookie-btn
+        = link_to "Accept & Close", "#", class: 'btn', id: "cookie-close-btn"
 
 = content_for :footer_top do
   .pull-left

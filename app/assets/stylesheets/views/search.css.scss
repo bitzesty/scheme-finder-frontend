@@ -2743,7 +2743,7 @@ body .form-inputs .multi_select .select2-container-multi {
   padding: 35px 30px;
   background: #333;
   font-family: $custom-font-family;
-  opacity: 0.95;
+  @include opacity(0.95);
   z-index: 998;
 
   @media (max-width: 900px) {
@@ -2756,13 +2756,15 @@ body .form-inputs .multi_select .select2-container-multi {
   }
 
   &,
-  a {
+  a,
+  .btn {
     color: #fff;
   }
 
   h3,
   p,
-  a {
+  a,
+  .btn {
     font-size: 14px;
   }
 
@@ -2812,12 +2814,18 @@ body .form-inputs .multi_select .select2-container-multi {
     }
   }
 
+  .cookie-btn {
+    @media (max-width: 900px) {
+      margin-left: 35px;
+    }
+  }
+
   .btn {
     position: absolute;
     top: 40px;
     right: 0;
-    padding: 5px 17px;
-    padding-bottom: 7px;
+    padding: 6px 17px;
+    padding-bottom: 5px;
     text-decoration: none;
     border: 1px solid #fff;
     -webkit-transition: background 0.15s ease-in-out, color 0.1s ease-in-out;
@@ -2827,7 +2835,9 @@ body .form-inputs .multi_select .select2-container-multi {
     @media (max-width: 900px) {
       position: static;
       display: block;
-      margin-left: 35px;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
       text-align: center;
     }
 
