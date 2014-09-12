@@ -27,7 +27,7 @@ class Public.SchemesController
         sff.SchemeAnalyticsTracker.register_company_size @value
 
     if $("#ios-check").css("display") == "block"
-      $("#terms-container .terms-body").css("max-height", ($("#terms-container").height() - 210))
+      $("#terms-container .terms-body").css("max-height", ($(window).height() - 210))
     $(window).resize ->
       if $("#ios-check").css("display") == "block"
-        $("#terms-container .terms-body").css("max-height", ($("#terms-container").height() - 210))
+        $("#terms-container .terms-body").css("max-height", ($(window).height() - 210))
