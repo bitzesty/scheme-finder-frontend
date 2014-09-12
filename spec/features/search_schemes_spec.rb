@@ -11,7 +11,7 @@ describe "Scheme search" do
     end
   end
 
-  it "uses api for searching schemes", js: true do
+  it "uses api for searching schemes" do
     ensure_on schemes_path
     filter_by_sector("Auto")
     expect_to_see "Automotives"
