@@ -1,5 +1,5 @@
 class SchemesController < ApplicationController
-  skip_before_action :set_cache_headers, only: [:create]
+  skip_before_action :set_cache_headers, only: [:new, :create]
 
   def create
     @scheme = Scheme.new(scheme_params)
