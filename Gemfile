@@ -37,7 +37,7 @@ end
 
 group :test do
   gem "capybara"
-  gem "poltergeist"
+  gem "capybara-webkit"
   gem "factory_girl_rails"
   gem "launchy"
 end

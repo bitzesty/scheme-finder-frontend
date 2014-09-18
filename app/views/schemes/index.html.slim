@@ -52,7 +52,7 @@
                    remote: false,
                    url: mobile_search_schemes_path
 
-#terms-container
+#terms-container.hidden
   .terms-overlay
   .terms-contents
     .terms-body
@@ -70,6 +70,7 @@
         input#terms-accept type='checkbox'
         label for="terms-accept" Confirm and accept Terms & Conditions
       - if businesses_audience?
-        = link_to "Get Started for Businesses", "#terms-accepted", class: "big button btn-businesses", disabled: true
+        = link_to "Get Started for Businesses", "#", class: "big button btn-businesses", disabled: true, id: "terms-accepted-btn"
       - else
-        = link_to "Get Started for Teachers", "#terms-accepted", class: "big button btn-teachers", disabled: true
+        = link_to "Get Started for Teachers", "#", class: "big button btn-teachers", disabled: true, id: "terms-accepted-btn"
+    .terms-fade
