@@ -1,6 +1,6 @@
 allowAcceptanceOfTerms = false
 
-setCookie = (cname, cvalue, exdays=365) ->
+setCookie = (cname, cvalue, exdays=180) ->
   d = new Date()
   d.setTime(d.getTime() + (exdays*24*60*1000))
   expires = "expires=#{d.toUTCString()}"
