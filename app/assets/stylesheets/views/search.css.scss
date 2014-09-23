@@ -2695,14 +2695,6 @@ body .form-inputs .multi_select .select2-container-multi {
   }
 }
 
-.new-scheme-header {
-  margin-bottom: $gutter*1.5;
-
-  @include is-iphone {
-    margin-bottom: 0;
-  }
-}
-
 /* iCheck plugin Minimal skin, black
 ----------------------------------- */
 .icheckbox_minimal {
@@ -3135,4 +3127,83 @@ body .form-inputs .multi_select .select2-container-multi {
       display: block;
     }
   }
+}
+
+/* New Scheme page
+----------------------------------- */
+
+#new-scheme-page {
+  .page-header {
+    margin-bottom: $gutter*1.5;
+
+    @include is-iphone {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-control.checkbox {
+    position: relative;
+    margin: 10px 0;
+    margin-left: 180px;
+
+    @media (max-width: 900px) {
+      margin: 0 10px;
+      margin-bottom: 25px;
+    }
+
+    @include is-iphone {
+      margin: 0 4px;
+      margin-bottom: 20px;
+    }
+
+    .icheckbox_minimal,
+    input[type="checkbox"] {
+      position: absolute;
+      top: 3px;
+      border: 1px solid #d9d9d9;
+    }
+
+    label {
+      margin-top: 0;
+      margin-bottom: $gutter;
+      padding-left: 30px;
+      color: $grey-5;
+      font-size: 14px;
+      font-weight: 300;
+      text-align: justify;
+      line-height: 1.5;
+
+      @media (max-width: 900px) {
+        margin-bottom: $gutter;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include is-iphone {
+        white-space: nowrap;
+      }
+
+      p {
+        display: inline-block;
+        margin-top: 0;
+        font-weight: 400;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 50px;
+      }
+
+      li {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
 }

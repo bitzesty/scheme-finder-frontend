@@ -41,6 +41,14 @@ toggleAllowAcceptanceOfTerms = (e) ->
   else
     $btn.attr "disabled", "disabled"
 
+toggleAllowRegisterOfScheme = (e) ->
+  allowRegisterOfScheme = e.target.checked
+  $btn = $("#new-scheme-page #submit_btn")
+  if allowRegisterOfScheme
+    $btn.removeAttr("disabled")
+  else
+    $btn.attr "disabled", "disabled"
+
 jQuery ->
   # cookies
   showCookiesAlert() unless getCookie("acceptedCookiesPolicy")
@@ -52,3 +60,6 @@ jQuery ->
 
   # enable terms and conditions if user ticks checkbox
   $(document).on "ifChanged", "#terms-accept", toggleAllowAcceptanceOfTerms
+
+  # enable terms and conditions if user ticks checkbox
+  $(document).on "ifChanged", "#new-scheme-accept", toggleAllowRegisterOfScheme

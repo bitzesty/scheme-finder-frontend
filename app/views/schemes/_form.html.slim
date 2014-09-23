@@ -50,8 +50,26 @@
               collection: AgeRange.collection
 
   .form-actions.scheme-actions
+    .form-control.checkbox
+      input#new-scheme-accept type='checkbox'
+      label for="new-scheme-accept"
+        p
+          ' By ticking this box, you confirm the following
+        ul
+          li
+            ' The information regarding your scheme that you have submitted for inclusion on this website is complete and correct. 
+          li
+            ' You have undertaken any necessary due diligence regarding any partner organisations that work with you to satisfy yourself that they are reputable and competent.
+          li
+            ' You have carried out all necessary health and safety audits, risk assessments and background checks required by UK law to the extent that they are applicable to your organisation.
+          li
+            ' You will regularly update your profile to ensure that any information that appears about your organisation on the website is accurate and up to date. You understand that the Growing Ambitions Tool is a publicly available service and BIS does not carry out any screening or checks on the users of the site.
+          li
+            ' You agree to indemnify, and to keep indemnified, BIS and EETf against all losses, liabilities, costs (including legal costs) and expenses where such losses, liabilities, costs and expenses are due to the acts or omissions of your organisation or of any partner organisations participating in your scheme.
+
     = f.button :submit,
                class: "btn btn-primary",
                id: "submit_btn",
+               disabled: true,
                data: { action: "submit", disable_with: "Working" }
     .clear
