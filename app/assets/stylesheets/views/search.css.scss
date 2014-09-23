@@ -1719,7 +1719,9 @@ input[type="checkbox"]:checked {
     }
   }
 
-  p {
+  p,
+  th,
+  td {
     margin-top: 0;
     margin-bottom: $gutter;
     color: $grey-5;
@@ -1734,6 +1736,30 @@ input[type="checkbox"]:checked {
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  th {
+    font-weight: 400;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: $gutter;
+    border-collapse: collapse;
+
+    &.table-bordered {
+      th,
+      td {
+        padding: 5px 10px;
+        font-size: 16px;
+        border: 1px solid #eaeaea;
+      }
+    }
+
+    th,
+    td {
+      font-family: $custom-font-family;
     }
   }
 
