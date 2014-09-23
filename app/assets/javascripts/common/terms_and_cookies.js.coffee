@@ -30,7 +30,10 @@ showTermsAlert = ->
 hideTermsAlert = ->
   return false unless allowAcceptanceOfTerms
   $("#terms-container").addClass("hidden")
-  setCookie "acceptedTermsAndConditions", true
+  if $("body").hasClass("scheme-businesses")
+    setCookie "acceptedTermsAndConditionsBusinesses", true
+  else if $("body").hasClass("scheme-teachers")
+    setCookie "acceptedTermsAndConditionsTeachers", true
   false
 
 toggleAllowAcceptanceOfTerms = (e) ->
@@ -55,8 +58,14 @@ jQuery ->
   $(document).on "click", "#cookie-close-btn", hideCookiesAlert
 
   # terms and conditions
-  showTermsAlert() unless getCookie("acceptedTermsAndConditions")
-  $(document).on "click", "#terms-accepted-btn", hideTermsAlert
+  terms_cookie = ""
+  if $("body").hasClass("scheme-businesses")
+    terms_cookie = "acceptedTermsAndConditionsBusinesses"
+  else if $("body").hasClass("scheme-teachers")
+    terms_cookie = "acceptedTermsAndConditionsTeachers"
+  if terms_cookie.length > 0
+    showTermsAlert() unless getCookie(terms_cookie)
+    $(document).on "click", "#terms-accepted-btn", hideTermsAlert
 
   # enable terms and conditions if user ticks checkbox
   $(document).on "ifChanged", "#terms-accept", toggleAllowAcceptanceOfTerms
