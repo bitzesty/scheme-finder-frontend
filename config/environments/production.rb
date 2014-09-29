@@ -86,7 +86,7 @@ SchemeFinderFrontend::Application.configure do
       app_config.api_path = "/backend/api/v1"
       app_config.ssl = true
       app_config.google_analytics_tracker = ""
-      app_config.google_analytics_domain = "" # domain could be executable code as well
+      app_config.google_analytics_domain = "''" # domain could be executable code as well
     end
   end
 end
