@@ -2967,8 +2967,10 @@ body .form-inputs .multi_select .select2-container-multi {
     }
 
     @media (max-width: 900px) {
-      position: static;
+      position: relative;
       display: block;
+      top: auto;
+      right: auto;
     }
 
     @include is-iphone {
