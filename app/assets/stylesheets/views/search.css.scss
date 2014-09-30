@@ -3056,7 +3056,7 @@ body .form-inputs .multi_select .select2-container-multi {
       top: 50%;
     }
 
-    @include ie-lte(8){
+    @include ie-lte(9){
       margin-top: -300px;
       margin-left: -440px;
     }
