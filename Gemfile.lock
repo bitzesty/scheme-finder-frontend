@@ -198,6 +198,9 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    slackistrano (0.0.12)
+      capistrano (>= 3.0.1)
+      json
     slim (2.0.2)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -276,6 +279,7 @@ DEPENDENCIES
   select2-rails (= 3.4.7)
   sentry-raven!
   simple_form (~> 3.0.0)
+  slackistrano
   slim-rails
   spring
   spring-commands-rspec

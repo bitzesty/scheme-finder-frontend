@@ -24,6 +24,9 @@ require "capistrano/rails"
 require "hipchat/capistrano"
 require 'dotenv'
 
+# slack notifications
+require 'slackistrano'
+
 Dotenv.load # loads .env for various deploy settings
 
 # Loads custom tasks from `lib/capistrano/tasks" if you have any defined.

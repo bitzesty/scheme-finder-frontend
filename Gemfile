@@ -33,6 +33,7 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem 'capistrano-rails', '~> 1.1.0'
+  gem 'slackistrano', require: false
 end
 
 group :test do
