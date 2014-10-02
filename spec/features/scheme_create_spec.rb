@@ -48,7 +48,7 @@ describe 'Creating a scheme' do
       # logo is disabled, bring back if client requests that
       # attach_file 'scheme_logo', File.join(Rails.root, 'spec', 'fixtures', 'logo.png')
 
-      click_button 'Create Scheme'
+      click_on '#submit_btn'
     end
   end
 end
