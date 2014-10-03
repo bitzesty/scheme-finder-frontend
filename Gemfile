@@ -5,7 +5,7 @@ gem 'rails', '4.0.5'
 
 gem "foreman"
 gem "dotenv-rails"
-gem "hipchat", "~> 1.0.1"
+
 gem "sentry-raven",
     git: "https://github.com/getsentry/raven-ruby.git"
 

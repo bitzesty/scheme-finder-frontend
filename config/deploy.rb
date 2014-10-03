@@ -4,13 +4,6 @@ set :user, "schemer"
 
 set :webserver, "passenger"
 
-set :hipchat_token, ENV["HIPCHAT_TOKEN"]
-set :hipchat_room_name, "BIS"
-set :hipchat_announce, false
-set :hipchat_color, "yellow"
-set :hipchat_success_color, "green"
-set :hipchat_failed_color, "red"
-
 # slack
 set :slack_team, "bitzesty"
 set :slack_token, "SVD8dBRyR2CV2RVI8TXUCLnN"
