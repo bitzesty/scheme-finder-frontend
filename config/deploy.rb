@@ -6,7 +6,7 @@ set :webserver, "passenger"
 
 # slack
 set :slack_team, "bitzesty"
-set :slack_token, "SVD8dBRyR2CV2RVI8TXUCLnN"
+set :slack_token, "C3U7O1JGkquaVCxR2npji90g"
 set :slack_icon_emoji,   ->{ ":rocket:" }
 set :slack_channel,      ->{ '#bis-growing-ambition' }
 
