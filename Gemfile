@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
-gem 'rails', '4.0.5'
+gem 'rails', '4.0.12'
 
 gem "foreman"
 gem "dotenv-rails"
