@@ -29,8 +29,6 @@ gem "faraday"
 gem "faraday_middleware"
 gem "virtus"
 
-gem "httparty" # needs as dependancy for hipchat. Otherwise cause passenger error on server
-
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

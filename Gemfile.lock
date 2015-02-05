@@ -113,9 +113,6 @@ GEM
     forgery (0.6.0)
     hashie (2.1.1)
     hike (1.2.3)
-    httparty (0.13.1)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     ice_nine (0.11.0)
     jquery-rails (3.1.0)
@@ -134,7 +131,6 @@ GEM
     mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.1)
-    multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -259,7 +255,6 @@ DEPENDENCIES
   foreman
   forgery
   govuk_template!
-  httparty
   jquery-rails
   kaminari
   launchy
